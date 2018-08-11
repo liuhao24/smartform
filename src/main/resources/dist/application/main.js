@@ -902,7 +902,9 @@ var ProjectTaskDesignerComponent = /** @class */ (function () {
     ProjectTaskDesignerComponent.prototype.saveForm = function () {
         this.properties;
         this.form.fields = this.properties;
-        this.taskDesignerService.saveForm(this.form);
+        this.taskDesignerService.saveForm(this.form).subscribe(function (data) {
+            alert('ok');
+        });
     };
     ProjectTaskDesignerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -960,6 +962,12 @@ var TaskDesignerService = /** @class */ (function () {
         return this.http.post('/smartform/page', form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
             console.log(response);
         }));
+        // return this.http.post<any[]>('https://www.baidu.com/',{}).pipe(
+        //     tap((response: ResponseData) => {
+        //         debugger
+        //         console.log(response);
+        //     })
+        // );
     };
     TaskDesignerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),

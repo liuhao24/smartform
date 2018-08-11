@@ -62,6 +62,8 @@ export class ProjectTaskDesignerComponent implements OnInit {
   saveForm(){
     this.properties;
     this.form.fields =  this.properties;
-    this.taskDesignerService.saveForm(this.form);
+    this.taskDesignerService.saveForm(this.form).subscribe((data:any)=>{
+      alert('ok');
+    });
   }
 }
