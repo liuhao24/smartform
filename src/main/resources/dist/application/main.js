@@ -294,7 +294,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\">\n</div>\n<ul nz-menu [nzTheme]=\"'dark'\" [nzMode]=\"'inline'\">\n  <li nz-menu-item [routerLink]=\"['./message']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.message' | translate}}</li>\n  <li nz-menu-item [routerLink]=\"['./project']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.project' | translate}}</li>\n</ul>"
+module.exports = "<div class=\"logo\">\n</div>\n<ul nz-menu [nzTheme]=\"'dark'\" [nzMode]=\"'inline'\">\n  <!-- <li nz-menu-item [routerLink]=\"['./message']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.message' | translate}}</li> -->\n  <li nz-menu-item [routerLink]=\"['./project']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.project' | translate}}</li>\n</ul>"
 
 /***/ }),
 
@@ -840,7 +840,7 @@ var ProjectAddonWaitingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"task-designer-body\">\n    <div class=\"task-designer-fields\">\n        <div class=\"field-title\">可选控件</div>\n        <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n            <li class=field-item *ngFor=\"let item of fields;\">{{item.name}}</li>\n        </ul>\n    </div>\n    <div class=\"task-designer-properties\">\n        <div class=\"property-title\">可选控件</div>\n        <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n            <div class=\"property-item\" *ngFor=\"let item of properties;\">\n                <div class=\"property-item-title\">{{item.name}}</div>\n                <div class=\"property-item-control\">\n                    <input *ngIf=\"item.type === 1\" nz-input placeholder=\"\" />\n                    <textarea *ngIf=\"item.type === 2\" row=\"3\" nz-input placeholder=\"\">\n                        </textarea>\n                    <nz-date-picker *ngIf=\"item.type === 3\" style=\"width: 100%;\" [(ngModel)]=\"date\" nzShowTime></nz-date-picker>\n                    <nz-select *ngIf=\"item.type === 4\" style=\"width: 100%;\" [(ngModel)]=\"selectedValue\" nzPlaceHolder=\"下拉选择\">\n                        <nz-option nzValue=\"jack\" nzLabel=\"Jack\"></nz-option>\n                        <nz-option nzValue=\"lucy\" nzLabel=\"Lucy\"></nz-option>\n                        <nz-option nzValue=\"disabled\" nzLabel=\"Disabled\" nzDisabled></nz-option>\n                    </nz-select>\n\n                    <nz-radio-group *ngIf=\"item.type === 5\" [(ngModel)]=\"radioValue\">\n                        <label nz-radio nzValue=\"A\">A</label>\n                        <label nz-radio nzValue=\"B\">B</label>\n                        <label nz-radio nzValue=\"C\">C</label>\n                        <label nz-radio nzValue=\"D\">D</label>\n                    </nz-radio-group>\n\n                    <nz-avatar *ngIf=\"item.type === 6\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"task-designer-wrap\">\n    <div class=\"task-designer-header\">\n        表单设计器\n        <button nz-button nzType=\"primary\" (click)=\"saveForm()\">Primary</button>\n    </div>\n    <div class=\"task-designer-body\">\n        <div class=\"task-designer-fields\">\n            <div class=\"field-title\">可选控件</div>\n            <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n                <li class=field-item *ngFor=\"let item of fields;\">{{item.label}}</li>\n            </ul>\n        </div>\n        <div class=\"task-designer-properties\">\n            <div class=\"property-title\" (click)=\"selectForm()\">表单名称</div>\n            <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n                <div class=\"property-item\" *ngFor=\"let item of properties;\">\n                    <div class=\"property-item-title\">{{item.label}}</div>\n                    <div class=\"property-item-control\">\n                        <input *ngIf=\"item.type === 'textinput'\" nz-input placeholder=\"\" />\n                        <textarea *ngIf=\"item.type === 2\" row=\"3\" nz-input placeholder=\"\">\n                            </textarea>\n                        <nz-date-picker *ngIf=\"item.type === 3\" style=\"width: 100%;\" [(ngModel)]=\"date\" nzShowTime></nz-date-picker>\n                        <nz-select *ngIf=\"item.type === 4\" style=\"width: 100%;\" [(ngModel)]=\"selectedValue\" nzPlaceHolder=\"下拉选择\">\n                            <nz-option nzValue=\"jack\" nzLabel=\"Jack\"></nz-option>\n                            <nz-option nzValue=\"lucy\" nzLabel=\"Lucy\"></nz-option>\n                            <nz-option nzValue=\"disabled\" nzLabel=\"Disabled\" nzDisabled></nz-option>\n                        </nz-select>\n                        <nz-radio-group *ngIf=\"item.type === 5\" [(ngModel)]=\"radioValue\">\n                            <label nz-radio nzValue=\"A\">A</label>\n                            <label nz-radio nzValue=\"B\">B</label>\n                            <label nz-radio nzValue=\"C\">C</label>\n                            <label nz-radio nzValue=\"D\">D</label>\n                        </nz-radio-group>\n\n                        <nz-avatar *ngIf=\"item.type === 6\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"task-designer-settings\">\n            <div class=\"settings-title \">\n                属性设置\n            </div>\n            <div class=\"settings-body\">\n                <div *ngIf=\"isForm\">\n                    <!-- <form nz-form [nzLayout]=\"vertical\"> -->\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">表单名称</nz-form-label>\n                        <nz-form-control>\n                            <input nz-input [(ngModel)]=\"form.name\" name=\"name\" type=\"text\">\n                        </nz-form-control>\n                    </nz-form-item>\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">描述</nz-form-label>\n                        <nz-form-control>\n                            <textarea row=\"3\" [(ngModel)]=\"form.description\" name=\"description\" nz-input placeholder=\"\">\n                                    </textarea>\n                        </nz-form-control>\n                    </nz-form-item>\n\n\n                    <ng-container *ngFor=\"let item of properties;\">\n                        <ng-container *ngIf=\"item.type === 'textinput'\">\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">字段名称</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.label\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">提示</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.placeholder\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">说明</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.helptext\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">宽度</nz-form-label>\n                                <nz-form-control>\n                                    <nz-select style=\"width: 100%;\" [(ngModel)]=\"item.inputsize\" nzAllowClear nzPlaceHolder=\"Choose\">\n                                        <nz-option nzValue=\"1\" nzLabel=\"整行\"></nz-option>\n                                        <nz-option nzValue=\"2\" nzLabel=\"整行的1/2\"></nz-option>\n                                        <nz-option nzValue=\"3\" nzLabel=\"整行的1/3\"></nz-option>\n                                        <nz-option nzValue=\"4\" nzLabel=\"整行的1/4\"></nz-option>\n                                    </nz-select>\n                                </nz-form-control>\n                            </nz-form-item>\n\n                            <nz-form-item>\n                                <label nz-checkbox [(ngModel)]=\"item.required\">必填</label>\n                            </nz-form-item>\n\n                        </ng-container>\n                    </ng-container>\n                    <!-- </form> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -878,6 +878,13 @@ var ProjectTaskDesignerComponent = /** @class */ (function () {
         this.propertySortOptions = {
             group: 'designer'
         };
+        this.form = {
+            sid: '',
+            name: '',
+            description: '',
+            fields: []
+        };
+        this.isForm = true;
         this.cloneFieldItem = function (item) {
             return item;
         };
@@ -888,6 +895,14 @@ var ProjectTaskDesignerComponent = /** @class */ (function () {
         this.taskDesignerService.fields$.subscribe(function (fields) {
             _this.fields = fields;
         });
+    };
+    ProjectTaskDesignerComponent.prototype.selectForm = function () {
+        this.isForm = true;
+    };
+    ProjectTaskDesignerComponent.prototype.saveForm = function () {
+        this.properties;
+        this.form.fields = this.properties;
+        this.taskDesignerService.saveForm(this.form);
     };
     ProjectTaskDesignerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -915,7 +930,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskDesignerService", function() { return TaskDesignerService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -933,12 +948,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TaskDesignerService = /** @class */ (function () {
     function TaskDesignerService(http) {
         this.http = http;
-        this.fields$ = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+        this.fields$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
     }
     TaskDesignerService.prototype.getAllFields = function () {
         var _this = this;
         return this.http.get('/assets/api/project/fields.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
             _this.fields$.next(response.data.fields);
+        }));
+    };
+    TaskDesignerService.prototype.saveForm = function (form) {
+        return this.http.post('/smartform/page', form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            console.log(response);
         }));
     };
     TaskDesignerService = __decorate([
@@ -1525,7 +1545,7 @@ var ProjectTaskDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul nz-menu [nzMode]=\"'inline'\" style=\"height:100%\">\n    <li nz-menu-item *ngFor=\"let project of (projectService.projects$ | async)\" [routerLink]=\"['/project',project.id]\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>{{project.name}}</span>\n    </li>\n\n    <li nz-menu-item [routerLink]=\"['./designer']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>设计器</span>\n    </li>\n</ul>"
+module.exports = "<ul nz-menu [nzMode]=\"'inline'\" style=\"height:100%\">\n    <!-- <li nz-menu-item *ngFor=\"let project of (projectService.projects$ | async)\" [routerLink]=\"['/project',project.id]\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>{{project.name}}</span>\n    </li> -->\n\n    <li nz-menu-item [routerLink]=\"['./designer']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>设计器</span>\n    </li>\n    <!-- <li nz-menu-item [routerLink]=\"['./form-builder']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>表单设计器</span>\n    </li> -->\n</ul>"
 
 /***/ }),
 
@@ -2111,6 +2131,110 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 /***/ }),
 
+/***/ "./src/shared/components/form-builder/form-builder.component.html":
+/*!************************************************************************!*\
+  !*** ./src/shared/components/form-builder/form-builder.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <div class=\"task-designer-body\">\n    <div class=\"task-designer-fields\">\n        <div class=\"field-title\">可选控件</div>\n        <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n            <li class=field-item *ngFor=\"let item of fields;\">{{item.name}}</li>\n        </ul>\n    </div>\n    <div class=\"task-designer-properties\">\n        <div class=\"property-title\">可选控件</div>\n        <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n            <div class=\"property-item\" *ngFor=\"let item of properties;\">\n                <div class=\"property-item-title\">{{item.name}}</div>\n                <div class=\"property-item-control\">\n                    <input *ngIf=\"item.type === 1\" nz-input placeholder=\"\" />\n                    <textarea *ngIf=\"item.type === 2\" row=\"3\" nz-input placeholder=\"\">\n                        </textarea>\n                    <nz-date-picker *ngIf=\"item.type === 3\" style=\"width: 100%;\" [(ngModel)]=\"date\" nzShowTime></nz-date-picker>\n                    <nz-select *ngIf=\"item.type === 4\" style=\"width: 100%;\" [(ngModel)]=\"selectedValue\" nzPlaceHolder=\"下拉选择\">\n                        <nz-option nzValue=\"jack\" nzLabel=\"Jack\"></nz-option>\n                        <nz-option nzValue=\"lucy\" nzLabel=\"Lucy\"></nz-option>\n                        <nz-option nzValue=\"disabled\" nzLabel=\"Disabled\" nzDisabled></nz-option>\n                    </nz-select>\n\n                    <nz-radio-group *ngIf=\"item.type === 5\" [(ngModel)]=\"radioValue\">\n                        <label nz-radio nzValue=\"A\">A</label>\n                        <label nz-radio nzValue=\"B\">B</label>\n                        <label nz-radio nzValue=\"C\">C</label>\n                        <label nz-radio nzValue=\"D\">D</label>\n                    </nz-radio-group>\n\n                    <nz-avatar *ngIf=\"item.type === 6\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n                </div>\n            </div>\n        </div>\n    </div>\n</div> -->\n\n<div>ss</div>"
+
+/***/ }),
+
+/***/ "./src/shared/components/form-builder/form-builder.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/shared/components/form-builder/form-builder.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".task-designer-body {\n  height: 100%;\n  display: flex;\n  padding: 10px; }\n  .task-designer-body .task-designer-fields {\n    width: 30%;\n    margin-right: 10px;\n    border: 1px solid #d6d3d3; }\n  .task-designer-body .task-designer-fields .field-title {\n      padding: 10px;\n      margin-bottom: 15px;\n      color: #333;\n      font-size: 16px;\n      border-bottom: 1px solid #d6d3d3; }\n  .task-designer-body .task-designer-fields .field-list {\n      padding: 15px 10px;\n      list-style: none;\n      color: #7a7a7a;\n      font-size: 12px; }\n  .task-designer-body .task-designer-fields .field-list .field-item {\n        width: 100%;\n        padding: 5px 10px;\n        background-color: #f8f8f8;\n        border: 1px solid #ececec;\n        margin-bottom: 10px;\n        cursor: pointer; }\n  .task-designer-body .task-designer-properties {\n    flex: 1;\n    border: 1px solid #d6d3d3;\n    color: #7a7a7a; }\n  .task-designer-body .task-designer-properties .property-title {\n      padding: 10px;\n      margin-bottom: 15px;\n      color: #333;\n      font-size: 16px;\n      border-bottom: 1px solid #d6d3d3; }\n  .task-designer-body .task-designer-properties .property-body {\n      height: 100%; }\n  .task-designer-body .task-designer-properties .property-item {\n      bottom: 1px solid #ccc;\n      padding: 10px 10px;\n      display: flex;\n      align-items: center; }\n  .task-designer-body .task-designer-properties .property-item .property-item-title {\n        width: 100px;\n        padding: 0 10px;\n        text-align: right; }\n  .task-designer-body .task-designer-properties .property-item .property-item-control {\n        flex: 1; }\n"
+
+/***/ }),
+
+/***/ "./src/shared/components/form-builder/form-builder.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/shared/components/form-builder/form-builder.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: FormBuilderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormBuilderComponent", function() { return FormBuilderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FormBuilderComponent = /** @class */ (function () {
+    function FormBuilderComponent() {
+        this.properties = [];
+        this.fieldSortOptions = {
+            group: 'designer'
+        };
+        this.propertySortOptions = {
+            group: 'designer'
+        };
+        this.cloneFieldItem = function (item) {
+            return item;
+        };
+    }
+    FormBuilderComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], FormBuilderComponent.prototype, "fields", void 0);
+    FormBuilderComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-builder',
+            template: __webpack_require__(/*! ./form-builder.component.html */ "./src/shared/components/form-builder/form-builder.component.html"),
+            styles: [__webpack_require__(/*! ./form-builder.component.scss */ "./src/shared/components/form-builder/form-builder.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormBuilderComponent);
+    return FormBuilderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/index.ts":
+/*!*****************************!*\
+  !*** ./src/shared/index.ts ***!
+  \*****************************/
+/*! exports provided: SHARED_COMPONENTS, SHARED_ENTRY_COMPONENTS, SHARED_PIPES, SHARED_PROVIDERS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHARED_COMPONENTS", function() { return SHARED_COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHARED_ENTRY_COMPONENTS", function() { return SHARED_ENTRY_COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHARED_PIPES", function() { return SHARED_PIPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHARED_PROVIDERS", function() { return SHARED_PROVIDERS; });
+/* harmony import */ var _components_form_builder_form_builder_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/form-builder/form-builder.component */ "./src/shared/components/form-builder/form-builder.component.ts");
+
+var SHARED_COMPONENTS = [
+    _components_form_builder_form_builder_component__WEBPACK_IMPORTED_MODULE_0__["FormBuilderComponent"]
+];
+var SHARED_ENTRY_COMPONENTS = [
+    _components_form_builder_form_builder_component__WEBPACK_IMPORTED_MODULE_0__["FormBuilderComponent"]
+];
+var SHARED_PIPES = [];
+var SHARED_PROVIDERS = [];
+
+
+/***/ }),
+
 /***/ "./src/shared/services/index.ts":
 /*!**************************************!*\
   !*** ./src/shared/services/index.ts ***!
@@ -2199,6 +2323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/index.js");
 /* harmony import */ var angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angular-sortablejs/dist */ "./node_modules/angular-sortablejs/dist/index.js");
 /* harmony import */ var angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! . */ "./src/shared/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2208,6 +2333,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2243,7 +2369,7 @@ var SharedModule = /** @class */ (function () {
     };
     SharedModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [],
+            declarations: ___WEBPACK_IMPORTED_MODULE_15__["SHARED_COMPONENTS"].slice(),
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
@@ -2271,7 +2397,7 @@ var SharedModule = /** @class */ (function () {
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"],
                 ngx_bootstrap__WEBPACK_IMPORTED_MODULE_13__["ModalModule"],
                 angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__["SortablejsModule"]
-            ],
+            ].concat(___WEBPACK_IMPORTED_MODULE_15__["SHARED_COMPONENTS"]),
             providers: [
                 { provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__["zh_CN"] }
             ].concat(_services__WEBPACK_IMPORTED_MODULE_10__["SHARED_SERVICES"], _core__WEBPACK_IMPORTED_MODULE_12__["CORE_SERVICES"], _core_interceptor_index__WEBPACK_IMPORTED_MODULE_11__["httpInterceptorProviders"]),
@@ -2293,7 +2419,7 @@ var SharedModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/macj/Workspace/smartform/src/main/resources/static/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/macj/Workspace/smartform/src/main/resources/src/main.ts */"./src/main.ts");
 
 
 /***/ })
