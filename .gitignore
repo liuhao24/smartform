@@ -3,4 +3,5 @@
 .classpath
 /.settings/
 /bin/
-/src/main/resources/static/node_modules/
+/src/main/resources/node_modules/
+.vscode
