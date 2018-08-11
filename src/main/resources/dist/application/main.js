@@ -900,7 +900,9 @@ var ProjectTaskDesignerComponent = /** @class */ (function () {
         this.isForm = true;
     };
     ProjectTaskDesignerComponent.prototype.saveForm = function () {
-        this.properties;
+        this.properties.forEach(function (n, index) {
+            n.orderNo = index + 1;
+        });
         this.form.fields = this.properties;
         this.taskDesignerService.saveForm(this.form).subscribe(function (data) {
             alert('ok');

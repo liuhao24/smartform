@@ -60,7 +60,9 @@ export class ProjectTaskDesignerComponent implements OnInit {
   }
 
   saveForm(){
-    this.properties;
+    this.properties.forEach((n,index)=>{
+      n.orderNo = index + 1;
+    });
     this.form.fields =  this.properties;
     this.taskDesignerService.saveForm(this.form).subscribe((data:any)=>{
       alert('ok');
