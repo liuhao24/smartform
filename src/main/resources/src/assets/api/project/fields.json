@@ -4,33 +4,33 @@
         "fields": [
             {
                 "id": 1,
-                "type": 1,
-                "name": "文本框"
+                "type": "textinput",
+                "label": "文本框"
             },
             {
                 "id": 2,
                 "type": 2,
-                "name": "多行文本"
+                "label": "多行文本"
             },
             {
                 "id": 3,
                 "type": 3,
-                "name": "日期"
+                "label": "日期"
             },
             {
                 "id": 4,
                 "type": 4,
-                "name": "下拉选择"
+                "label": "下拉选择"
             },
             {
                 "id": 5,
                 "type": 5,
-                "name": "单选框"
+                "label": "单选框"
             },
             {
                 "id": 6,
                 "type": 6,
-                "name": "成员"
+                "label": "成员"
             }
         ]
     }

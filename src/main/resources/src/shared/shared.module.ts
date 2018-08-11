@@ -13,6 +13,7 @@ import { httpInterceptorProviders } from '../core/interceptor/\bindex';
 import { CORE_SERVICES } from '../core';
 import { ModalModule } from 'ngx-bootstrap';
 import { SortablejsModule } from 'angular-sortablejs/dist';
+import { SHARED_COMPONENTS } from '.';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -22,6 +23,7 @@ registerLocaleData(zh);
 
 @NgModule({
   declarations: [
+    ...SHARED_COMPONENTS
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     TranslateModule,
     ModalModule,
-    SortablejsModule
+    SortablejsModule,
+    ...SHARED_COMPONENTS
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },

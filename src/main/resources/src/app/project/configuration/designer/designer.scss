@@ -1,4 +1,15 @@
+.task-designer-wrap{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  .task-designer-header{
+    height: 50px;
+  }
+}
+
 .task-designer-body {
+  flex-grow: 1;
   height: 100%;
   display: flex;
   padding: 10px;
@@ -55,6 +66,24 @@
       .property-item-control {
         flex: 1;
       }
+    }
+  }
+  .task-designer-settings{
+    width: 30%;
+    margin-left: 10px;
+    border: 1px solid rgb(214, 211, 211);
+    display: flex;
+    flex-direction: column;
+    .settings-title {
+      padding: 10px;
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 16px;
+      border-bottom: 1px solid rgb(214, 211, 211);
+    }
+    .settings-body{
+        flex-grow: 1;
+        overflow: auto;
     }
   }
 }

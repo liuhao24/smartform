@@ -3,7 +3,8 @@ import { ProjectService } from '../../services/project.service';
 import { TaskInfo } from '../../entity/task-info';
 import { TaskService } from '../../services/task.service';
 import { TaskDesignerService } from './designer.services';
-import { SortablejsOptions } from '../../../../../node_modules/angular-sortablejs/dist';
+import { SortablejsOptions } from 'angular-sortablejs/dist';
+import { FormInfo, FieldInfo } from '../../entity/form-info';
 
 @Component({
   selector: 'app-project-task-designer',
@@ -11,9 +12,9 @@ import { SortablejsOptions } from '../../../../../node_modules/angular-sortablej
 })
 export class ProjectTaskDesignerComponent implements OnInit {
 
-  public fields: any[] = [];
+  public fields: FieldInfo[] = [];
 
-  public properties: any[] = [];
+  public properties: FieldInfo[] = [];
 
   public selectedValue: any;
 
@@ -29,6 +30,15 @@ export class ProjectTaskDesignerComponent implements OnInit {
     group: 'designer'
   };
 
+  public form: FormInfo = {
+    sid: '',
+    name: '',
+    description: '',
+    fields: []
+  };
+
+  public isForm = true;
+
   constructor(
     private taskDesignerService: TaskDesignerService
   ) {
@@ -43,5 +53,15 @@ export class ProjectTaskDesignerComponent implements OnInit {
     this.taskDesignerService.fields$.subscribe((fields) => {
       this.fields = fields;
     });
+  }
+
+  selectForm() {
+    this.isForm = true;
+  }
+
+  saveForm(){
+    this.properties;
+    this.form.fields =  this.properties;
+    this.taskDesignerService.saveForm(this.form);
   }
 }
