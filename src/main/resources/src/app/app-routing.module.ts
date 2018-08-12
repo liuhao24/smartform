@@ -1,66 +1,86 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { MessageComponent, MessageChatComponent } from './message';
-import { ProjectComponent, ProjectDetailComponent, ProjectAddonComponent, ProjectTaskDesignerComponent } from './project';
-import { ProjectResolver } from './project/services/project-resolver';
 import { AppRootResolver } from './services/app-root-resolver';
-import { FormComponent } from './form/form.component';
-import { FormListComponent } from './form';
+import { AuthGuard } from './services/auth-guard.service';
+import { LoginComponent } from './login/login.component';
+
+
+// const routes: Routes = [
+//   {
+//     path: '',
+//     // redirectTo: '/form',
+//     // pathMatch: 'full',
+//     resolve: {
+//       data: AppRootResolver
+//     },
+//     canActivate: [AuthGuard],
+//     children: [
+//       {
+//         path: '',
+//         redirectTo: '/form',
+//         pathMatch: 'full'
+//       },
+//       {
+//         path: 'message',
+//         component: MessageComponent,
+//         children: [
+//           {
+//             path: 'chat',
+//             component: MessageChatComponent
+//           }
+//         ]
+//       },
+//       {
+//         path: 'form',
+//         component: FormComponent,
+//         children: [{
+//           path:'',
+//           redirectTo: '/list',
+//           pathMatch: 'full'
+//         },{
+//           path: 'list',
+//           component: FormListComponent
+//         }]
+//       },
+//       {
+//         path: 'project',
+//         component: ProjectComponent,
+//         resolve: {
+//           data: ProjectResolver
+//         },
+//         children: [
+//           {
+//             path: 'designer',
+//             component: ProjectTaskDesignerComponent,
+//           },
+//           {
+//             path: ':pid',
+//             component: ProjectDetailComponent,
+//             children: [
+//               {
+//                 path: '',
+//                 component: ProjectAddonComponent
+//               },
+//             ]
+//           }
+//         ]
+//       }
+//     ]
+//   },
+//   {
+//     path: 'login',
+//     component: LoginComponent
+//   }
+// ];
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/project',
+    redirectTo: '/form',
     pathMatch: 'full',
     resolve: {
       data: AppRootResolver
     }
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'message',
-    component: MessageComponent,
-    children: [
-      {
-        path: 'chat',
-        component: MessageChatComponent
-      }
-    ]
-  },
-  {
-    path: 'form',
-    component: FormComponent,
-    children: [{
-      path: 'list',
-      component: FormListComponent
-    }]
-  },
-  {
-    path: 'project',
-    component: ProjectComponent,
-    resolve: {
-      data: ProjectResolver
-    },
-    children: [
-      {
-        path: 'designer',
-        component: ProjectTaskDesignerComponent,
-      },
-      {
-        path: ':pid',
-        component: ProjectDetailComponent,
-        children: [
-          {
-            path: '',
-            component: ProjectAddonComponent
-          },
-        ]
-      }
-    ]
   }
 ];
 

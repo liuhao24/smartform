@@ -12,8 +12,8 @@ import { appServices } from './services';
 @NgModule({
   imports: [
     AppSharedModule,
-    MessageModule,
-    ProjectModule,
+    // MessageModule,
+    // ProjectModule,
     FormModule
   ],
   declarations: [
@@ -27,8 +27,8 @@ import { appServices } from './services';
   ],
   exports: [
     AppSharedModule,
-    MessageModule,
-    ProjectModule
+    // MessageModule,
+    // ProjectModule
   ],
   providers: [
     ...appServices,

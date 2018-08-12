@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { AppSharedModule } from '../app-shared.module';
 import { COMPONENTS, ENTITY_COMPONENTS, PROVIDERS } from '.';
+import { FormRoutingModule } from './form.router';
 
 @NgModule({
     imports: [
-        AppSharedModule
+        AppSharedModule,
+        FormRoutingModule
     ],
     declarations: [
         ...COMPONENTS
