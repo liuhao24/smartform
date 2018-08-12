@@ -1,0 +1,105 @@
+<div class="task-designer-wrap">
+    <!-- <div class="task-designer-header">
+        表单设计器
+        <button nz-button nzType="primary" (click)="saveForm()">Primary</button>
+    </div> -->
+    <div class="task-designer-body">
+        <div class="task-designer-fields">
+            <div class="field-title">可选控件</div>
+            <ul class="field-list" [sortablejs]="fields" [sortablejsOptions]="fieldSortOptions" [sortablejsCloneFunction]="cloneFieldItem">
+                <li class=field-item *ngFor="let item of fields;">{{item.label}}</li>
+            </ul>
+        </div>
+        <div class="task-designer-properties">
+            <div class="property-title" (click)="selectForm()">表单名称</div>
+            <div class="property-body" [sortablejs]="properties" [sortablejsOptions]="propertySortOptions">
+                <div class="property-item" *ngFor="let item of properties;">
+                    <div class="property-item-title">{{item.label}}</div>
+                    <div class="property-item-control">
+                        <input *ngIf="item.type === 'textinput'" nz-input placeholder="" />
+                        <textarea *ngIf="item.type === 2" row="3" nz-input placeholder="">
+                                </textarea>
+                        <nz-date-picker *ngIf="item.type === 3" style="width: 100%;" [(ngModel)]="date" nzShowTime></nz-date-picker>
+                        <nz-select *ngIf="item.type === 4" style="width: 100%;" [(ngModel)]="selectedValue" nzPlaceHolder="下拉选择">
+                            <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                            <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                        </nz-select>
+                        <nz-radio-group *ngIf="item.type === 5" [(ngModel)]="radioValue">
+                            <label nz-radio nzValue="A">A</label>
+                            <label nz-radio nzValue="B">B</label>
+                            <label nz-radio nzValue="C">C</label>
+                            <label nz-radio nzValue="D">D</label>
+                        </nz-radio-group>
+
+                        <nz-avatar *ngIf="item.type === 6" nzIcon="anticon anticon-user"></nz-avatar>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="task-designer-settings">
+            <div class="settings-title ">
+                属性设置
+            </div>
+            <div class="settings-body">
+                <div *ngIf="isForm">
+                    <!-- <form nz-form [nzLayout]="vertical"> -->
+                    <nz-form-item>
+                        <nz-form-label nzFor="name">表单名称</nz-form-label>
+                        <nz-form-control>
+                            <input nz-input [(ngModel)]="form.name" name="name" type="text">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzFor="name">描述</nz-form-label>
+                        <nz-form-control>
+                            <textarea row="3" [(ngModel)]="form.description" name="description" nz-input placeholder="">
+                                        </textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+
+
+                    <ng-container *ngFor="let item of properties;">
+                        <ng-container *ngIf="item.type === 'textinput'">
+                            <nz-form-item>
+                                <nz-form-label nzFor="name">字段名称</nz-form-label>
+                                <nz-form-control>
+                                    <input nz-input [(ngModel)]="item.label" type="text">
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label nzFor="name">提示</nz-form-label>
+                                <nz-form-control>
+                                    <input nz-input [(ngModel)]="item.placeholder" type="text">
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label nzFor="name">说明</nz-form-label>
+                                <nz-form-control>
+                                    <input nz-input [(ngModel)]="item.helptext" type="text">
+                                </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                                <nz-form-label nzFor="name">宽度</nz-form-label>
+                                <nz-form-control>
+                                    <nz-select style="width: 100%;" [(ngModel)]="item.inputsize" nzAllowClear nzPlaceHolder="Choose">
+                                        <nz-option nzValue="1" nzLabel="整行"></nz-option>
+                                        <nz-option nzValue="2" nzLabel="整行的1/2"></nz-option>
+                                        <nz-option nzValue="3" nzLabel="整行的1/3"></nz-option>
+                                        <nz-option nzValue="4" nzLabel="整行的1/4"></nz-option>
+                                    </nz-select>
+                                </nz-form-control>
+                            </nz-form-item>
+
+                            <nz-form-item>
+                                <label nz-checkbox [(ngModel)]="item.required">必填</label>
+                            </nz-form-item>
+
+                        </ng-container>
+                    </ng-container>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

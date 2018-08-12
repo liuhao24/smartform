@@ -1,0 +1,31 @@
+<div>
+    <div class="logo">
+        <i class="anticon anticon-api"></i><span>Freeform</span>
+    </div>
+    <ul nz-menu [nzMode]="'inline'" class="toc-menu">
+        <li nz-menu-item class="toc-menu-item">
+            <span title>
+                <i class="anticon anticon-dashboard"></i>Dashboard</span>
+        </li>
+        <li nz-menu-item class="toc-menu-item" nz-menu-item [routerLink]="['./list']" [routerLinkActive]="'ant-menu-item-selected'">
+            <span title>
+                <i class="anticon anticon-plus"></i>表单制作</span>
+        </li>
+        <!-- <li nz-menu-item class="toc-menu-item">
+            <span title>
+                <i class="anticon anticon-plus"></i>表单查询</span>
+        </li>
+        <li nz-menu-item class="toc-menu-item">
+            <span title>
+                <i class="anticon anticon-plus"></i>表单统计</span>
+        </li> -->
+        <li nz-submenu class="toc-menu-submenu">
+            <span title>
+                <i class="anticon anticon-team"></i>表单统计</span>
+            <ul class="toc-menu-sub">
+                <li nz-menu-item class="toc-menu-item">超期表单</li>
+                <li nz-menu-item class="toc-menu-item">未处理</li>
+            </ul>
+        </li>
+    </ul>
+</div>

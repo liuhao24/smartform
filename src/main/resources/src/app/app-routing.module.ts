@@ -5,6 +5,8 @@ import { MessageComponent, MessageChatComponent } from './message';
 import { ProjectComponent, ProjectDetailComponent, ProjectAddonComponent, ProjectTaskDesignerComponent } from './project';
 import { ProjectResolver } from './project/services/project-resolver';
 import { AppRootResolver } from './services/app-root-resolver';
+import { FormComponent } from './form/form.component';
+import { FormListComponent } from './form';
 
 const routes: Routes = [
   {
@@ -30,6 +32,14 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'form',
+    component: FormComponent,
+    children: [{
+      path: 'list',
+      component: FormListComponent
+    }]
+  },
+  {
     path: 'project',
     component: ProjectComponent,
     resolve: {
@@ -45,8 +55,8 @@ const routes: Routes = [
         component: ProjectDetailComponent,
         children: [
           {
-              path: '',
-              component: ProjectAddonComponent
+            path: '',
+            component: ProjectAddonComponent
           },
         ]
       }

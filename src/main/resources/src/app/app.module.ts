@@ -6,13 +6,15 @@ import { COMPONENTS, ENTRY_COMPONENTS, PIPES, PROVIDERS } from './components';
 import { AppSharedModule } from './app-shared.module';
 import { MessageModule } from './message/message.module';
 import { ProjectModule } from './project/project.module';
+import { FormModule } from './form/form.module';
 import { appServices } from './services';
 
 @NgModule({
   imports: [
     AppSharedModule,
     MessageModule,
-    ProjectModule
+    ProjectModule,
+    FormModule
   ],
   declarations: [
     AppComponent,

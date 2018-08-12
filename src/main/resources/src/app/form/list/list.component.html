@@ -1,0 +1,46 @@
+<div class="app-body-main">
+    <div class="header">
+        <div class="title">
+            <i class="anticon anticon-plus"></i>表单制作
+        </div>
+    </div>
+    <div class="body body-list">
+        <div class="body-header">
+            <div class="body-header-left">
+
+            </div>
+            <div class="body-header-center">
+
+            </div>
+            <div class="body-header-right">
+                <button nz-button nzType="primary" (click)="showDesigner()">
+                    <i class="anticon anticon-plus"></i>添加表单</button>
+            </div>
+
+        </div>
+        <div class="body-content">
+            <nz-table #basicTable [nzData]="formService.forms">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>状态</th>
+                            <th nzWidth="120px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of basicTable.data">
+                            <td>{{data.name}}</td>
+                            <td>{{data.description}}</td>
+                            <td>{{data.status}}</td>
+                            <td>
+                                <a (click)="editForm(data)"><i class="anticon anticon-edit"></i></a>
+                                <nz-divider nzType="vertical"></nz-divider>
+                                <a (click)="showDeleteConfirm(data)"><i class="anticon anticon-delete"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+        </div>
+    </div>
+</div>

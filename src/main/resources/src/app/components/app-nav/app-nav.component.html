@@ -1,6 +1,34 @@
-<div class="logo">
+<!-- <ul nz-menu class="nav-menu">
+  <li nz-menu-item [routerLink]="['./message']" [routerLinkActive]="'ant-menu-item-selected'"> {{'module.message' | translate}}</li>
+  <li nz-menu-item [routerLink]="['./project']" [routerLinkActive]="'ant-menu-item-selected'"> 
+    <i class="anticon anticon-profile"></i>
+  </li>
+</ul> -->
+
+<div class="nav-layout">
+    <ul class="nav-menu">
+        <!-- <li [routerLink]="['./message']" [routerLinkActive]="'active'">
+          <span>
+            <i class="anticon anticon-plus"></i>
+          </span>
+        </li> -->
+        <li [routerLink]="['./message']" [routerLinkActive]="'active'">
+          <span>
+            <i class="anticon anticon-message"></i>
+          </span>
+        </li>
+        <li [routerLink]="['./project']" [routerLinkActive]="'active'">
+          <span>
+            <i class="anticon anticon-profile"></i>
+          </span>
+        </li>
+        <li [routerLink]="['./form']" [routerLinkActive]="'active'">
+          <span>
+            <i class="anticon anticon-profile"></i>
+          </span>
+        </li>
+      </ul>
+      <div class="nav-footer">
+          <nz-avatar nzIcon="anticon anticon-user" style="background-color:#87d068;"></nz-avatar>
+      </div>
 </div>
-<ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'">
-  <!-- <li nz-menu-item [routerLink]="['./message']" [routerLinkActive]="'ant-menu-item-selected'"> {{'module.message' | translate}}</li> -->
-  <li nz-menu-item [routerLink]="['./project']" [routerLinkActive]="'ant-menu-item-selected'"> {{'module.project' | translate}}</li>
-</ul>
