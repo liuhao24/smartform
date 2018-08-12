@@ -40,12 +40,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./project */ "./src/app/project/index.ts");
 /* harmony import */ var _project_services_project_resolver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./project/services/project-resolver */ "./src/app/project/services/project-resolver.ts");
 /* harmony import */ var _services_app_root_resolver__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/app-root-resolver */ "./src/app/services/app-root-resolver.ts");
+/* harmony import */ var _form_form_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./form/form.component */ "./src/app/form/form.component.ts");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./form */ "./src/app/form/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -75,6 +79,14 @@ var routes = [
                 component: _message__WEBPACK_IMPORTED_MODULE_3__["MessageChatComponent"]
             }
         ]
+    },
+    {
+        path: 'form',
+        component: _form_form_component__WEBPACK_IMPORTED_MODULE_7__["FormComponent"],
+        children: [{
+                path: 'list',
+                component: _form__WEBPACK_IMPORTED_MODULE_8__["FormListComponent"]
+            }]
     },
     {
         path: 'project',
@@ -170,7 +182,7 @@ var AppSharedModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <nz-layout class=\"layout\">\n  <app-nav></app-nav>\n  <nz-layout style=\"margin-left: 200\">\n    <router-outlet></router-outlet>\n    <nz-footer style=\"text-align: center;\">Ant Design ©2017 Implement By Angular</nz-footer>\n  </nz-layout>\n</nz-layout> -->\n\n<nz-layout style=\"height: 100vh;;\">\n  <nz-sider [nzWidth]=\"'200'\">\n    <app-nav></app-nav>\n  </nz-sider>\n  <router-outlet></router-outlet>\n</nz-layout>"
+module.exports = "<!-- <nz-layout class=\"layout\">\n  <app-nav></app-nav>\n  <nz-layout style=\"margin-left: 200\">\n    <router-outlet></router-outlet>\n    <nz-footer style=\"text-align: center;\">Ant Design ©2017 Implement By Angular</nz-footer>\n  </nz-layout>\n</nz-layout> -->\n\n<!-- <nz-layout style=\"height: 100vh;;\">\n  <nz-sider [nzWidth]=\"'200'\">\n    <app-nav></app-nav>\n  </nz-sider>\n  <router-outlet></router-outlet>\n</nz-layout> -->\n\n<div class=\"app-layout\">\n  <app-nav></app-nav>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -205,7 +217,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'app';
+        this.title = 'SmartForm';
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -239,13 +251,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-shared.module */ "./src/app/app-shared.module.ts");
 /* harmony import */ var _message_message_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./message/message.module */ "./src/app/message/message.module.ts");
 /* harmony import */ var _project_project_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./project/project.module */ "./src/app/project/project.module.ts");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services */ "./src/app/services/index.ts");
+/* harmony import */ var _form_form_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./form/form.module */ "./src/app/form/form.module.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services */ "./src/app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -263,7 +277,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _app_shared_module__WEBPACK_IMPORTED_MODULE_5__["AppSharedModule"],
                 _message_message_module__WEBPACK_IMPORTED_MODULE_6__["MessageModule"],
-                _project_project_module__WEBPACK_IMPORTED_MODULE_7__["ProjectModule"]
+                _project_project_module__WEBPACK_IMPORTED_MODULE_7__["ProjectModule"],
+                _form_form_module__WEBPACK_IMPORTED_MODULE_8__["FormModule"]
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"],
@@ -276,7 +291,7 @@ var AppModule = /** @class */ (function () {
                 _message_message_module__WEBPACK_IMPORTED_MODULE_6__["MessageModule"],
                 _project_project_module__WEBPACK_IMPORTED_MODULE_7__["ProjectModule"]
             ],
-            providers: _services__WEBPACK_IMPORTED_MODULE_8__["appServices"].concat(_components__WEBPACK_IMPORTED_MODULE_4__["PROVIDERS"]),
+            providers: _services__WEBPACK_IMPORTED_MODULE_9__["appServices"].concat(_components__WEBPACK_IMPORTED_MODULE_4__["PROVIDERS"]),
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"]]
         })
     ], AppModule);
@@ -294,18 +309,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\">\n</div>\n<ul nz-menu [nzTheme]=\"'dark'\" [nzMode]=\"'inline'\">\n  <!-- <li nz-menu-item [routerLink]=\"['./message']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.message' | translate}}</li> -->\n  <li nz-menu-item [routerLink]=\"['./project']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.project' | translate}}</li>\n</ul>"
-
-/***/ }),
-
-/***/ "./src/app/components/app-nav/app-nav.component.scss":
-/*!***********************************************************!*\
-  !*** ./src/app/components/app-nav/app-nav.component.scss ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
+module.exports = "<!-- <ul nz-menu class=\"nav-menu\">\n  <li nz-menu-item [routerLink]=\"['./message']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.message' | translate}}</li>\n  <li nz-menu-item [routerLink]=\"['./project']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> \n    <i class=\"anticon anticon-profile\"></i>\n  </li>\n</ul> -->\n\n<div class=\"nav-layout\">\n    <ul class=\"nav-menu\">\n        <!-- <li [routerLink]=\"['./message']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-plus\"></i>\n          </span>\n        </li> -->\n        <li [routerLink]=\"['./message']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-message\"></i>\n          </span>\n        </li>\n        <li [routerLink]=\"['./project']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-profile\"></i>\n          </span>\n        </li>\n        <li [routerLink]=\"['./form']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-profile\"></i>\n          </span>\n        </li>\n      </ul>\n      <div class=\"nav-footer\">\n          <nz-avatar nzIcon=\"anticon anticon-user\" style=\"background-color:#87d068;\"></nz-avatar>\n      </div>\n</div>"
 
 /***/ }),
 
@@ -332,14 +336,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AppNavComponent = /** @class */ (function () {
     function AppNavComponent() {
+        this.layoutClass = true;
     }
     AppNavComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.app-nav'),
+        __metadata("design:type", Object)
+    ], AppNavComponent.prototype, "layoutClass", void 0);
     AppNavComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-nav',
-            template: __webpack_require__(/*! ./app-nav.component.html */ "./src/app/components/app-nav/app-nav.component.html"),
-            styles: [__webpack_require__(/*! ./app-nav.component.scss */ "./src/app/components/app-nav/app-nav.component.scss")]
+            template: __webpack_require__(/*! ./app-nav.component.html */ "./src/app/components/app-nav/app-nav.component.html")
         }),
         __metadata("design:paramtypes", [])
     ], AppNavComponent);
@@ -371,6 +379,582 @@ var COMPONENTS = [
 var ENTRY_COMPONENTS = [];
 var PIPES = [];
 var PROVIDERS = [];
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/form-designer.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/form/designer/form-designer.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"task-designer-wrap\">\n    <!-- <div class=\"task-designer-header\">\n        表单设计器\n        <button nz-button nzType=\"primary\" (click)=\"saveForm()\">Primary</button>\n    </div> -->\n    <div class=\"task-designer-body\">\n        <div class=\"task-designer-fields\">\n            <div class=\"field-title\">可选控件</div>\n            <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n                <li class=field-item *ngFor=\"let item of fields;\">{{item.label}}</li>\n            </ul>\n        </div>\n        <div class=\"task-designer-properties\">\n            <div class=\"property-title\" (click)=\"selectForm()\">表单名称</div>\n            <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n                <div class=\"property-item\" *ngFor=\"let item of properties;\">\n                    <div class=\"property-item-title\">{{item.label}}</div>\n                    <div class=\"property-item-control\">\n                        <input *ngIf=\"item.type === 'textinput'\" nz-input placeholder=\"\" />\n                        <textarea *ngIf=\"item.type === 2\" row=\"3\" nz-input placeholder=\"\">\n                                </textarea>\n                        <nz-date-picker *ngIf=\"item.type === 3\" style=\"width: 100%;\" [(ngModel)]=\"date\" nzShowTime></nz-date-picker>\n                        <nz-select *ngIf=\"item.type === 4\" style=\"width: 100%;\" [(ngModel)]=\"selectedValue\" nzPlaceHolder=\"下拉选择\">\n                            <nz-option nzValue=\"jack\" nzLabel=\"Jack\"></nz-option>\n                            <nz-option nzValue=\"lucy\" nzLabel=\"Lucy\"></nz-option>\n                            <nz-option nzValue=\"disabled\" nzLabel=\"Disabled\" nzDisabled></nz-option>\n                        </nz-select>\n                        <nz-radio-group *ngIf=\"item.type === 5\" [(ngModel)]=\"radioValue\">\n                            <label nz-radio nzValue=\"A\">A</label>\n                            <label nz-radio nzValue=\"B\">B</label>\n                            <label nz-radio nzValue=\"C\">C</label>\n                            <label nz-radio nzValue=\"D\">D</label>\n                        </nz-radio-group>\n\n                        <nz-avatar *ngIf=\"item.type === 6\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"task-designer-settings\">\n            <div class=\"settings-title \">\n                属性设置\n            </div>\n            <div class=\"settings-body\">\n                <div *ngIf=\"isForm\">\n                    <!-- <form nz-form [nzLayout]=\"vertical\"> -->\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">表单名称</nz-form-label>\n                        <nz-form-control>\n                            <input nz-input [(ngModel)]=\"form.name\" name=\"name\" type=\"text\">\n                        </nz-form-control>\n                    </nz-form-item>\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">描述</nz-form-label>\n                        <nz-form-control>\n                            <textarea row=\"3\" [(ngModel)]=\"form.description\" name=\"description\" nz-input placeholder=\"\">\n                                        </textarea>\n                        </nz-form-control>\n                    </nz-form-item>\n\n\n                    <ng-container *ngFor=\"let item of properties;\">\n                        <ng-container *ngIf=\"item.type === 'textinput'\">\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">字段名称</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.label\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">提示</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.placeholder\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">说明</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.helptext\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">宽度</nz-form-label>\n                                <nz-form-control>\n                                    <nz-select style=\"width: 100%;\" [(ngModel)]=\"item.inputsize\" nzAllowClear nzPlaceHolder=\"Choose\">\n                                        <nz-option nzValue=\"1\" nzLabel=\"整行\"></nz-option>\n                                        <nz-option nzValue=\"2\" nzLabel=\"整行的1/2\"></nz-option>\n                                        <nz-option nzValue=\"3\" nzLabel=\"整行的1/3\"></nz-option>\n                                        <nz-option nzValue=\"4\" nzLabel=\"整行的1/4\"></nz-option>\n                                    </nz-select>\n                                </nz-form-control>\n                            </nz-form-item>\n\n                            <nz-form-item>\n                                <label nz-checkbox [(ngModel)]=\"item.required\">必填</label>\n                            </nz-form-item>\n\n                        </ng-container>\n                    </ng-container>\n                    <!-- </form> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/form-designer.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/form/designer/form-designer.component.ts ***!
+  \**********************************************************/
+/*! exports provided: FormDesignerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormDesignerComponent", function() { return FormDesignerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _project_entity_form_info__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../project/entity/form-info */ "./src/app/project/entity/form-info.ts");
+/* harmony import */ var _form_designer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-designer.service */ "./src/app/form/designer/form-designer.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FormDesignerComponent = /** @class */ (function () {
+    function FormDesignerComponent(formDesignerService) {
+        this.formDesignerService = formDesignerService;
+        this.layoutClass = true;
+        this.fields = [];
+        this.properties = [];
+        this.fieldSortOptions = {
+            group: 'designer'
+        };
+        this.propertySortOptions = {
+            group: 'designer'
+        };
+        this.form = {
+            sid: '',
+            name: '',
+            description: '',
+            fields: []
+        };
+        this.isForm = true;
+        this.cloneFieldItem = function (item) {
+            return item;
+        };
+    }
+    FormDesignerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.formDesignerService.getAllFields().subscribe();
+        this.formDesignerService.fields$.subscribe(function (fields) {
+            _this.fields = fields;
+        });
+        debugger;
+        if (this.entity) {
+            this.form = this.entity;
+            this.properties = this.entity.fields;
+        }
+    };
+    FormDesignerComponent.prototype.selectForm = function () {
+        this.isForm = true;
+    };
+    FormDesignerComponent.prototype.saveForm = function () {
+        this.properties.forEach(function (n, index) {
+            n.orderNo = index + 1;
+        });
+        this.form.fields = this.properties;
+        // this.formDesignerService.saveForm(this.form).subscribe((data:any)=>{
+        //   alert('ok');
+        // });
+        var _back = {};
+        Object.assign(_back, this.form);
+        this.clear();
+        return _back;
+    };
+    FormDesignerComponent.prototype.clear = function () {
+        this.form = {
+            sid: '',
+            name: '',
+            description: '',
+            fields: []
+        };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.form-designer-element'),
+        __metadata("design:type", Object)
+    ], FormDesignerComponent.prototype, "layoutClass", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _project_entity_form_info__WEBPACK_IMPORTED_MODULE_1__["FormInfo"])
+    ], FormDesignerComponent.prototype, "entity", void 0);
+    FormDesignerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-designer',
+            template: __webpack_require__(/*! ./form-designer.component.html */ "./src/app/form/designer/form-designer.component.html")
+        }),
+        __metadata("design:paramtypes", [_form_designer_service__WEBPACK_IMPORTED_MODULE_2__["FormDesignerService"]])
+    ], FormDesignerComponent);
+    return FormDesignerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/form-designer.service.ts":
+/*!********************************************************!*\
+  !*** ./src/app/form/designer/form-designer.service.ts ***!
+  \********************************************************/
+/*! exports provided: FormDesignerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormDesignerService", function() { return FormDesignerService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormDesignerService = /** @class */ (function () {
+    function FormDesignerService(http) {
+        this.http = http;
+        this.fields$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+    }
+    FormDesignerService.prototype.getAllFields = function () {
+        var _this = this;
+        return this.http.get('/assets/api/project/fields.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.fields$.next(response.data.fields);
+        }));
+    };
+    FormDesignerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], FormDesignerService);
+    return FormDesignerService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/form.component.html":
+/*!******************************************!*\
+  !*** ./src/app/form/form.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-toc\">\n    <app-form-toc></app-form-toc>\n</div>\n<div class=\"app-body\">\n    <router-outlet></router-outlet>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/form.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/form/form.component.ts ***!
+  \****************************************/
+/*! exports provided: FormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormComponent", function() { return FormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FormComponent = /** @class */ (function () {
+    function FormComponent() {
+        this.layoutClass = true;
+    }
+    FormComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.app-main'),
+        __metadata("design:type", Object)
+    ], FormComponent.prototype, "layoutClass", void 0);
+    FormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form',
+            template: __webpack_require__(/*! ./form.component.html */ "./src/app/form/form.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormComponent);
+    return FormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/form.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/form/form.module.ts ***!
+  \*************************************/
+/*! exports provided: FormModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormModule", function() { return FormModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_shared_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-shared.module */ "./src/app/app-shared.module.ts");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! . */ "./src/app/form/index.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FormModule = /** @class */ (function () {
+    function FormModule() {
+    }
+    FormModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _app_shared_module__WEBPACK_IMPORTED_MODULE_1__["AppSharedModule"]
+            ],
+            declarations: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].slice(),
+            entryComponents: ___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"].slice(),
+            exports: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].slice(),
+            providers: ___WEBPACK_IMPORTED_MODULE_2__["PROVIDERS"].slice()
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormModule);
+    return FormModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/index.ts":
+/*!*******************************!*\
+  !*** ./src/app/form/index.ts ***!
+  \*******************************/
+/*! exports provided: FormComponent, FormTocComponent, FormListComponent, FormDesignerComponent, COMPONENTS, ENTITY_COMPONENTS, PROVIDERS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMPONENTS", function() { return COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENTITY_COMPONENTS", function() { return ENTITY_COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PROVIDERS", function() { return PROVIDERS; });
+/* harmony import */ var _form_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form.component */ "./src/app/form/form.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormComponent", function() { return _form_component__WEBPACK_IMPORTED_MODULE_0__["FormComponent"]; });
+
+/* harmony import */ var _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toc/toc.component */ "./src/app/form/toc/toc.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormTocComponent", function() { return _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__["FormTocComponent"]; });
+
+/* harmony import */ var _list_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./list/list.component */ "./src/app/form/list/list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormListComponent", function() { return _list_list_component__WEBPACK_IMPORTED_MODULE_2__["FormListComponent"]; });
+
+/* harmony import */ var _services_form_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/form.service */ "./src/app/form/services/form.service.ts");
+/* harmony import */ var _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./designer/form-designer.component */ "./src/app/form/designer/form-designer.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormDesignerComponent", function() { return _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]; });
+
+/* harmony import */ var _designer_form_designer_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./designer/form-designer.service */ "./src/app/form/designer/form-designer.service.ts");
+
+
+
+
+
+
+
+var COMPONENTS = [
+    _form_component__WEBPACK_IMPORTED_MODULE_0__["FormComponent"],
+    _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__["FormTocComponent"],
+    _list_list_component__WEBPACK_IMPORTED_MODULE_2__["FormListComponent"],
+    _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]
+];
+var ENTITY_COMPONENTS = [
+    _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]
+];
+var PROVIDERS = [
+    _services_form_service__WEBPACK_IMPORTED_MODULE_3__["FormService"],
+    _designer_form_designer_service__WEBPACK_IMPORTED_MODULE_5__["FormDesignerService"]
+];
+
+
+/***/ }),
+
+/***/ "./src/app/form/list/list.component.html":
+/*!***********************************************!*\
+  !*** ./src/app/form/list/list.component.html ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-body-main\">\n    <div class=\"header\">\n        <div class=\"title\">\n            <i class=\"anticon anticon-plus\"></i>表单制作\n        </div>\n    </div>\n    <div class=\"body body-list\">\n        <div class=\"body-header\">\n            <div class=\"body-header-left\">\n\n            </div>\n            <div class=\"body-header-center\">\n\n            </div>\n            <div class=\"body-header-right\">\n                <button nz-button nzType=\"primary\" (click)=\"showDesigner()\">\n                    <i class=\"anticon anticon-plus\"></i>添加表单</button>\n            </div>\n\n        </div>\n        <div class=\"body-content\">\n            <nz-table #basicTable [nzData]=\"formService.forms\">\n                    <thead>\n                        <tr>\n                            <th>名称</th>\n                            <th>描述</th>\n                            <th>状态</th>\n                            <th nzWidth=\"120px\">操作</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let data of basicTable.data\">\n                            <td>{{data.name}}</td>\n                            <td>{{data.description}}</td>\n                            <td>{{data.status}}</td>\n                            <td>\n                                <a (click)=\"editForm(data)\"><i class=\"anticon anticon-edit\"></i></a>\n                                <nz-divider nzType=\"vertical\"></nz-divider>\n                                <a (click)=\"showDeleteConfirm(data)\"><i class=\"anticon anticon-delete\"></i></a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </nz-table>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/list/list.component.ts":
+/*!*********************************************!*\
+  !*** ./src/app/form/list/list.component.ts ***!
+  \*********************************************/
+/*! exports provided: FormListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormListComponent", function() { return FormListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _node_modules_ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../designer/form-designer.component */ "./src/app/form/designer/form-designer.component.ts");
+/* harmony import */ var _services_form_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/form.service */ "./src/app/form/services/form.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+// import { FormService } from '../services/form.service';
+var FormListComponent = /** @class */ (function () {
+    function FormListComponent(formService, modalService) {
+        this.formService = formService;
+        this.modalService = modalService;
+        this.dataSet = [];
+        this.isEdit = false;
+    }
+    FormListComponent.prototype.getFormList = function () {
+        this.formService.getForms().subscribe();
+    };
+    FormListComponent.prototype.ngOnInit = function () {
+        this.getFormList();
+    };
+    FormListComponent.prototype.showDesigner = function () {
+        var _this = this;
+        // this.isVisible = true;
+        this.formDesignerComponent = this.modalService.create({
+            nzTitle: '表单设计器',
+            nzWrapClassName: 'modal-full',
+            nzWidth: '100%',
+            nzContent: _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_2__["FormDesignerComponent"],
+            nzOkText: '确定',
+            nzOkType: 'primary',
+            nzComponentParams: {
+                entity: this.entity
+            },
+            nzOnOk: function () {
+                var _form = _this.formDesignerComponent.getContentComponent().saveForm();
+                if (_this.entity) {
+                    _this.formService.updateForm(_form).subscribe(function () {
+                        _this.entity = null;
+                    });
+                }
+                else {
+                    _this.formService.saveForm(_form).subscribe(function () {
+                    });
+                }
+            },
+            nzCancelText: '取消',
+            nzOnCancel: function () {
+                _this.formDesignerComponent.destroy();
+            }
+        });
+    };
+    // handleCancel() {
+    // }
+    // handleOk() {
+    //   const _form = this.designer.saveForm();
+    //   this.formService.saveForm(_form).subscribe(() => {
+    //   });
+    //   this.handleCancel();
+    // }
+    FormListComponent.prototype.editForm = function (form) {
+        var _this = this;
+        this.formService.getForm(form.id).subscribe(function (response) {
+            _this.entity = response;
+            _this.showDesigner();
+        }, function () {
+        });
+    };
+    FormListComponent.prototype.deleteForm = function (form) {
+        this.formService.deleteForm(form.id).subscribe();
+    };
+    FormListComponent.prototype.showDeleteConfirm = function (form) {
+        var _this = this;
+        this.modalService.confirm({
+            nzTitle: '确定要删除该表单吗？',
+            nzContent: '<b style="color: red;">表单： ' + form.name + '</b>',
+            nzOkText: '删除',
+            nzOkType: 'danger',
+            nzOnOk: function () {
+                _this.deleteForm(form);
+            },
+            nzCancelText: '取消',
+            nzOnCancel: function () { return console.log('Cancel'); }
+        });
+    };
+    FormListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-list',
+            template: __webpack_require__(/*! ./list.component.html */ "./src/app/form/list/list.component.html")
+        }),
+        __metadata("design:paramtypes", [_services_form_service__WEBPACK_IMPORTED_MODULE_3__["FormService"],
+            _node_modules_ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__["NzModalService"]])
+    ], FormListComponent);
+    return FormListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/services/form.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/form/services/form.service.ts ***!
+  \***********************************************/
+/*! exports provided: FormService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormService", function() { return FormService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormService = /** @class */ (function () {
+    function FormService(http) {
+        this.http = http;
+        this.forms$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]();
+        this.forms = [];
+    }
+    FormService.prototype.getForms = function () {
+        var _this = this;
+        return this.http.get('/smartform/page/list').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.forms = response;
+        }));
+    };
+    FormService.prototype.saveForm = function (form) {
+        var _this = this;
+        return this.http.post('/smartform/page', form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.forms = _this.forms.concat([response]);
+        }));
+    };
+    FormService.prototype.getForm = function (formId) {
+        return this.http.get('/smartform/page/' + formId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            return response;
+        }));
+    };
+    FormService.prototype.updateForm = function (form) {
+        var _this = this;
+        return this.http.put('/smartform/page/' + form.id, form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            debugger;
+            var _form = _this.forms.find(function (n) { return n.id === form.id; });
+            Object.assign(_form, response);
+        }));
+    };
+    FormService.prototype.deleteForm = function (formId) {
+        var _this = this;
+        return this.http.delete('/smartform/page/' + formId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.forms = _this.forms.filter(function (n) { return n.id !== formId; });
+        }));
+    };
+    FormService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], FormService);
+    return FormService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/toc/toc.component.html":
+/*!*********************************************!*\
+  !*** ./src/app/form/toc/toc.component.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"logo\">\n        <i class=\"anticon anticon-api\"></i><span>Freeform</span>\n    </div>\n    <ul nz-menu [nzMode]=\"'inline'\" class=\"toc-menu\">\n        <li nz-menu-item class=\"toc-menu-item\">\n            <span title>\n                <i class=\"anticon anticon-dashboard\"></i>Dashboard</span>\n        </li>\n        <li nz-menu-item class=\"toc-menu-item\" nz-menu-item [routerLink]=\"['./list']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n            <span title>\n                <i class=\"anticon anticon-plus\"></i>表单制作</span>\n        </li>\n        <!-- <li nz-menu-item class=\"toc-menu-item\">\n            <span title>\n                <i class=\"anticon anticon-plus\"></i>表单查询</span>\n        </li>\n        <li nz-menu-item class=\"toc-menu-item\">\n            <span title>\n                <i class=\"anticon anticon-plus\"></i>表单统计</span>\n        </li> -->\n        <li nz-submenu class=\"toc-menu-submenu\">\n            <span title>\n                <i class=\"anticon anticon-team\"></i>表单统计</span>\n            <ul class=\"toc-menu-sub\">\n                <li nz-menu-item class=\"toc-menu-item\">超期表单</li>\n                <li nz-menu-item class=\"toc-menu-item\">未处理</li>\n            </ul>\n        </li>\n    </ul>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/toc/toc.component.ts":
+/*!*******************************************!*\
+  !*** ./src/app/form/toc/toc.component.ts ***!
+  \*******************************************/
+/*! exports provided: FormTocComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormTocComponent", function() { return FormTocComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FormTocComponent = /** @class */ (function () {
+    function FormTocComponent() {
+    }
+    FormTocComponent.prototype.ngOnInit = function () {
+    };
+    FormTocComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-toc',
+            template: __webpack_require__(/*! ./toc.component.html */ "./src/app/form/toc/toc.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormTocComponent);
+    return FormTocComponent;
+}());
+
 
 
 /***/ }),
@@ -964,12 +1548,6 @@ var TaskDesignerService = /** @class */ (function () {
         return this.http.post('/smartform/page', form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
             console.log(response);
         }));
-        // return this.http.post<any[]>('https://www.baidu.com/',{}).pipe(
-        //     tap((response: ResponseData) => {
-        //         debugger
-        //         console.log(response);
-        //     })
-        // );
     };
     TaskDesignerService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
@@ -1110,6 +1688,33 @@ var ProjectDetailComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/project/entity/form-info.ts":
+/*!*********************************************!*\
+  !*** ./src/app/project/entity/form-info.ts ***!
+  \*********************************************/
+/*! exports provided: FormInfo, FieldInfo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormInfo", function() { return FormInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldInfo", function() { return FieldInfo; });
+var FormInfo = /** @class */ (function () {
+    function FormInfo() {
+    }
+    return FormInfo;
+}());
+
+var FieldInfo = /** @class */ (function () {
+    function FieldInfo() {
+    }
+    return FieldInfo;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/project/entity/task-info.ts":
 /*!*********************************************!*\
   !*** ./src/app/project/entity/task-info.ts ***!
@@ -1206,7 +1811,7 @@ var PROVIDERS = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nz-sider [nzWidth]=\"200\" [nzBreakpoint]=\"'lg'\" style=\"background:#fff\">\n    <app-project-toc></app-project-toc>\n</nz-sider>\n<nz-content style=\"margin:0 20px;\">\n    <router-outlet></router-outlet>\n</nz-content>"
+module.exports = "<div class=\"app-toc\">\n    <app-project-toc></app-project-toc>\n</div>\n<div class=\"app-body\">\n    <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -1234,18 +1839,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ProjectComponent = /** @class */ (function () {
     function ProjectComponent() {
         this.layoutClass = true;
-        this.layoutHasSider = true;
     }
+    // @HostBinding('class.ant-layout-has-sider') layoutHasSider = true;
     ProjectComponent.prototype.ngOnInit = function () {
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.ant-layout'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.app-main'),
         __metadata("design:type", Object)
     ], ProjectComponent.prototype, "layoutClass", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.ant-layout-has-sider'),
-        __metadata("design:type", Object)
-    ], ProjectComponent.prototype, "layoutHasSider", void 0);
     ProjectComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-project',
@@ -1555,7 +2156,7 @@ var ProjectTaskDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul nz-menu [nzMode]=\"'inline'\" style=\"height:100%\">\n    <!-- <li nz-menu-item *ngFor=\"let project of (projectService.projects$ | async)\" [routerLink]=\"['/project',project.id]\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>{{project.name}}</span>\n    </li> -->\n\n    <li nz-menu-item [routerLink]=\"['./designer']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>设计器</span>\n    </li>\n    <!-- <li nz-menu-item [routerLink]=\"['./form-builder']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>表单设计器</span>\n    </li> -->\n</ul>"
+module.exports = "<ul nz-menu [nzMode]=\"'inline'\">\n    <!-- <li nz-menu-item *ngFor=\"let project of (projectService.projects$ | async)\" [routerLink]=\"['/project',project.id]\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>{{project.name}}</span>\n    </li> -->\n\n    <li nz-menu-item [routerLink]=\"['./designer']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>设计器</span>\n    </li>\n    <!-- <li nz-menu-item [routerLink]=\"['./form-builder']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>表单设计器</span>\n    </li> -->\n</ul>"
 
 /***/ }),
 
