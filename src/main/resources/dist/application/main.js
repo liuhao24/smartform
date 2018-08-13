@@ -1214,14 +1214,15 @@ var AuthGuard = /** @class */ (function () {
         return this.checkLogin(url);
     };
     AuthGuard.prototype.checkLogin = function (url) {
-        if (this.authService.isLoggedIn) {
-            return true;
-        }
-        // Store the attempted URL for redirecting
-        this.authService.redirectUrl = url;
-        // Navigate to the login page with extras
-        this.router.navigate(['/login']);
-        return false;
+        return true;
+        // if (this.authService.isLoggedIn) { 
+        //   return true; 
+        // }
+        // // Store the attempted URL for redirecting
+        // this.authService.redirectUrl = url;
+        // // Navigate to the login page with extras
+        // this.router.navigate(['/login']);
+        // return false;
     };
     AuthGuard = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
