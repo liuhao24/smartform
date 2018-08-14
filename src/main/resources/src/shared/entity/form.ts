@@ -13,9 +13,9 @@ export class FieldInfo {
     type?: string;
     required?: boolean;
     label?: string;
-    placeholder?: string;
-    helptext?: string;
-    inputsize?: string;
+    placeHolder?: string;
+    helpText?: string;
+    size?: string;
     options?: [{
         id: string,
         text: string,

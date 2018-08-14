@@ -1,6 +1,5 @@
 export const fields = [
     {
-        "id": 1,
         "type": 'textinput',
         "label": "文本框"
     },
