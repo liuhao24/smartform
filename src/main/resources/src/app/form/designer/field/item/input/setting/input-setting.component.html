@@ -1,0 +1,35 @@
+<div class="property-item">
+    <nz-form-item>
+        <nz-form-label nzFor="name">字段名称</nz-form-label>
+        <nz-form-control>
+            <input nz-input [(ngModel)]="field.label" (ngModelChange)="modalChange($event)" type="text">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="name">提示</nz-form-label>
+        <nz-form-control>
+            <input nz-input [(ngModel)]="field.placeholder" (ngModelChange)="modalChange($event)" type="text">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="name">说明</nz-form-label>
+        <nz-form-control>
+            <input nz-input [(ngModel)]="field.helptext" (ngModelChange)="modalChange($event)" type="text">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="name">宽度</nz-form-label>
+        <nz-form-control>
+            <nz-select style="width: 100%;" [(ngModel)]="field.inputsize"  (ngModelChange)="modalChange($event)" nzAllowClear nzPlaceHolder="Choose">
+                <nz-option nzValue="1" nzLabel="整行"></nz-option>
+                <nz-option nzValue="2" nzLabel="整行的1/2"></nz-option>
+                <nz-option nzValue="3" nzLabel="整行的1/3"></nz-option>
+                <nz-option nzValue="4" nzLabel="整行的1/4"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <label nz-checkbox [(ngModel)]="field.required" (ngModelChange)="modalChange($event)">必填</label>
+    </nz-form-item>
+</div>

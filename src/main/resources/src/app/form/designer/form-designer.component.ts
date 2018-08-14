@@ -1,7 +1,10 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, ViewChild, ElementRef } from '@angular/core';
 import { FieldInfo, FormInfo } from '../../project/entity/form-info';
-import { SortablejsOptions } from '../../../../node_modules/angular-sortablejs/dist';
+import { SortablejsOptions } from 'angular-sortablejs/dist';
 import { FormDesignerService } from './form-designer.service';
+import { fields } from './field.constant';
+import { FormFieldSettingComponent } from './field/field-setting.component';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-form-designer',
@@ -14,7 +17,9 @@ export class FormDesignerComponent implements OnInit {
 
   @Input() entity: FormInfo;
 
-  public fields: FieldInfo[] = [];
+  @ViewChild(FormFieldSettingComponent) fieldSetting: FormFieldSettingComponent; //子组件实例引用
+
+  public fields = [];
 
   public properties: FieldInfo[] = [];
 
@@ -40,7 +45,7 @@ export class FormDesignerComponent implements OnInit {
   };
 
   public isForm = true;
-
+  
   constructor(
     private formDesignerService: FormDesignerService
   ) {
@@ -51,31 +56,30 @@ export class FormDesignerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formDesignerService.getAllFields().subscribe();
-    this.formDesignerService.fields$.subscribe((fields) => {
-      this.fields = fields;
-    });
-
-    debugger
-    if(this.entity){
+    this.fields = fields;
+    if (this.entity) {
       this.form = this.entity;
       this.properties = this.entity.fields;
     }
-    
   }
+
 
   selectForm() {
     this.isForm = true;
   }
 
+
+  changeField(event) {
+    // const _index = this.properties.findIndex(((n)=>{
+    //   return n.id = event.id;
+    // }));
+    // this.properties.splice(_index,1,event);
+  }
   saveForm() {
     this.properties.forEach((n, index) => {
       n.orderNo = index + 1;
     });
     this.form.fields = this.properties;
-    // this.formDesignerService.saveForm(this.form).subscribe((data:any)=>{
-    //   alert('ok');
-    // });
     const _back = {};
     Object.assign(_back, this.form);
     this.clear();

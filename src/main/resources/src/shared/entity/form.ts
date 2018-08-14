@@ -10,7 +10,7 @@ export class FormInfo {
 export class FieldInfo {
     id?:string;
     orderNo?: number;
-    type?: any;
+    type?: string;
     required?: boolean;
     label?: string;
     placeholder?: string;

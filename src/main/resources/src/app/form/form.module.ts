@@ -9,13 +9,15 @@ import { FormRoutingModule } from './form.router';
         FormRoutingModule
     ],
     declarations: [
-        ...COMPONENTS
+        ...COMPONENTS,
+        ...ENTITY_COMPONENTS
     ],
     entryComponents: [
         ...ENTITY_COMPONENTS
     ],
     exports: [
-        ...COMPONENTS
+        ...COMPONENTS,
+        ...ENTITY_COMPONENTS
     ],
     providers: [
         ...PROVIDERS

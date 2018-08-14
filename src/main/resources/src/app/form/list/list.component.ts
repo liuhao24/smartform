@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NzModalService } from '../../../../node_modules/ng-zorro-antd';
+import { NzModalService } from 'ng-zorro-antd';
 import { FormDesignerComponent } from '../designer/form-designer.component';
 import { FormService } from '../services/form.service';
 import { FormInfo } from '../../project/entity/form-info';

@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -6,11 +7,14 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   @HostBinding('class.app-main') layoutClass = true;
 
   ngOnInit() {
+    this.router.navigate(['form','list']);
   }
 
 }
