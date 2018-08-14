@@ -1,0 +1,44 @@
+<div class="task-designer-wrap">
+    <!-- <div class="task-designer-header">
+        表单设计器
+        <button nz-button nzType="primary" (click)="saveForm()">Primary</button>
+    </div> -->
+    <div class="task-designer-body">
+        <div class="task-designer-fields">
+            <div class="field-title">可选控件</div>
+            <ul class="field-list" [sortablejs]="fields" [sortablejsOptions]="fieldSortOptions" [sortablejsCloneFunction]="cloneFieldItem">
+                <li class=field-item *ngFor="let item of fields;">{{item.label}}</li>
+            </ul>
+        </div>
+        <div class="task-designer-properties">
+            <div class="property-title" (click)="selectForm()">表单名称</div>
+            <div class="property-body" [sortablejs]="properties" [sortablejsOptions]="propertySortOptions">
+                <form-field-design *ngFor="let item of properties;" [field]="item"></form-field-design>
+            </div>
+        </div>
+        <div class="task-designer-settings">
+            <div class="settings-title ">
+                属性设置
+            </div>
+            <div class="settings-body">
+                <div *ngIf="isForm">
+                    <!-- <form nz-form [nzLayout]="vertical"> -->
+                    <nz-form-item>
+                        <nz-form-label nzFor="name">表单名称</nz-form-label>
+                        <nz-form-control>
+                            <input nz-input [(ngModel)]="form.name" name="name" type="text">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzFor="name">描述</nz-form-label>
+                        <nz-form-control>
+                            <textarea row="3" [(ngModel)]="form.description" name="description" nz-input placeholder=""></textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <form-field-setting *ngFor="let item of properties;" [field]="item" (changeField)="changeField($event)" #fieldSetting></form-field-setting>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

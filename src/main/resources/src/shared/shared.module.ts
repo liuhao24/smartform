@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieModule } from 'ngx-cookie';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
@@ -34,6 +35,7 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     ModalModule.forRoot(),
     SortablejsModule.forRoot({}),
+    CookieModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -52,6 +54,7 @@ registerLocaleData(zh);
     TranslateModule,
     ModalModule,
     SortablejsModule,
+    CookieModule,
     ...SHARED_COMPONENTS
   ],
   providers: [

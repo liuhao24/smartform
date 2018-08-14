@@ -35,11 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./message */ "./src/app/message/index.ts");
-/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./project */ "./src/app/project/index.ts");
-/* harmony import */ var _project_services_project_resolver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./project/services/project-resolver */ "./src/app/project/services/project-resolver.ts");
-/* harmony import */ var _services_app_root_resolver__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/app-root-resolver */ "./src/app/services/app-root-resolver.ts");
+/* harmony import */ var _services_app_root_resolver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/app-root-resolver */ "./src/app/services/app-root-resolver.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,55 +45,81 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
-
-
+// const routes: Routes = [
+//   {
+//     path: '',
+//     // redirectTo: '/form',
+//     // pathMatch: 'full',
+//     resolve: {
+//       data: AppRootResolver
+//     },
+//     canActivate: [AuthGuard],
+//     children: [
+//       {
+//         path: '',
+//         redirectTo: '/form',
+//         pathMatch: 'full'
+//       },
+//       {
+//         path: 'message',
+//         component: MessageComponent,
+//         children: [
+//           {
+//             path: 'chat',
+//             component: MessageChatComponent
+//           }
+//         ]
+//       },
+//       {
+//         path: 'form',
+//         component: FormComponent,
+//         children: [{
+//           path:'',
+//           redirectTo: '/list',
+//           pathMatch: 'full'
+//         },{
+//           path: 'list',
+//           component: FormListComponent
+//         }]
+//       },
+//       {
+//         path: 'project',
+//         component: ProjectComponent,
+//         resolve: {
+//           data: ProjectResolver
+//         },
+//         children: [
+//           {
+//             path: 'designer',
+//             component: ProjectTaskDesignerComponent,
+//           },
+//           {
+//             path: ':pid',
+//             component: ProjectDetailComponent,
+//             children: [
+//               {
+//                 path: '',
+//                 component: ProjectAddonComponent
+//               },
+//             ]
+//           }
+//         ]
+//       }
+//     ]
+//   },
+//   {
+//     path: 'login',
+//     component: LoginComponent
+//   }
+// ];
 var routes = [
     {
         path: '',
-        redirectTo: '/project',
+        redirectTo: '/form',
         pathMatch: 'full',
         resolve: {
-            data: _services_app_root_resolver__WEBPACK_IMPORTED_MODULE_6__["AppRootResolver"]
+            data: _services_app_root_resolver__WEBPACK_IMPORTED_MODULE_2__["AppRootResolver"]
         }
-    },
-    {
-        path: 'login',
-        component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]
-    },
-    {
-        path: 'message',
-        component: _message__WEBPACK_IMPORTED_MODULE_3__["MessageComponent"],
-        children: [
-            {
-                path: 'chat',
-                component: _message__WEBPACK_IMPORTED_MODULE_3__["MessageChatComponent"]
-            }
-        ]
-    },
-    {
-        path: 'project',
-        component: _project__WEBPACK_IMPORTED_MODULE_4__["ProjectComponent"],
-        resolve: {
-            data: _project_services_project_resolver__WEBPACK_IMPORTED_MODULE_5__["ProjectResolver"]
-        },
-        children: [
-            {
-                path: 'designer',
-                component: _project__WEBPACK_IMPORTED_MODULE_4__["ProjectTaskDesignerComponent"],
-            },
-            {
-                path: ':pid',
-                component: _project__WEBPACK_IMPORTED_MODULE_4__["ProjectDetailComponent"],
-                children: [
-                    {
-                        path: '',
-                        component: _project__WEBPACK_IMPORTED_MODULE_4__["ProjectAddonComponent"]
-                    },
-                ]
-            }
-        ]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -170,7 +192,7 @@ var AppSharedModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <nz-layout class=\"layout\">\n  <app-nav></app-nav>\n  <nz-layout style=\"margin-left: 200\">\n    <router-outlet></router-outlet>\n    <nz-footer style=\"text-align: center;\">Ant Design ©2017 Implement By Angular</nz-footer>\n  </nz-layout>\n</nz-layout> -->\n\n<nz-layout style=\"height: 100vh;;\">\n  <nz-sider [nzWidth]=\"'200'\">\n    <app-nav></app-nav>\n  </nz-sider>\n  <router-outlet></router-outlet>\n</nz-layout>"
+module.exports = "<!-- <nz-layout class=\"layout\">\n  <app-nav></app-nav>\n  <nz-layout style=\"margin-left: 200\">\n    <router-outlet></router-outlet>\n    <nz-footer style=\"text-align: center;\">Ant Design ©2017 Implement By Angular</nz-footer>\n  </nz-layout>\n</nz-layout> -->\n\n<!-- <nz-layout style=\"height: 100vh;;\">\n  <nz-sider [nzWidth]=\"'200'\">\n    <app-nav></app-nav>\n  </nz-sider>\n  <router-outlet></router-outlet>\n</nz-layout> -->\n\n<div class=\"app-layout\">\n  <app-nav></app-nav>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -205,7 +227,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'app';
+        this.title = 'SmartForm';
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -237,16 +259,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_app_nav_app_nav_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/app-nav/app-nav.component */ "./src/app/components/app-nav/app-nav.component.ts");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components */ "./src/app/components/index.ts");
 /* harmony import */ var _app_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-shared.module */ "./src/app/app-shared.module.ts");
-/* harmony import */ var _message_message_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./message/message.module */ "./src/app/message/message.module.ts");
-/* harmony import */ var _project_project_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./project/project.module */ "./src/app/project/project.module.ts");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services */ "./src/app/services/index.ts");
+/* harmony import */ var _form_form_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./form/form.module */ "./src/app/form/form.module.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services */ "./src/app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -262,8 +282,9 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
                 _app_shared_module__WEBPACK_IMPORTED_MODULE_5__["AppSharedModule"],
-                _message_message_module__WEBPACK_IMPORTED_MODULE_6__["MessageModule"],
-                _project_project_module__WEBPACK_IMPORTED_MODULE_7__["ProjectModule"]
+                // MessageModule,
+                // ProjectModule,
+                _form_form_module__WEBPACK_IMPORTED_MODULE_6__["FormModule"]
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"],
@@ -273,10 +294,8 @@ var AppModule = /** @class */ (function () {
             entryComponents: _components__WEBPACK_IMPORTED_MODULE_4__["ENTRY_COMPONENTS"].slice(),
             exports: [
                 _app_shared_module__WEBPACK_IMPORTED_MODULE_5__["AppSharedModule"],
-                _message_message_module__WEBPACK_IMPORTED_MODULE_6__["MessageModule"],
-                _project_project_module__WEBPACK_IMPORTED_MODULE_7__["ProjectModule"]
             ],
-            providers: _services__WEBPACK_IMPORTED_MODULE_8__["appServices"].concat(_components__WEBPACK_IMPORTED_MODULE_4__["PROVIDERS"]),
+            providers: _services__WEBPACK_IMPORTED_MODULE_7__["appServices"].concat(_components__WEBPACK_IMPORTED_MODULE_4__["PROVIDERS"]),
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"]]
         })
     ], AppModule);
@@ -294,18 +313,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo\">\n</div>\n<ul nz-menu [nzTheme]=\"'dark'\" [nzMode]=\"'inline'\">\n  <!-- <li nz-menu-item [routerLink]=\"['./message']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.message' | translate}}</li> -->\n  <li nz-menu-item [routerLink]=\"['./project']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.project' | translate}}</li>\n</ul>"
-
-/***/ }),
-
-/***/ "./src/app/components/app-nav/app-nav.component.scss":
-/*!***********************************************************!*\
-  !*** ./src/app/components/app-nav/app-nav.component.scss ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
+module.exports = "<!-- <ul nz-menu class=\"nav-menu\">\n  <li nz-menu-item [routerLink]=\"['./message']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> {{'module.message' | translate}}</li>\n  <li nz-menu-item [routerLink]=\"['./project']\" [routerLinkActive]=\"'ant-menu-item-selected'\"> \n    <i class=\"anticon anticon-profile\"></i>\n  </li>\n</ul> -->\n\n<div class=\"nav-layout\">\n    <ul class=\"nav-menu\">\n        <!-- <li [routerLink]=\"['./message']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-plus\"></i>\n          </span>\n        </li> -->\n        <li [routerLink]=\"['./message']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-message\"></i>\n          </span>\n        </li>\n        <li [routerLink]=\"['./project']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-profile\"></i>\n          </span>\n        </li>\n        <li [routerLink]=\"['./form']\" [routerLinkActive]=\"'active'\">\n          <span>\n            <i class=\"anticon anticon-profile\"></i>\n          </span>\n        </li>\n      </ul>\n      <div class=\"nav-footer\">\n          <nz-avatar nzIcon=\"anticon anticon-user\" style=\"background-color:#87d068;\"></nz-avatar>\n      </div>\n</div>"
 
 /***/ }),
 
@@ -332,14 +340,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AppNavComponent = /** @class */ (function () {
     function AppNavComponent() {
+        this.layoutClass = true;
     }
     AppNavComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.app-nav'),
+        __metadata("design:type", Object)
+    ], AppNavComponent.prototype, "layoutClass", void 0);
     AppNavComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-nav',
-            template: __webpack_require__(/*! ./app-nav.component.html */ "./src/app/components/app-nav/app-nav.component.html"),
-            styles: [__webpack_require__(/*! ./app-nav.component.scss */ "./src/app/components/app-nav/app-nav.component.scss")]
+            template: __webpack_require__(/*! ./app-nav.component.html */ "./src/app/components/app-nav/app-nav.component.html")
         }),
         __metadata("design:paramtypes", [])
     ], AppNavComponent);
@@ -371,6 +383,1530 @@ var COMPONENTS = [
 var ENTRY_COMPONENTS = [];
 var PIPES = [];
 var PROVIDERS = [];
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field.constant.ts":
+/*!*************************************************!*\
+  !*** ./src/app/form/designer/field.constant.ts ***!
+  \*************************************************/
+/*! exports provided: fields, fieldTypes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fields", function() { return fields; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fieldTypes", function() { return fieldTypes; });
+var fields = [
+    {
+        "type": 'textinput',
+        "label": "文本框"
+    },
+];
+var fieldTypes = {
+    'textinput': {
+        type: 'textinput',
+    },
+    'textarea': {
+        type: 'textarea',
+    },
+    'number': {
+        type: 'number',
+    }
+    // ,
+    // 'date': {
+    //     type: 4,
+    //     api: 'date'
+    // },
+    // 'dateRange': {
+    //     type: 5,
+    //     api: 'dateRange'
+    // },
+    // 'select': {
+    //     type: 6,
+    //     api: 'select'
+    // },
+    // 'radio': {
+    //     type: 7,
+    //     api: 'radio'
+    // },
+    // 'member': {
+    //     type: 8,
+    //     api: 'member'
+    // },
+    // 'members': {
+    //     type: 9,
+    //     api: 'members'
+    // }
+};
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/field-design.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/form/designer/field/field-design.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/field-design.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/form/designer/field/field-design.component.ts ***!
+  \***************************************************************/
+/*! exports provided: FormFieldDesignComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormFieldDesignComponent", function() { return FormFieldDesignComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+/* harmony import */ var _field_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./field-map */ "./src/app/form/designer/field/field-map.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FormFieldDesignComponent = /** @class */ (function () {
+    function FormFieldDesignComponent(viewContainerRef, componentFactoryResolver) {
+        this.viewContainerRef = viewContainerRef;
+        this.componentFactoryResolver = componentFactoryResolver;
+    }
+    FormFieldDesignComponent.prototype.ngOnInit = function () {
+        this.viewContainerRef.clear();
+        var componentFactory = this.componentFactoryResolver.resolveComponentFactory(_field_map__WEBPACK_IMPORTED_MODULE_2__["fieldItemsComponentMap"][this.field.type]['design']);
+        var componentRef = this.viewContainerRef.createComponent(componentFactory);
+        componentRef.instance.field = this.field;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], FormFieldDesignComponent.prototype, "field", void 0);
+    FormFieldDesignComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-field-design',
+            template: __webpack_require__(/*! ./field-design.component.html */ "./src/app/form/designer/field/field-design.component.html")
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]])
+    ], FormFieldDesignComponent);
+    return FormFieldDesignComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/field-map.ts":
+/*!**************************************************!*\
+  !*** ./src/app/form/designer/field/field-map.ts ***!
+  \**************************************************/
+/*! exports provided: fieldItemsComponentMap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fieldItemsComponentMap", function() { return fieldItemsComponentMap; });
+/* harmony import */ var _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item/input/design/input.component */ "./src/app/form/designer/field/item/input/design/input.component.ts");
+/* harmony import */ var _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item/input/setting/input-setting.component */ "./src/app/form/designer/field/item/input/setting/input-setting.component.ts");
+/* harmony import */ var _field_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../field.constant */ "./src/app/form/designer/field.constant.ts");
+
+
+
+var fieldItemsComponentMap = (_a = {},
+    _a[_field_constant__WEBPACK_IMPORTED_MODULE_2__["fieldTypes"].textinput.type] = {
+        design: _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldInputDesignComponent"],
+        setting: _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputSettingComponent"]
+    },
+    _a);
+var _a;
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/field-setting.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/form/designer/field/field-setting.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/field-setting.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/form/designer/field/field-setting.component.ts ***!
+  \****************************************************************/
+/*! exports provided: FormFieldSettingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormFieldSettingComponent", function() { return FormFieldSettingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+/* harmony import */ var _field_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./field-map */ "./src/app/form/designer/field/field-map.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FormFieldSettingComponent = /** @class */ (function () {
+    function FormFieldSettingComponent(viewContainerRef, componentFactoryResolver) {
+        this.viewContainerRef = viewContainerRef;
+        this.componentFactoryResolver = componentFactoryResolver;
+        // public field: FieldInfo;
+        // @Output() changeField = new EventEmitter();
+        this.changeField = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this._innerValue = '';
+    }
+    FormFieldSettingComponent.prototype.emitValueChange = function (value) {
+        this.field = value;
+        this.changeField.emit(value);
+    };
+    FormFieldSettingComponent.prototype.getFieldValue = function () {
+        return this.field;
+    };
+    FormFieldSettingComponent.prototype.ngOnInit = function () {
+        this.viewContainerRef.clear();
+        var componentFactory = this.componentFactoryResolver.resolveComponentFactory(_field_map__WEBPACK_IMPORTED_MODULE_2__["fieldItemsComponentMap"][this.field.type]['setting']);
+        this.componentRef = this.viewContainerRef.createComponent(componentFactory);
+        this.componentRef.instance.field = this.field;
+        this.componentRef.instance.changeValue = this.emitValueChange.bind(this);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], FormFieldSettingComponent.prototype, "field", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], FormFieldSettingComponent.prototype, "changeField", void 0);
+    FormFieldSettingComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-field-setting',
+            template: __webpack_require__(/*! ./field-setting.component.html */ "./src/app/form/designer/field/field-setting.component.html"),
+            providers: []
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]])
+    ], FormFieldSettingComponent);
+    return FormFieldSettingComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/index.ts":
+/*!**********************************************!*\
+  !*** ./src/app/form/designer/field/index.ts ***!
+  \**********************************************/
+/*! exports provided: TASK_FIELD_COMPONENTS, TASK_FIELD_ENTITY_COMPONENTS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TASK_FIELD_COMPONENTS", function() { return TASK_FIELD_COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TASK_FIELD_ENTITY_COMPONENTS", function() { return TASK_FIELD_ENTITY_COMPONENTS; });
+/* harmony import */ var _field_design_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./field-design.component */ "./src/app/form/designer/field/field-design.component.ts");
+/* harmony import */ var _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item/input/design/input.component */ "./src/app/form/designer/field/item/input/design/input.component.ts");
+/* harmony import */ var _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./item/input/setting/input-setting.component */ "./src/app/form/designer/field/item/input/setting/input-setting.component.ts");
+/* harmony import */ var _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item/textarea/textarea.component */ "./src/app/form/designer/field/item/textarea/textarea.component.ts");
+/* harmony import */ var _item_number_number_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item/number/number.component */ "./src/app/form/designer/field/item/number/number.component.ts");
+/* harmony import */ var _item_date_date_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./item/date/date.component */ "./src/app/form/designer/field/item/date/date.component.ts");
+/* harmony import */ var _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./item/date-range/date-range.component */ "./src/app/form/designer/field/item/date-range/date-range.component.ts");
+/* harmony import */ var _item_select_select_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./item/select/select.component */ "./src/app/form/designer/field/item/select/select.component.ts");
+/* harmony import */ var _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./item/radio/radio.component */ "./src/app/form/designer/field/item/radio/radio.component.ts");
+/* harmony import */ var _item_member_member_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./item/member/member.component */ "./src/app/form/designer/field/item/member/member.component.ts");
+/* harmony import */ var _item_members_members_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./item/members/members.component */ "./src/app/form/designer/field/item/members/members.component.ts");
+/* harmony import */ var _field_setting_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./field-setting.component */ "./src/app/form/designer/field/field-setting.component.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+var TASK_FIELD_COMPONENTS = [
+    _field_design_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldDesignComponent"],
+    _field_setting_component__WEBPACK_IMPORTED_MODULE_11__["FormFieldSettingComponent"],
+    _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputDesignComponent"],
+    _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_2__["FormFieldInputSettingComponent"],
+    _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_3__["TaskFieldTextareaComponent"],
+    _item_number_number_component__WEBPACK_IMPORTED_MODULE_4__["TaskFieldNumberComponent"],
+    _item_date_date_component__WEBPACK_IMPORTED_MODULE_5__["TaskFieldDateComponent"],
+    _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_6__["TaskFieldDateRangeComponent"],
+    _item_select_select_component__WEBPACK_IMPORTED_MODULE_7__["TaskFieldSelectComponent"],
+    _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_8__["TaskFieldRadioComponent"],
+    _item_member_member_component__WEBPACK_IMPORTED_MODULE_9__["TaskFieldMemberComponent"],
+    _item_members_members_component__WEBPACK_IMPORTED_MODULE_10__["TaskFieldMembersComponent"]
+];
+var TASK_FIELD_ENTITY_COMPONENTS = [
+    _field_design_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldDesignComponent"],
+    _field_setting_component__WEBPACK_IMPORTED_MODULE_11__["FormFieldSettingComponent"],
+    _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputDesignComponent"],
+    _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_2__["FormFieldInputSettingComponent"],
+    _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_3__["TaskFieldTextareaComponent"],
+    _item_number_number_component__WEBPACK_IMPORTED_MODULE_4__["TaskFieldNumberComponent"],
+    _item_date_date_component__WEBPACK_IMPORTED_MODULE_5__["TaskFieldDateComponent"],
+    _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_6__["TaskFieldDateRangeComponent"],
+    _item_select_select_component__WEBPACK_IMPORTED_MODULE_7__["TaskFieldSelectComponent"],
+    _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_8__["TaskFieldRadioComponent"],
+    _item_member_member_component__WEBPACK_IMPORTED_MODULE_9__["TaskFieldMemberComponent"],
+    _item_members_members_component__WEBPACK_IMPORTED_MODULE_10__["TaskFieldMembersComponent"]
+];
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/date-range/date-range.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/date-range/date-range.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <nz-range-picker></nz-range-picker>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/date-range/date-range.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/date-range/date-range.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: TaskFieldDateRangeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldDateRangeComponent", function() { return TaskFieldDateRangeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldDateRangeComponent = /** @class */ (function () {
+    function TaskFieldDateRangeComponent() {
+    }
+    TaskFieldDateRangeComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldDateRangeComponent.prototype, "field", void 0);
+    TaskFieldDateRangeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-date-range',
+            template: __webpack_require__(/*! ./date-range.component.html */ "./src/app/form/designer/field/item/date-range/date-range.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldDateRangeComponent);
+    return TaskFieldDateRangeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/date/date.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/form/designer/field/item/date/date.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <nz-date-picker style=\"width: 100%;\" [(ngModel)]=\"date\" nzShowTime></nz-date-picker>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/date/date.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/form/designer/field/item/date/date.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: TaskFieldDateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldDateComponent", function() { return TaskFieldDateComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldDateComponent = /** @class */ (function () {
+    function TaskFieldDateComponent() {
+    }
+    TaskFieldDateComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldDateComponent.prototype, "field", void 0);
+    TaskFieldDateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-date',
+            template: __webpack_require__(/*! ./date.component.html */ "./src/app/form/designer/field/item/date/date.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldDateComponent);
+    return TaskFieldDateComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/input/design/input.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/design/input.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.label}}</div>\n    <div class=\"property-item-control\">\n        <input nz-input placeholder=\"\" />\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/input/design/input.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/design/input.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: FormFieldInputDesignComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormFieldInputDesignComponent", function() { return FormFieldInputDesignComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FormFieldInputDesignComponent = /** @class */ (function () {
+    function FormFieldInputDesignComponent() {
+    }
+    FormFieldInputDesignComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], FormFieldInputDesignComponent.prototype, "field", void 0);
+    FormFieldInputDesignComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-field-input-design',
+            template: __webpack_require__(/*! ./input.component.html */ "./src/app/form/designer/field/item/input/design/input.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormFieldInputDesignComponent);
+    return FormFieldInputDesignComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/input/setting/input-setting.component.html":
+/*!*************************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/setting/input-setting.component.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <nz-form-item>\n        <nz-form-label nzFor=\"name\">字段名称</nz-form-label>\n        <nz-form-control>\n            <input nz-input [(ngModel)]=\"field.label\" (ngModelChange)=\"modalChange($event)\" type=\"text\">\n        </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n        <nz-form-label nzFor=\"name\">提示</nz-form-label>\n        <nz-form-control>\n            <input nz-input [(ngModel)]=\"field.placeHolder\" (ngModelChange)=\"modalChange($event)\" type=\"text\">\n        </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n        <nz-form-label nzFor=\"name\">说明</nz-form-label>\n        <nz-form-control>\n            <input nz-input [(ngModel)]=\"field.helpText\" (ngModelChange)=\"modalChange($event)\" type=\"text\">\n        </nz-form-control>\n    </nz-form-item>\n    <nz-form-item>\n        <nz-form-label nzFor=\"name\">宽度</nz-form-label>\n        <nz-form-control>\n            <nz-select style=\"width: 100%;\" [(ngModel)]=\"field.size\"  (ngModelChange)=\"modalChange($event)\" nzAllowClear nzPlaceHolder=\"Choose\">\n                <nz-option nzValue=\"1\" nzLabel=\"整行\"></nz-option>\n                <nz-option nzValue=\"2\" nzLabel=\"整行的1/2\"></nz-option>\n                <nz-option nzValue=\"3\" nzLabel=\"整行的1/3\"></nz-option>\n                <nz-option nzValue=\"4\" nzLabel=\"整行的1/4\"></nz-option>\n            </nz-select>\n        </nz-form-control>\n    </nz-form-item>\n\n    <nz-form-item>\n        <label nz-checkbox [(ngModel)]=\"field.required\" (ngModelChange)=\"modalChange($event)\">必填</label>\n    </nz-form-item>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/input/setting/input-setting.component.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/setting/input-setting.component.ts ***!
+  \***********************************************************************************/
+/*! exports provided: FormFieldInputSettingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormFieldInputSettingComponent", function() { return FormFieldInputSettingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FormFieldInputSettingComponent = /** @class */ (function () {
+    function FormFieldInputSettingComponent() {
+    }
+    FormFieldInputSettingComponent.prototype.modalChange = function (event) {
+        this.changeValue(this.field);
+    };
+    FormFieldInputSettingComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], FormFieldInputSettingComponent.prototype, "field", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Function)
+    ], FormFieldInputSettingComponent.prototype, "changeValue", void 0);
+    FormFieldInputSettingComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-field-input-setting',
+            template: __webpack_require__(/*! ./input-setting.component.html */ "./src/app/form/designer/field/item/input/setting/input-setting.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormFieldInputSettingComponent);
+    return FormFieldInputSettingComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/member/member.component.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/member/member.component.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <nz-avatar nzIcon=\"anticon anticon-user\"></nz-avatar>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/member/member.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/member/member.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: TaskFieldMemberComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldMemberComponent", function() { return TaskFieldMemberComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldMemberComponent = /** @class */ (function () {
+    function TaskFieldMemberComponent() {
+    }
+    TaskFieldMemberComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldMemberComponent.prototype, "field", void 0);
+    TaskFieldMemberComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-member',
+            template: __webpack_require__(/*! ./member.component.html */ "./src/app/form/designer/field/item/member/member.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldMemberComponent);
+    return TaskFieldMemberComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/members/members.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/members/members.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <nz-avatar style=\"margin-right: 5px;\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n        <nz-avatar style=\"margin-right: 5px;\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n        <nz-avatar style=\"margin-right: 5px;\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/members/members.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/members/members.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: TaskFieldMembersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldMembersComponent", function() { return TaskFieldMembersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldMembersComponent = /** @class */ (function () {
+    function TaskFieldMembersComponent() {
+    }
+    TaskFieldMembersComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldMembersComponent.prototype, "field", void 0);
+    TaskFieldMembersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-members',
+            template: __webpack_require__(/*! ./members.component.html */ "./src/app/form/designer/field/item/members/members.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldMembersComponent);
+    return TaskFieldMembersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/number/number.component.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/number/number.component.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <input nz-input placeholder=\"\" />\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/number/number.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/number/number.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: TaskFieldNumberComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldNumberComponent", function() { return TaskFieldNumberComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldNumberComponent = /** @class */ (function () {
+    function TaskFieldNumberComponent() {
+    }
+    TaskFieldNumberComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldNumberComponent.prototype, "field", void 0);
+    TaskFieldNumberComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-number',
+            template: __webpack_require__(/*! ./number.component.html */ "./src/app/form/designer/field/item/number/number.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldNumberComponent);
+    return TaskFieldNumberComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/radio/radio.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/radio/radio.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <nz-radio-group [(ngModel)]=\"radioValue\">\n            <label nz-radio nzValue=\"1\">选项1</label>\n            <label nz-radio nzValue=\"2\">选项2</label>\n            <label nz-radio nzValue=\"3\">选项3</label>\n        </nz-radio-group>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/radio/radio.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/form/designer/field/item/radio/radio.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: TaskFieldRadioComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldRadioComponent", function() { return TaskFieldRadioComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldRadioComponent = /** @class */ (function () {
+    function TaskFieldRadioComponent() {
+    }
+    TaskFieldRadioComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldRadioComponent.prototype, "field", void 0);
+    TaskFieldRadioComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-radio',
+            template: __webpack_require__(/*! ./radio.component.html */ "./src/app/form/designer/field/item/radio/radio.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldRadioComponent);
+    return TaskFieldRadioComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/select/select.component.html":
+/*!***********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/select/select.component.html ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <nz-select style=\"width: 100%;\" [(ngModel)]=\"selectedValue\" nzPlaceHolder=\"下拉选择\">\n            <nz-option nzValue=\"1\" nzLabel=\"1\"></nz-option>\n            <nz-option nzValue=\"2\" nzLabel=\"2\"></nz-option>\n            <nz-option nzValue=\"3\" nzLabel=\"3\"></nz-option>\n        </nz-select>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/select/select.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/form/designer/field/item/select/select.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: TaskFieldSelectComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldSelectComponent", function() { return TaskFieldSelectComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldSelectComponent = /** @class */ (function () {
+    function TaskFieldSelectComponent() {
+    }
+    TaskFieldSelectComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldSelectComponent.prototype, "field", void 0);
+    TaskFieldSelectComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-select',
+            template: __webpack_require__(/*! ./select.component.html */ "./src/app/form/designer/field/item/select/select.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldSelectComponent);
+    return TaskFieldSelectComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/textarea/textarea.component.html":
+/*!***************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/textarea/textarea.component.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.name}}</div>\n    <div class=\"property-item-control\">\n        <textarea row=\"3\" nz-input placeholder=\"\"> </textarea>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/textarea/textarea.component.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/textarea/textarea.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: TaskFieldTextareaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskFieldTextareaComponent", function() { return TaskFieldTextareaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TaskFieldTextareaComponent = /** @class */ (function () {
+    function TaskFieldTextareaComponent() {
+    }
+    TaskFieldTextareaComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], TaskFieldTextareaComponent.prototype, "field", void 0);
+    TaskFieldTextareaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-task-field-textarea',
+            template: __webpack_require__(/*! ./textarea.component.html */ "./src/app/form/designer/field/item/textarea/textarea.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], TaskFieldTextareaComponent);
+    return TaskFieldTextareaComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/form-designer.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/form/designer/form-designer.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"task-designer-wrap\">\n    <!-- <div class=\"task-designer-header\">\n        表单设计器\n        <button nz-button nzType=\"primary\" (click)=\"saveForm()\">Primary</button>\n    </div> -->\n    <div class=\"task-designer-body\">\n        <div class=\"task-designer-fields\">\n            <div class=\"field-title\">可选控件</div>\n            <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n                <li class=field-item *ngFor=\"let item of fields;\">{{item.label}}</li>\n            </ul>\n        </div>\n        <div class=\"task-designer-properties\">\n            <div class=\"property-title\" (click)=\"selectForm()\">表单名称</div>\n            <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n                <form-field-design *ngFor=\"let item of properties;\" [field]=\"item\"></form-field-design>\n            </div>\n        </div>\n        <div class=\"task-designer-settings\">\n            <div class=\"settings-title \">\n                属性设置\n            </div>\n            <div class=\"settings-body\">\n                <div *ngIf=\"isForm\">\n                    <!-- <form nz-form [nzLayout]=\"vertical\"> -->\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">表单名称</nz-form-label>\n                        <nz-form-control>\n                            <input nz-input [(ngModel)]=\"form.name\" name=\"name\" type=\"text\">\n                        </nz-form-control>\n                    </nz-form-item>\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">描述</nz-form-label>\n                        <nz-form-control>\n                            <textarea row=\"3\" [(ngModel)]=\"form.description\" name=\"description\" nz-input placeholder=\"\"></textarea>\n                        </nz-form-control>\n                    </nz-form-item>\n                    <form-field-setting *ngFor=\"let item of properties;\" [field]=\"item\" (changeField)=\"changeField($event)\" #fieldSetting></form-field-setting>\n                    <!-- </form> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/form-designer.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/form/designer/form-designer.component.ts ***!
+  \**********************************************************/
+/*! exports provided: FormDesignerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormDesignerComponent", function() { return FormDesignerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _project_entity_form_info__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../project/entity/form-info */ "./src/app/project/entity/form-info.ts");
+/* harmony import */ var _form_designer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-designer.service */ "./src/app/form/designer/form-designer.service.ts");
+/* harmony import */ var _field_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./field.constant */ "./src/app/form/designer/field.constant.ts");
+/* harmony import */ var _field_field_setting_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./field/field-setting.component */ "./src/app/form/designer/field/field-setting.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var FormDesignerComponent = /** @class */ (function () {
+    function FormDesignerComponent(formDesignerService) {
+        this.formDesignerService = formDesignerService;
+        this.layoutClass = true;
+        this.fields = [];
+        this.properties = [];
+        this.fieldSortOptions = {
+            group: 'designer'
+        };
+        this.propertySortOptions = {
+            group: 'designer'
+        };
+        this.form = {
+            sid: '',
+            name: '',
+            description: '',
+            fields: []
+        };
+        this.isForm = true;
+        this.cloneFieldItem = function (item) {
+            return item;
+        };
+    }
+    FormDesignerComponent.prototype.ngOnInit = function () {
+        this.fields = _field_constant__WEBPACK_IMPORTED_MODULE_3__["fields"];
+        if (this.entity) {
+            this.form = this.entity;
+            this.properties = this.entity.fields;
+        }
+    };
+    FormDesignerComponent.prototype.selectForm = function () {
+        this.isForm = true;
+    };
+    FormDesignerComponent.prototype.changeField = function (event) {
+        // const _index = this.properties.findIndex(((n)=>{
+        //   return n.id = event.id;
+        // }));
+        // this.properties.splice(_index,1,event);
+    };
+    FormDesignerComponent.prototype.saveForm = function () {
+        this.properties.forEach(function (n, index) {
+            n.orderNo = index + 1;
+        });
+        this.form.fields = this.properties;
+        var _back = {};
+        Object.assign(_back, this.form);
+        this.clear();
+        return _back;
+    };
+    FormDesignerComponent.prototype.clear = function () {
+        this.form = {
+            sid: '',
+            name: '',
+            description: '',
+            fields: []
+        };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.form-designer-element'),
+        __metadata("design:type", Object)
+    ], FormDesignerComponent.prototype, "layoutClass", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _project_entity_form_info__WEBPACK_IMPORTED_MODULE_1__["FormInfo"])
+    ], FormDesignerComponent.prototype, "entity", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_field_field_setting_component__WEBPACK_IMPORTED_MODULE_4__["FormFieldSettingComponent"]),
+        __metadata("design:type", _field_field_setting_component__WEBPACK_IMPORTED_MODULE_4__["FormFieldSettingComponent"])
+    ], FormDesignerComponent.prototype, "fieldSetting", void 0);
+    FormDesignerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-designer',
+            template: __webpack_require__(/*! ./form-designer.component.html */ "./src/app/form/designer/form-designer.component.html")
+        }),
+        __metadata("design:paramtypes", [_form_designer_service__WEBPACK_IMPORTED_MODULE_2__["FormDesignerService"]])
+    ], FormDesignerComponent);
+    return FormDesignerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/form-designer.service.ts":
+/*!********************************************************!*\
+  !*** ./src/app/form/designer/form-designer.service.ts ***!
+  \********************************************************/
+/*! exports provided: FormDesignerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormDesignerService", function() { return FormDesignerService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormDesignerService = /** @class */ (function () {
+    function FormDesignerService(http) {
+        this.http = http;
+        this.fields$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
+    }
+    FormDesignerService.prototype.getAllFields = function () {
+        var _this = this;
+        return this.http.get('/assets/api/project/fields.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.fields$.next(response.data.fields);
+        }));
+    };
+    FormDesignerService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], FormDesignerService);
+    return FormDesignerService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/form.component.html":
+/*!******************************************!*\
+  !*** ./src/app/form/form.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-toc\">\n    <app-form-toc></app-form-toc>\n</div>\n<div class=\"app-body\">\n    <router-outlet></router-outlet>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/form.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/form/form.component.ts ***!
+  \****************************************/
+/*! exports provided: FormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormComponent", function() { return FormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FormComponent = /** @class */ (function () {
+    function FormComponent(router) {
+        this.router = router;
+        this.layoutClass = true;
+    }
+    FormComponent.prototype.ngOnInit = function () {
+        this.router.navigate(['form', 'list']);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.app-main'),
+        __metadata("design:type", Object)
+    ], FormComponent.prototype, "layoutClass", void 0);
+    FormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form',
+            template: __webpack_require__(/*! ./form.component.html */ "./src/app/form/form.component.html")
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], FormComponent);
+    return FormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/form.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/form/form.module.ts ***!
+  \*************************************/
+/*! exports provided: FormModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormModule", function() { return FormModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_shared_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-shared.module */ "./src/app/app-shared.module.ts");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! . */ "./src/app/form/index.ts");
+/* harmony import */ var _form_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form.router */ "./src/app/form/form.router.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormModule = /** @class */ (function () {
+    function FormModule() {
+    }
+    FormModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _app_shared_module__WEBPACK_IMPORTED_MODULE_1__["AppSharedModule"],
+                _form_router__WEBPACK_IMPORTED_MODULE_3__["FormRoutingModule"]
+            ],
+            declarations: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].concat(___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"]),
+            entryComponents: ___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"].slice(),
+            exports: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].concat(___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"]),
+            providers: ___WEBPACK_IMPORTED_MODULE_2__["PROVIDERS"].slice()
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormModule);
+    return FormModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/form.router.ts":
+/*!*************************************!*\
+  !*** ./src/app/form/form.router.ts ***!
+  \*************************************/
+/*! exports provided: FormRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormRoutingModule", function() { return FormRoutingModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form.component */ "./src/app/form/form.component.ts");
+/* harmony import */ var _list_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list/list.component */ "./src/app/form/list/list.component.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var formRoutes = [
+    {
+        path: 'form',
+        canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]],
+        component: _form_component__WEBPACK_IMPORTED_MODULE_2__["FormComponent"],
+        children: [
+            { path: 'list', component: _list_list_component__WEBPACK_IMPORTED_MODULE_3__["FormListComponent"] }
+        ]
+    }
+];
+var FormRoutingModule = /** @class */ (function () {
+    function FormRoutingModule() {
+    }
+    FormRoutingModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(formRoutes)
+            ],
+            exports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]
+            ]
+        })
+    ], FormRoutingModule);
+    return FormRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/index.ts":
+/*!*******************************!*\
+  !*** ./src/app/form/index.ts ***!
+  \*******************************/
+/*! exports provided: FormComponent, FormTocComponent, FormListComponent, FormDesignerComponent, COMPONENTS, ENTITY_COMPONENTS, PROVIDERS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMPONENTS", function() { return COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENTITY_COMPONENTS", function() { return ENTITY_COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PROVIDERS", function() { return PROVIDERS; });
+/* harmony import */ var _form_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form.component */ "./src/app/form/form.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormComponent", function() { return _form_component__WEBPACK_IMPORTED_MODULE_0__["FormComponent"]; });
+
+/* harmony import */ var _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toc/toc.component */ "./src/app/form/toc/toc.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormTocComponent", function() { return _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__["FormTocComponent"]; });
+
+/* harmony import */ var _list_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./list/list.component */ "./src/app/form/list/list.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormListComponent", function() { return _list_list_component__WEBPACK_IMPORTED_MODULE_2__["FormListComponent"]; });
+
+/* harmony import */ var _services_form_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/form.service */ "./src/app/form/services/form.service.ts");
+/* harmony import */ var _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./designer/form-designer.component */ "./src/app/form/designer/form-designer.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormDesignerComponent", function() { return _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]; });
+
+/* harmony import */ var _designer_form_designer_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./designer/form-designer.service */ "./src/app/form/designer/form-designer.service.ts");
+/* harmony import */ var _designer_field__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./designer/field */ "./src/app/form/designer/field/index.ts");
+
+
+
+
+
+
+
+
+var COMPONENTS = [
+    _form_component__WEBPACK_IMPORTED_MODULE_0__["FormComponent"],
+    _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__["FormTocComponent"],
+    _list_list_component__WEBPACK_IMPORTED_MODULE_2__["FormListComponent"],
+    _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]
+].concat(_designer_field__WEBPACK_IMPORTED_MODULE_6__["TASK_FIELD_COMPONENTS"]);
+var ENTITY_COMPONENTS = [
+    _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]
+].concat(_designer_field__WEBPACK_IMPORTED_MODULE_6__["TASK_FIELD_ENTITY_COMPONENTS"]);
+var PROVIDERS = [
+    _services_form_service__WEBPACK_IMPORTED_MODULE_3__["FormService"],
+    _designer_form_designer_service__WEBPACK_IMPORTED_MODULE_5__["FormDesignerService"]
+];
+
+
+/***/ }),
+
+/***/ "./src/app/form/list/list.component.html":
+/*!***********************************************!*\
+  !*** ./src/app/form/list/list.component.html ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-body-main\">\n    <div class=\"header\">\n        <div class=\"title\">\n            <i class=\"anticon anticon-plus\"></i>表单制作\n        </div>\n    </div>\n    <div class=\"body body-list\">\n        <div class=\"body-header\">\n            <div class=\"body-header-left\">\n\n            </div>\n            <div class=\"body-header-center\">\n\n            </div>\n            <div class=\"body-header-right\">\n                <button nz-button nzType=\"primary\" (click)=\"showDesigner()\">\n                    <i class=\"anticon anticon-plus\"></i>添加表单</button>\n            </div>\n\n        </div>\n        <div class=\"body-content\">\n            <nz-table #basicTable [nzData]=\"formService.forms\">\n                    <thead>\n                        <tr>\n                            <th>名称</th>\n                            <th>描述</th>\n                            <th>状态</th>\n                            <th nzWidth=\"120px\">操作</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let data of basicTable.data\">\n                            <td>{{data.name}}</td>\n                            <td>{{data.description}}</td>\n                            <td>{{data.status}}</td>\n                            <td>\n                                <a (click)=\"editForm(data)\"><i class=\"anticon anticon-edit\"></i></a>\n                                <nz-divider nzType=\"vertical\"></nz-divider>\n                                <a (click)=\"showDeleteConfirm(data)\"><i class=\"anticon anticon-delete\"></i></a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </nz-table>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/list/list.component.ts":
+/*!*********************************************!*\
+  !*** ./src/app/form/list/list.component.ts ***!
+  \*********************************************/
+/*! exports provided: FormListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormListComponent", function() { return FormListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../designer/form-designer.component */ "./src/app/form/designer/form-designer.component.ts");
+/* harmony import */ var _services_form_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/form.service */ "./src/app/form/services/form.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+// import { FormService } from '../services/form.service';
+var FormListComponent = /** @class */ (function () {
+    function FormListComponent(formService, modalService) {
+        this.formService = formService;
+        this.modalService = modalService;
+        this.dataSet = [];
+        this.isEdit = false;
+    }
+    FormListComponent.prototype.getFormList = function () {
+        this.formService.getForms().subscribe();
+    };
+    FormListComponent.prototype.ngOnInit = function () {
+        this.getFormList();
+    };
+    FormListComponent.prototype.showDesigner = function () {
+        var _this = this;
+        // this.isVisible = true;
+        this.formDesignerComponent = this.modalService.create({
+            nzTitle: '表单设计器',
+            nzWrapClassName: 'modal-full',
+            nzWidth: '100%',
+            nzContent: _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_2__["FormDesignerComponent"],
+            nzOkText: '确定',
+            nzOkType: 'primary',
+            nzComponentParams: {
+                entity: this.entity
+            },
+            nzOnOk: function () {
+                var _form = _this.formDesignerComponent.getContentComponent().saveForm();
+                if (_this.entity) {
+                    _this.formService.updateForm(_form).subscribe(function () {
+                        _this.entity = null;
+                    });
+                }
+                else {
+                    _this.formService.saveForm(_form).subscribe(function () {
+                    });
+                }
+            },
+            nzCancelText: '取消',
+            nzOnCancel: function () {
+                _this.formDesignerComponent.destroy();
+            }
+        });
+    };
+    // handleCancel() {
+    // }
+    // handleOk() {
+    //   const _form = this.designer.saveForm();
+    //   this.formService.saveForm(_form).subscribe(() => {
+    //   });
+    //   this.handleCancel();
+    // }
+    FormListComponent.prototype.editForm = function (form) {
+        var _this = this;
+        this.formService.getForm(form.id).subscribe(function (response) {
+            _this.entity = response;
+            _this.showDesigner();
+        }, function () {
+        });
+    };
+    FormListComponent.prototype.deleteForm = function (form) {
+        this.formService.deleteForm(form.id).subscribe();
+    };
+    FormListComponent.prototype.showDeleteConfirm = function (form) {
+        var _this = this;
+        this.modalService.confirm({
+            nzTitle: '确定要删除该表单吗？',
+            nzContent: '<b style="color: red;">表单： ' + form.name + '</b>',
+            nzOkText: '删除',
+            nzOkType: 'danger',
+            nzOnOk: function () {
+                _this.deleteForm(form);
+            },
+            nzCancelText: '取消',
+            nzOnCancel: function () { return console.log('Cancel'); }
+        });
+    };
+    FormListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-list',
+            template: __webpack_require__(/*! ./list.component.html */ "./src/app/form/list/list.component.html")
+        }),
+        __metadata("design:paramtypes", [_services_form_service__WEBPACK_IMPORTED_MODULE_3__["FormService"],
+            ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__["NzModalService"]])
+    ], FormListComponent);
+    return FormListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/services/form.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/form/services/form.service.ts ***!
+  \***********************************************/
+/*! exports provided: FormService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormService", function() { return FormService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormService = /** @class */ (function () {
+    function FormService(http) {
+        this.http = http;
+        this.forms$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]();
+        this.forms = [];
+    }
+    FormService.prototype.getForms = function () {
+        var _this = this;
+        return this.http.get('/smartform/page/list').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.forms = response;
+        }));
+    };
+    FormService.prototype.saveForm = function (form) {
+        var _this = this;
+        return this.http.post('/smartform/page', form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.forms = _this.forms.concat([response]);
+        }));
+    };
+    FormService.prototype.getForm = function (formId) {
+        return this.http.get('/smartform/page/' + formId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            return response;
+        }));
+    };
+    FormService.prototype.updateForm = function (form) {
+        var _this = this;
+        return this.http.put('/smartform/page/' + form.id, form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            debugger;
+            var _form = _this.forms.find(function (n) { return n.id === form.id; });
+            Object.assign(_form, response);
+        }));
+    };
+    FormService.prototype.deleteForm = function (formId) {
+        var _this = this;
+        return this.http.delete('/smartform/page/' + formId).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
+            _this.forms = _this.forms.filter(function (n) { return n.id !== formId; });
+        }));
+    };
+    FormService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], FormService);
+    return FormService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/toc/toc.component.html":
+/*!*********************************************!*\
+  !*** ./src/app/form/toc/toc.component.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"logo\">\n        <i class=\"anticon anticon-api\"></i><span>Freeform</span>\n    </div>\n    <ul nz-menu [nzMode]=\"'inline'\" class=\"toc-menu\">\n        <li nz-menu-item class=\"toc-menu-item\">\n            <span title>\n                <i class=\"anticon anticon-dashboard\"></i>Dashboard</span>\n        </li>\n        <li nz-menu-item class=\"toc-menu-item\" nz-menu-item [routerLink]=\"['./list']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n            <span title>\n                <i class=\"anticon anticon-plus\"></i>表单制作</span>\n        </li>\n        <!-- <li nz-menu-item class=\"toc-menu-item\">\n            <span title>\n                <i class=\"anticon anticon-plus\"></i>表单查询</span>\n        </li>\n        <li nz-menu-item class=\"toc-menu-item\">\n            <span title>\n                <i class=\"anticon anticon-plus\"></i>表单统计</span>\n        </li> -->\n        <li nz-submenu class=\"toc-menu-submenu\">\n            <span title>\n                <i class=\"anticon anticon-team\"></i>表单统计</span>\n            <ul class=\"toc-menu-sub\">\n                <li nz-menu-item class=\"toc-menu-item\">超期表单</li>\n                <li nz-menu-item class=\"toc-menu-item\">未处理</li>\n            </ul>\n        </li>\n    </ul>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/toc/toc.component.ts":
+/*!*******************************************!*\
+  !*** ./src/app/form/toc/toc.component.ts ***!
+  \*******************************************/
+/*! exports provided: FormTocComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormTocComponent", function() { return FormTocComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FormTocComponent = /** @class */ (function () {
+    function FormTocComponent() {
+    }
+    FormTocComponent.prototype.ngOnInit = function () {
+    };
+    FormTocComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-toc',
+            template: __webpack_require__(/*! ./toc.component.html */ "./src/app/form/toc/toc.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormTocComponent);
+    return FormTocComponent;
+}());
+
 
 
 /***/ }),
@@ -453,1147 +1989,27 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/message/chat/chat.component.html":
-/*!**************************************************!*\
-  !*** ./src/app/message/chat/chat.component.html ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "1111111"
-
-/***/ }),
-
-/***/ "./src/app/message/chat/chat.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/message/chat/chat.component.ts ***!
-  \************************************************/
-/*! exports provided: MessageChatComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageChatComponent", function() { return MessageChatComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MessageChatComponent = /** @class */ (function () {
-    function MessageChatComponent() {
-    }
-    MessageChatComponent.prototype.ngOnInit = function () {
-    };
-    MessageChatComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-message-chat',
-            template: __webpack_require__(/*! ./chat.component.html */ "./src/app/message/chat/chat.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], MessageChatComponent);
-    return MessageChatComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/message/index.ts":
-/*!**********************************!*\
-  !*** ./src/app/message/index.ts ***!
-  \**********************************/
-/*! exports provided: MessageComponent, MessageChatComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _message_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./message.component */ "./src/app/message/message.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MessageComponent", function() { return _message_component__WEBPACK_IMPORTED_MODULE_0__["MessageComponent"]; });
-
-/* harmony import */ var _chat_chat_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chat/chat.component */ "./src/app/message/chat/chat.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MessageChatComponent", function() { return _chat_chat_component__WEBPACK_IMPORTED_MODULE_1__["MessageChatComponent"]; });
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/app/message/message.component.html":
-/*!************************************************!*\
-  !*** ./src/app/message/message.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<nz-layout>\n  <nz-sider [nzWidth]=\"300\" [nzBreakpoint]=\"'lg'\" style=\"background:#fff\">\n    <app-message-toc></app-message-toc>\n  </nz-sider>\n  <nz-layout style=\"padding:0 24px 24px\">\n    <nz-content style=\"background:#fff; margin: 20px 0; padding: 24px; height:500px;\">\n      <router-outlet></router-outlet>\n    </nz-content>\n  </nz-layout>\n</nz-layout>"
-
-/***/ }),
-
-/***/ "./src/app/message/message.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/message/message.component.ts ***!
-  \**********************************************/
-/*! exports provided: MessageComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageComponent", function() { return MessageComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MessageComponent = /** @class */ (function () {
-    function MessageComponent() {
-    }
-    MessageComponent.prototype.ngOnInit = function () {
-    };
-    MessageComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-message',
-            template: __webpack_require__(/*! ./message.component.html */ "./src/app/message/message.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], MessageComponent);
-    return MessageComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/message/message.module.ts":
-/*!*******************************************!*\
-  !*** ./src/app/message/message.module.ts ***!
-  \*******************************************/
-/*! exports provided: MessageModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageModule", function() { return MessageModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _message_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message.component */ "./src/app/message/message.component.ts");
-/* harmony import */ var _toc_toc_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toc/toc.component */ "./src/app/message/toc/toc.component.ts");
-/* harmony import */ var _app_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../app-shared.module */ "./src/app/app-shared.module.ts");
-/* harmony import */ var _chat_chat_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./chat/chat.component */ "./src/app/message/chat/chat.component.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var MessageModule = /** @class */ (function () {
-    function MessageModule() {
-    }
-    MessageModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                _app_shared_module__WEBPACK_IMPORTED_MODULE_3__["AppSharedModule"]
-            ],
-            declarations: [
-                _message_component__WEBPACK_IMPORTED_MODULE_1__["MessageComponent"],
-                _toc_toc_component__WEBPACK_IMPORTED_MODULE_2__["MessageTocComponent"],
-                _chat_chat_component__WEBPACK_IMPORTED_MODULE_4__["MessageChatComponent"]
-            ],
-            entryComponents: [],
-            exports: [
-                _message_component__WEBPACK_IMPORTED_MODULE_1__["MessageComponent"],
-                _toc_toc_component__WEBPACK_IMPORTED_MODULE_2__["MessageTocComponent"],
-                _chat_chat_component__WEBPACK_IMPORTED_MODULE_4__["MessageChatComponent"]
-            ],
-            providers: []
-        }),
-        __metadata("design:paramtypes", [])
-    ], MessageModule);
-    return MessageModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/message/toc/toc.component.html":
-/*!************************************************!*\
-  !*** ./src/app/message/toc/toc.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ul nz-menu [nzMode]=\"'inline'\" style=\"height:100%\">\n    <li nz-submenu>\n        <span title>\n            <i class=\"anticon anticon-team\"></i>收藏群组</span>\n        <ul>\n            <li nz-menu-item>讨论组001</li>\n            <li nz-menu-item>讨论组002</li>\n            <li nz-menu-item>讨论组003</li>\n            <li nz-menu-item>讨论组003</li>\n        </ul>\n    </li>\n    <li nz-menu-item [routerLink]=\"['./chat']\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>张三</span>\n    </li>\n    <li nz-menu-item [routerLink]=\"['./chat']\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>王五</span>\n    </li>\n    <li nz-menu-item [routerLink]=\"['./chat']\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>李四</span>\n    </li>\n</ul>"
-
-/***/ }),
-
-/***/ "./src/app/message/toc/toc.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/message/toc/toc.component.ts ***!
-  \**********************************************/
-/*! exports provided: MessageTocComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageTocComponent", function() { return MessageTocComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MessageTocComponent = /** @class */ (function () {
-    function MessageTocComponent() {
-    }
-    MessageTocComponent.prototype.ngOnInit = function () {
-    };
-    MessageTocComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-message-toc',
-            template: __webpack_require__(/*! ./toc.component.html */ "./src/app/message/toc/toc.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], MessageTocComponent);
-    return MessageTocComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/addon/index.ts":
-/*!****************************************!*\
-  !*** ./src/app/project/addon/index.ts ***!
-  \****************************************/
-/*! exports provided: ProjectAddonWaitingComponent, ProjectAddonIterationComponent, addonComponentsKeyMap */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addonComponentsKeyMap", function() { return addonComponentsKeyMap; });
-/* harmony import */ var _waiting_waiting_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./waiting/waiting.component */ "./src/app/project/addon/waiting/waiting.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectAddonWaitingComponent", function() { return _waiting_waiting_component__WEBPACK_IMPORTED_MODULE_0__["ProjectAddonWaitingComponent"]; });
-
-/* harmony import */ var _iteration_iteration_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iteration/iteration.component */ "./src/app/project/addon/iteration/iteration.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectAddonIterationComponent", function() { return _iteration_iteration_component__WEBPACK_IMPORTED_MODULE_1__["ProjectAddonIterationComponent"]; });
-
-
-
-
-var addonComponentsKeyMap = {
-    'waiting': _waiting_waiting_component__WEBPACK_IMPORTED_MODULE_0__["ProjectAddonWaitingComponent"],
-    'iteration': _iteration_iteration_component__WEBPACK_IMPORTED_MODULE_1__["ProjectAddonIterationComponent"]
-};
-
-
-/***/ }),
-
-/***/ "./src/app/project/addon/iteration/iteration.component.html":
-/*!******************************************************************!*\
-  !*** ./src/app/project/addon/iteration/iteration.component.html ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/project/addon/iteration/iteration.component.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/project/addon/iteration/iteration.component.ts ***!
-  \****************************************************************/
-/*! exports provided: ProjectAddonIterationComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectAddonIterationComponent", function() { return ProjectAddonIterationComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ProjectAddonIterationComponent = /** @class */ (function () {
-    function ProjectAddonIterationComponent() {
-    }
-    ProjectAddonIterationComponent.prototype.ngOnInit = function () {
-    };
-    ProjectAddonIterationComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-addon-iteration',
-            template: __webpack_require__(/*! ./iteration.component.html */ "./src/app/project/addon/iteration/iteration.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], ProjectAddonIterationComponent);
-    return ProjectAddonIterationComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/addon/waiting/waiting.component.html":
-/*!**************************************************************!*\
-  !*** ./src/app/project/addon/waiting/waiting.component.html ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div nz-row>\n    <div nz-col nzSpan=\"11\">\n        <div nz-row class=\"mb-2\">\n            <div nz-col nzSpan=\"18\">\n                <input nz-input placeholder=\"任务名称\" #taskInput>\n            </div>\n            <div nz-col nzSpan=\"1\">\n            </div>\n            <div nz-col nzSpan=\"5\">\n                <button nz-button nzType=\"primary\" (click)=\"addTask(taskInput.value)\">确定</button>\n            </div>\n        </div>\n        <nz-list [nzDataSource]=\"tasks\" [nzRenderItem]=\"item\" [nzItemLayout]=\"'horizontal'\">\n            <ng-template #item let-item>\n                <nz-list-item [nzContent]=\"nzContent\">\n                    <ng-template #nzContent>\n                        <div (click)=\"openTask(item)\">{{item.name}}</div>\n                    </ng-template>\n                </nz-list-item>\n            </ng-template>\n        </nz-list>\n    </div>\n    <div nz-col nzSpan=\"2\">\n    </div>\n    <div nz-col nzSpan=\"11\">\n        <div nz-row class=\"mb-2\">\n            <div nz-col nzSpan=\"10\">\n            </div>\n            <div nz-col nzSpan=\"14\">\n                <button nz-button nzType=\"primary\" class=\"mr-1\">开始迭代</button>\n                <button nz-button nzType=\"default\">结束迭代</button>\n            </div>\n        </div>\n        <nz-list [nzDataSource]=\"tasks\" [nzRenderItem]=\"item1\" [nzItemLayout]=\"'horizontal'\">\n            <ng-template #item1 let-item>\n                <nz-list-item [nzContent]=\"nzContent1\">\n                    <ng-template #nzContent1>\n                        <div (click)=\"openTask(item)\">{{item.name}}</div>\n                    </ng-template>\n                </nz-list-item>\n            </ng-template>\n        </nz-list>\n    </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/project/addon/waiting/waiting.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/project/addon/waiting/waiting.component.ts ***!
-  \************************************************************/
-/*! exports provided: ProjectAddonWaitingComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectAddonWaitingComponent", function() { return ProjectAddonWaitingComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_project_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/project.service */ "./src/app/project/services/project.service.ts");
-/* harmony import */ var _services_task_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/task.service */ "./src/app/project/services/task.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ProjectAddonWaitingComponent = /** @class */ (function () {
-    function ProjectAddonWaitingComponent(projectService, taskService) {
-        this.projectService = projectService;
-        this.taskService = taskService;
-    }
-    ProjectAddonWaitingComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.projectService.getProjectTasks().subscribe();
-        this.projectService.tasks$.subscribe(function (tasks) {
-            _this.tasks = tasks;
-        });
-    };
-    ProjectAddonWaitingComponent.prototype.addTask = function (name) {
-        this.projectService.addProjectTask(name);
-    };
-    ProjectAddonWaitingComponent.prototype.openTask = function (task) {
-        this.taskService.openTaskDetail(task);
-    };
-    ProjectAddonWaitingComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-addon-waiting',
-            template: __webpack_require__(/*! ./waiting.component.html */ "./src/app/project/addon/waiting/waiting.component.html")
-        }),
-        __metadata("design:paramtypes", [_services_project_service__WEBPACK_IMPORTED_MODULE_1__["ProjectService"],
-            _services_task_service__WEBPACK_IMPORTED_MODULE_2__["TaskService"]])
-    ], ProjectAddonWaitingComponent);
-    return ProjectAddonWaitingComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/configuration/designer/designer.component.html":
-/*!************************************************************************!*\
-  !*** ./src/app/project/configuration/designer/designer.component.html ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"task-designer-wrap\">\n    <div class=\"task-designer-header\">\n        表单设计器\n        <button nz-button nzType=\"primary\" (click)=\"saveForm()\">Primary</button>\n    </div>\n    <div class=\"task-designer-body\">\n        <div class=\"task-designer-fields\">\n            <div class=\"field-title\">可选控件</div>\n            <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n                <li class=field-item *ngFor=\"let item of fields;\">{{item.label}}</li>\n            </ul>\n        </div>\n        <div class=\"task-designer-properties\">\n            <div class=\"property-title\" (click)=\"selectForm()\">表单名称</div>\n            <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n                <div class=\"property-item\" *ngFor=\"let item of properties;\">\n                    <div class=\"property-item-title\">{{item.label}}</div>\n                    <div class=\"property-item-control\">\n                        <input *ngIf=\"item.type === 'textinput'\" nz-input placeholder=\"\" />\n                        <textarea *ngIf=\"item.type === 2\" row=\"3\" nz-input placeholder=\"\">\n                            </textarea>\n                        <nz-date-picker *ngIf=\"item.type === 3\" style=\"width: 100%;\" [(ngModel)]=\"date\" nzShowTime></nz-date-picker>\n                        <nz-select *ngIf=\"item.type === 4\" style=\"width: 100%;\" [(ngModel)]=\"selectedValue\" nzPlaceHolder=\"下拉选择\">\n                            <nz-option nzValue=\"jack\" nzLabel=\"Jack\"></nz-option>\n                            <nz-option nzValue=\"lucy\" nzLabel=\"Lucy\"></nz-option>\n                            <nz-option nzValue=\"disabled\" nzLabel=\"Disabled\" nzDisabled></nz-option>\n                        </nz-select>\n                        <nz-radio-group *ngIf=\"item.type === 5\" [(ngModel)]=\"radioValue\">\n                            <label nz-radio nzValue=\"A\">A</label>\n                            <label nz-radio nzValue=\"B\">B</label>\n                            <label nz-radio nzValue=\"C\">C</label>\n                            <label nz-radio nzValue=\"D\">D</label>\n                        </nz-radio-group>\n\n                        <nz-avatar *ngIf=\"item.type === 6\" nzIcon=\"anticon anticon-user\"></nz-avatar>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"task-designer-settings\">\n            <div class=\"settings-title \">\n                属性设置\n            </div>\n            <div class=\"settings-body\">\n                <div *ngIf=\"isForm\">\n                    <!-- <form nz-form [nzLayout]=\"vertical\"> -->\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">表单名称</nz-form-label>\n                        <nz-form-control>\n                            <input nz-input [(ngModel)]=\"form.name\" name=\"name\" type=\"text\">\n                        </nz-form-control>\n                    </nz-form-item>\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">描述</nz-form-label>\n                        <nz-form-control>\n                            <textarea row=\"3\" [(ngModel)]=\"form.description\" name=\"description\" nz-input placeholder=\"\">\n                                    </textarea>\n                        </nz-form-control>\n                    </nz-form-item>\n\n\n                    <ng-container *ngFor=\"let item of properties;\">\n                        <ng-container *ngIf=\"item.type === 'textinput'\">\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">字段名称</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.label\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">提示</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.placeholder\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">说明</nz-form-label>\n                                <nz-form-control>\n                                    <input nz-input [(ngModel)]=\"item.helptext\" type=\"text\">\n                                </nz-form-control>\n                            </nz-form-item>\n                            <nz-form-item>\n                                <nz-form-label nzFor=\"name\">宽度</nz-form-label>\n                                <nz-form-control>\n                                    <nz-select style=\"width: 100%;\" [(ngModel)]=\"item.inputsize\" nzAllowClear nzPlaceHolder=\"Choose\">\n                                        <nz-option nzValue=\"1\" nzLabel=\"整行\"></nz-option>\n                                        <nz-option nzValue=\"2\" nzLabel=\"整行的1/2\"></nz-option>\n                                        <nz-option nzValue=\"3\" nzLabel=\"整行的1/3\"></nz-option>\n                                        <nz-option nzValue=\"4\" nzLabel=\"整行的1/4\"></nz-option>\n                                    </nz-select>\n                                </nz-form-control>\n                            </nz-form-item>\n\n                            <nz-form-item>\n                                <label nz-checkbox [(ngModel)]=\"item.required\">必填</label>\n                            </nz-form-item>\n\n                        </ng-container>\n                    </ng-container>\n                    <!-- </form> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/project/configuration/designer/designer.component.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/project/configuration/designer/designer.component.ts ***!
-  \**********************************************************************/
-/*! exports provided: ProjectTaskDesignerComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectTaskDesignerComponent", function() { return ProjectTaskDesignerComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _designer_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./designer.services */ "./src/app/project/configuration/designer/designer.services.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ProjectTaskDesignerComponent = /** @class */ (function () {
-    function ProjectTaskDesignerComponent(taskDesignerService) {
-        this.taskDesignerService = taskDesignerService;
-        this.fields = [];
-        this.properties = [];
-        this.fieldSortOptions = {
-            group: 'designer'
-        };
-        this.propertySortOptions = {
-            group: 'designer'
-        };
-        this.form = {
-            sid: '',
-            name: '',
-            description: '',
-            fields: []
-        };
-        this.isForm = true;
-        this.cloneFieldItem = function (item) {
-            return item;
-        };
-    }
-    ProjectTaskDesignerComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.taskDesignerService.getAllFields().subscribe();
-        this.taskDesignerService.fields$.subscribe(function (fields) {
-            _this.fields = fields;
-        });
-    };
-    ProjectTaskDesignerComponent.prototype.selectForm = function () {
-        this.isForm = true;
-    };
-    ProjectTaskDesignerComponent.prototype.saveForm = function () {
-        this.properties;
-        this.form.fields = this.properties;
-        this.taskDesignerService.saveForm(this.form).subscribe(function (data) {
-            alert('ok');
-        });
-    };
-    ProjectTaskDesignerComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-task-designer',
-            template: __webpack_require__(/*! ./designer.component.html */ "./src/app/project/configuration/designer/designer.component.html")
-        }),
-        __metadata("design:paramtypes", [_designer_services__WEBPACK_IMPORTED_MODULE_1__["TaskDesignerService"]])
-    ], ProjectTaskDesignerComponent);
-    return ProjectTaskDesignerComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/configuration/designer/designer.services.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/project/configuration/designer/designer.services.ts ***!
-  \*********************************************************************/
-/*! exports provided: TaskDesignerService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskDesignerService", function() { return TaskDesignerService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var TaskDesignerService = /** @class */ (function () {
-    function TaskDesignerService(http) {
-        this.http = http;
-        this.fields$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
-    }
-    TaskDesignerService.prototype.getAllFields = function () {
-        var _this = this;
-        return this.http.get('/assets/api/project/fields.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
-            _this.fields$.next(response.data.fields);
-        }));
-    };
-    TaskDesignerService.prototype.saveForm = function (form) {
-        return this.http.post('/smartform/page', form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
-            console.log(response);
-        }));
-        // return this.http.post<any[]>('https://www.baidu.com/',{}).pipe(
-        //     tap((response: ResponseData) => {
-        //         debugger
-        //         console.log(response);
-        //     })
-        // );
-    };
-    TaskDesignerService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
-    ], TaskDesignerService);
-    return TaskDesignerService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/detail/project-addon.component.html":
-/*!*************************************************************!*\
-  !*** ./src/app/project/detail/project-addon.component.html ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/project/detail/project-addon.component.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/project/detail/project-addon.component.ts ***!
-  \***********************************************************/
-/*! exports provided: ProjectAddonComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectAddonComponent", function() { return ProjectAddonComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _addon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../addon */ "./src/app/project/addon/index.ts");
-/* harmony import */ var _services_project_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/project.service */ "./src/app/project/services/project.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ProjectAddonComponent = /** @class */ (function () {
-    function ProjectAddonComponent(projectService, viewContainerRef, componentFactoryResolver) {
-        this.projectService = projectService;
-        this.viewContainerRef = viewContainerRef;
-        this.componentFactoryResolver = componentFactoryResolver;
-    }
-    ProjectAddonComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.projectService.selectedAddon.subscribe(function (addon) {
-            _this.viewContainerRef.clear();
-            var componentFactory = _this.componentFactoryResolver.resolveComponentFactory(_addon__WEBPACK_IMPORTED_MODULE_1__["addonComponentsKeyMap"][addon.key]);
-            _this.viewContainerRef.createComponent(componentFactory);
-        });
-    };
-    ProjectAddonComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-addon',
-            template: __webpack_require__(/*! ./project-addon.component.html */ "./src/app/project/detail/project-addon.component.html")
-        }),
-        __metadata("design:paramtypes", [_services_project_service__WEBPACK_IMPORTED_MODULE_2__["ProjectService"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]])
-    ], ProjectAddonComponent);
-    return ProjectAddonComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/detail/project-detail.component.html":
-/*!**************************************************************!*\
-  !*** ./src/app/project/detail/project-detail.component.html ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"layout-header\">\n    <nz-tabset>\n        <nz-tab [nzTitle]=\"addon.name\" *ngFor=\"let addon of addons;\" (nzClick)=\"selectAddon(addon)\">\n        </nz-tab>\n    </nz-tabset>\n</div>\n<div class=\"layout-content\">\n    <router-outlet></router-outlet>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/project/detail/project-detail.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/project/detail/project-detail.component.ts ***!
-  \************************************************************/
-/*! exports provided: ProjectDetailComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectDetailComponent", function() { return ProjectDetailComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_project_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/project.service */ "./src/app/project/services/project.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ProjectDetailComponent = /** @class */ (function () {
-    function ProjectDetailComponent(projectService) {
-        this.projectService = projectService;
-        this.addons = [];
-    }
-    ProjectDetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.projectService.getProjectAddons().subscribe(function (addons) {
-            _this.addons = addons;
-        });
-    };
-    ProjectDetailComponent.prototype.selectAddon = function (addon) {
-        this.projectService.selectProjectAddon(addon);
-    };
-    ProjectDetailComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-detail',
-            template: __webpack_require__(/*! ./project-detail.component.html */ "./src/app/project/detail/project-detail.component.html")
-        }),
-        __metadata("design:paramtypes", [_services_project_service__WEBPACK_IMPORTED_MODULE_1__["ProjectService"]])
-    ], ProjectDetailComponent);
-    return ProjectDetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/entity/task-info.ts":
+/***/ "./src/app/project/entity/form-info.ts":
 /*!*********************************************!*\
-  !*** ./src/app/project/entity/task-info.ts ***!
+  !*** ./src/app/project/entity/form-info.ts ***!
   \*********************************************/
-/*! exports provided: TaskInfo */
+/*! exports provided: FormInfo, FieldInfo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskInfo", function() { return TaskInfo; });
-var TaskInfo = /** @class */ (function () {
-    function TaskInfo() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormInfo", function() { return FormInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldInfo", function() { return FieldInfo; });
+var FormInfo = /** @class */ (function () {
+    function FormInfo() {
     }
-    return TaskInfo;
+    return FormInfo;
 }());
 
-
-
-/***/ }),
-
-/***/ "./src/app/project/index.ts":
-/*!**********************************!*\
-  !*** ./src/app/project/index.ts ***!
-  \**********************************/
-/*! exports provided: ProjectComponent, ProjectTocComponent, ProjectDetailComponent, ProjectAddonComponent, ProjectTaskDetailComponent, ProjectTaskDesignerComponent, COMPONENTS, ENTITY_COMPONENTS, PROVIDERS */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMPONENTS", function() { return COMPONENTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENTITY_COMPONENTS", function() { return ENTITY_COMPONENTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PROVIDERS", function() { return PROVIDERS; });
-/* harmony import */ var _detail_project_detail_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./detail/project-detail.component */ "./src/app/project/detail/project-detail.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectDetailComponent", function() { return _detail_project_detail_component__WEBPACK_IMPORTED_MODULE_0__["ProjectDetailComponent"]; });
-
-/* harmony import */ var _project_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.component */ "./src/app/project/project.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectComponent", function() { return _project_component__WEBPACK_IMPORTED_MODULE_1__["ProjectComponent"]; });
-
-/* harmony import */ var _toc_toc_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toc/toc.component */ "./src/app/project/toc/toc.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectTocComponent", function() { return _toc_toc_component__WEBPACK_IMPORTED_MODULE_2__["ProjectTocComponent"]; });
-
-/* harmony import */ var _services_project_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/project.service */ "./src/app/project/services/project.service.ts");
-/* harmony import */ var _detail_project_addon_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./detail/project-addon.component */ "./src/app/project/detail/project-addon.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectAddonComponent", function() { return _detail_project_addon_component__WEBPACK_IMPORTED_MODULE_4__["ProjectAddonComponent"]; });
-
-/* harmony import */ var _addon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./addon */ "./src/app/project/addon/index.ts");
-/* harmony import */ var _task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./task/detail/task-detail.component */ "./src/app/project/task/detail/task-detail.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectTaskDetailComponent", function() { return _task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_6__["ProjectTaskDetailComponent"]; });
-
-/* harmony import */ var _services_task_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/task.service */ "./src/app/project/services/task.service.ts");
-/* harmony import */ var _configuration_designer_designer_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./configuration/designer/designer.component */ "./src/app/project/configuration/designer/designer.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProjectTaskDesignerComponent", function() { return _configuration_designer_designer_component__WEBPACK_IMPORTED_MODULE_8__["ProjectTaskDesignerComponent"]; });
-
-/* harmony import */ var _configuration_designer_designer_services__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./configuration/designer/designer.services */ "./src/app/project/configuration/designer/designer.services.ts");
-
-
-
-
-
-
-
-
-
-
-
-var COMPONENTS = [
-    _project_component__WEBPACK_IMPORTED_MODULE_1__["ProjectComponent"],
-    _toc_toc_component__WEBPACK_IMPORTED_MODULE_2__["ProjectTocComponent"],
-    _detail_project_detail_component__WEBPACK_IMPORTED_MODULE_0__["ProjectDetailComponent"],
-    _addon__WEBPACK_IMPORTED_MODULE_5__["ProjectAddonWaitingComponent"],
-    _addon__WEBPACK_IMPORTED_MODULE_5__["ProjectAddonIterationComponent"],
-    _detail_project_addon_component__WEBPACK_IMPORTED_MODULE_4__["ProjectAddonComponent"],
-    _task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_6__["ProjectTaskDetailComponent"],
-    _configuration_designer_designer_component__WEBPACK_IMPORTED_MODULE_8__["ProjectTaskDesignerComponent"]
-];
-var ENTITY_COMPONENTS = [
-    _addon__WEBPACK_IMPORTED_MODULE_5__["ProjectAddonWaitingComponent"],
-    _addon__WEBPACK_IMPORTED_MODULE_5__["ProjectAddonIterationComponent"],
-    _task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_6__["ProjectTaskDetailComponent"]
-];
-var PROVIDERS = [
-    _services_project_service__WEBPACK_IMPORTED_MODULE_3__["ProjectService"],
-    _services_task_service__WEBPACK_IMPORTED_MODULE_7__["TaskService"],
-    _configuration_designer_designer_services__WEBPACK_IMPORTED_MODULE_9__["TaskDesignerService"]
-];
-
-
-/***/ }),
-
-/***/ "./src/app/project/project.component.html":
-/*!************************************************!*\
-  !*** ./src/app/project/project.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<nz-sider [nzWidth]=\"200\" [nzBreakpoint]=\"'lg'\" style=\"background:#fff\">\n    <app-project-toc></app-project-toc>\n</nz-sider>\n<nz-content style=\"margin:0 20px;\">\n    <router-outlet></router-outlet>\n</nz-content>"
-
-/***/ }),
-
-/***/ "./src/app/project/project.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/project/project.component.ts ***!
-  \**********************************************/
-/*! exports provided: ProjectComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectComponent", function() { return ProjectComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ProjectComponent = /** @class */ (function () {
-    function ProjectComponent() {
-        this.layoutClass = true;
-        this.layoutHasSider = true;
+var FieldInfo = /** @class */ (function () {
+    function FieldInfo() {
     }
-    ProjectComponent.prototype.ngOnInit = function () {
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.ant-layout'),
-        __metadata("design:type", Object)
-    ], ProjectComponent.prototype, "layoutClass", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.ant-layout-has-sider'),
-        __metadata("design:type", Object)
-    ], ProjectComponent.prototype, "layoutHasSider", void 0);
-    ProjectComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project',
-            template: __webpack_require__(/*! ./project.component.html */ "./src/app/project/project.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], ProjectComponent);
-    return ProjectComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/project.module.ts":
-/*!*******************************************!*\
-  !*** ./src/app/project/project.module.ts ***!
-  \*******************************************/
-/*! exports provided: ProjectModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectModule", function() { return ProjectModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_shared_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-shared.module */ "./src/app/app-shared.module.ts");
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! . */ "./src/app/project/index.ts");
-/* harmony import */ var _services_project_resolver__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/project-resolver */ "./src/app/project/services/project-resolver.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ProjectModule = /** @class */ (function () {
-    function ProjectModule() {
-    }
-    ProjectModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [
-                _app_shared_module__WEBPACK_IMPORTED_MODULE_1__["AppSharedModule"]
-            ],
-            declarations: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].slice(),
-            entryComponents: ___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"].slice(),
-            exports: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].slice(),
-            providers: ___WEBPACK_IMPORTED_MODULE_2__["PROVIDERS"].concat([
-                _services_project_resolver__WEBPACK_IMPORTED_MODULE_3__["ProjectResolver"]
-            ])
-        }),
-        __metadata("design:paramtypes", [])
-    ], ProjectModule);
-    return ProjectModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/services/project-resolver.ts":
-/*!******************************************************!*\
-  !*** ./src/app/project/services/project-resolver.ts ***!
-  \******************************************************/
-/*! exports provided: ProjectResolver */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectResolver", function() { return ProjectResolver; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _project_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./project.service */ "./src/app/project/services/project.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ProjectResolver = /** @class */ (function () {
-    function ProjectResolver(projectService, router) {
-        this.projectService = projectService;
-        this.router = router;
-    }
-    ProjectResolver.prototype.resolve = function (route, state) {
-        return this.projectService.getProjects()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
-        }));
-    };
-    ProjectResolver = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_project_service__WEBPACK_IMPORTED_MODULE_4__["ProjectService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
-    ], ProjectResolver);
-    return ProjectResolver;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/services/project.service.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/project/services/project.service.ts ***!
-  \*****************************************************/
-/*! exports provided: ProjectService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectService", function() { return ProjectService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ProjectService = /** @class */ (function () {
-    function ProjectService(http) {
-        this.http = http;
-        this.projects$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]();
-        this.addons$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]();
-        this.selectedAddon = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.tasks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]([]);
-    }
-    ProjectService.prototype.getProjects = function () {
-        var _this = this;
-        return this.http.get('/assets/api/project/projects.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
-            _this.projects$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(response.data.projects);
-        }));
-    };
-    ProjectService.prototype.getProjectAddons = function () {
-        var _this = this;
-        return this.http.get('/assets/api/project/addons.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
-            var addons = response.data.addons;
-            _this.selectProjectAddon(addons[0]);
-            _this.addons$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(response.data.addons);
-            return addons;
-        }));
-    };
-    ProjectService.prototype.getProjectTasks = function () {
-        var _this = this;
-        return this.http.get('/assets/api/project/tasks.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
-            var tasks = response.data.tasks;
-            _this.tasks$.next(tasks);
-            return tasks;
-        }));
-    };
-    ProjectService.prototype.addProjectTask = function (name) {
-        this.tasks$.next(this.tasks$.getValue().concat([
-            { name: name }
-        ]));
-    };
-    ProjectService.prototype.selectProjectAddon = function (addon) {
-        this.selectedAddon.next(addon);
-    };
-    ProjectService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
-    ], ProjectService);
-    return ProjectService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/services/task.service.ts":
-/*!**************************************************!*\
-  !*** ./src/app/project/services/task.service.ts ***!
-  \**************************************************/
-/*! exports provided: TaskService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TaskService", function() { return TaskService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../task/detail/task-detail.component */ "./src/app/project/task/detail/task-detail.component.ts");
-/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var TaskService = /** @class */ (function () {
-    function TaskService(http, modalService) {
-        this.http = http;
-        this.modalService = modalService;
-    }
-    TaskService.prototype.openTaskDetail = function (task) {
-        var modal = this.modalService.show(_task_detail_task_detail_component__WEBPACK_IMPORTED_MODULE_2__["ProjectTaskDetailComponent"], {
-            initialState: {
-                task: task
-            }
-        });
-    };
-    TaskService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            ngx_bootstrap__WEBPACK_IMPORTED_MODULE_3__["BsModalService"]])
-    ], TaskService);
-    return TaskService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/task/detail/task-detail.component.html":
-/*!****************************************************************!*\
-  !*** ./src/app/project/task/detail/task-detail.component.html ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"task-detail\">\n    <div class=\"task-detail-title\">{{task.name}}</div>\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/project/task/detail/task-detail.component.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/project/task/detail/task-detail.component.ts ***!
-  \**************************************************************/
-/*! exports provided: ProjectTaskDetailComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectTaskDetailComponent", function() { return ProjectTaskDetailComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _entity_task_info__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../entity/task-info */ "./src/app/project/entity/task-info.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ProjectTaskDetailComponent = /** @class */ (function () {
-    function ProjectTaskDetailComponent() {
-    }
-    ProjectTaskDetailComponent.prototype.ngOnInit = function () {
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", _entity_task_info__WEBPACK_IMPORTED_MODULE_1__["TaskInfo"])
-    ], ProjectTaskDetailComponent.prototype, "task", void 0);
-    ProjectTaskDetailComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-task-detail',
-            template: __webpack_require__(/*! ./task-detail.component.html */ "./src/app/project/task/detail/task-detail.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], ProjectTaskDetailComponent);
-    return ProjectTaskDetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/project/toc/toc.component.html":
-/*!************************************************!*\
-  !*** ./src/app/project/toc/toc.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ul nz-menu [nzMode]=\"'inline'\" style=\"height:100%\">\n    <!-- <li nz-menu-item *ngFor=\"let project of (projectService.projects$ | async)\" [routerLink]=\"['/project',project.id]\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"anticon anticon-user\"></i>{{project.name}}</span>\n    </li> -->\n\n    <li nz-menu-item [routerLink]=\"['./designer']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>设计器</span>\n    </li>\n    <!-- <li nz-menu-item [routerLink]=\"['./form-builder']\" [routerLinkActive]=\"'ant-menu-item-selected'\">\n        <span title>\n            <i class=\"\"></i>表单设计器</span>\n    </li> -->\n</ul>"
-
-/***/ }),
-
-/***/ "./src/app/project/toc/toc.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/project/toc/toc.component.ts ***!
-  \**********************************************/
-/*! exports provided: ProjectTocComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectTocComponent", function() { return ProjectTocComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_project_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/project.service */ "./src/app/project/services/project.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ProjectTocComponent = /** @class */ (function () {
-    function ProjectTocComponent(projectService) {
-        this.projectService = projectService;
-    }
-    ProjectTocComponent.prototype.ngOnInit = function () {
-    };
-    ProjectTocComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-project-toc',
-            template: __webpack_require__(/*! ./toc.component.html */ "./src/app/project/toc/toc.component.html")
-        }),
-        __metadata("design:paramtypes", [_services_project_service__WEBPACK_IMPORTED_MODULE_1__["ProjectService"]])
-    ], ProjectTocComponent);
-    return ProjectTocComponent;
+    return FieldInfo;
 }());
 
 
@@ -1652,6 +2068,105 @@ var AppRootResolver = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/auth-guard.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/auth-guard.service.ts ***!
+  \************************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function (route, state) {
+        var url = state.url;
+        return this.checkLogin(url);
+    };
+    AuthGuard.prototype.checkLogin = function (url) {
+        return true;
+        // if (this.authService.isLoggedIn) { 
+        //   return true; 
+        // }
+        // // Store the attempted URL for redirecting
+        // this.authService.redirectUrl = url;
+        // // Navigate to the login page with extras
+        // this.router.navigate(['/login']);
+        // return false;
+    };
+    AuthGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], AuthGuard);
+    return AuthGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/auth.service.ts ***!
+  \******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AuthService = /** @class */ (function () {
+    function AuthService() {
+        this.isLoggedIn = false;
+    }
+    AuthService.prototype.login = function () {
+        var _this = this;
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(true).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["delay"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (val) { return _this.isLoggedIn = true; }));
+    };
+    AuthService.prototype.logout = function () {
+        this.isLoggedIn = false;
+    };
+    AuthService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], AuthService);
+    return AuthService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/index.ts":
 /*!***********************************!*\
   !*** ./src/app/services/index.ts ***!
@@ -1663,9 +2178,15 @@ var AppRootResolver = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appServices", function() { return appServices; });
 /* harmony import */ var _app_root_resolver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-root-resolver */ "./src/app/services/app-root-resolver.ts");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _auth_guard_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+
+
 
 var appServices = [
-    _app_root_resolver__WEBPACK_IMPORTED_MODULE_0__["AppRootResolver"]
+    _app_root_resolver__WEBPACK_IMPORTED_MODULE_0__["AppRootResolver"],
+    _auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+    _auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]
 ];
 
 
@@ -2216,6 +2737,33 @@ var FormBuilderComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/shared/entity/form.ts":
+/*!***********************************!*\
+  !*** ./src/shared/entity/form.ts ***!
+  \***********************************/
+/*! exports provided: FormInfo, FieldInfo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormInfo", function() { return FormInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldInfo", function() { return FieldInfo; });
+var FormInfo = /** @class */ (function () {
+    function FormInfo() {
+    }
+    return FormInfo;
+}());
+
+var FieldInfo = /** @class */ (function () {
+    function FieldInfo() {
+    }
+    return FieldInfo;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/shared/index.ts":
 /*!*****************************!*\
   !*** ./src/shared/index.ts ***!
@@ -2318,20 +2866,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/locales/zh */ "./node_modules/@angular/common/locales/zh.js");
-/* harmony import */ var _angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/esm5/ngx-translate-http-loader.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services */ "./src/shared/services/index.ts");
-/* harmony import */ var _core_interceptor_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../core/interceptor/index */ "./src/core/interceptor/\bindex.ts");
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../core */ "./src/core/index.ts");
-/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/index.js");
-/* harmony import */ var angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angular-sortablejs/dist */ "./node_modules/angular-sortablejs/dist/index.js");
-/* harmony import */ var angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! . */ "./src/shared/index.ts");
+/* harmony import */ var ngx_cookie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie */ "./node_modules/ngx-cookie/fesm5/ngx-cookie.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/locales/zh */ "./node_modules/@angular/common/locales/zh.js");
+/* harmony import */ var _angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/esm5/ngx-translate-http-loader.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services */ "./src/shared/services/index.ts");
+/* harmony import */ var _core_interceptor_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../core/interceptor/index */ "./src/core/interceptor/\bindex.ts");
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../core */ "./src/core/index.ts");
+/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/index.js");
+/* harmony import */ var angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angular-sortablejs/dist */ "./node_modules/angular-sortablejs/dist/index.js");
+/* harmony import */ var angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! . */ "./src/shared/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2357,10 +2906,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 function createTranslateLoader(http) {
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__["TranslateHttpLoader"](http, 'assets/i18n/', '.json');
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_10__["TranslateHttpLoader"](http, 'assets/i18n/', '.json');
 }
-Object(_angular_common__WEBPACK_IMPORTED_MODULE_6__["registerLocaleData"])(_angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_7___default.a);
+Object(_angular_common__WEBPACK_IMPORTED_MODULE_7__["registerLocaleData"])(_angular_common_locales_zh__WEBPACK_IMPORTED_MODULE_8___default.a);
 var SharedModule = /** @class */ (function () {
     function SharedModule(translate) {
         this.translate = translate;
@@ -2377,21 +2927,22 @@ var SharedModule = /** @class */ (function () {
     };
     SharedModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: ___WEBPACK_IMPORTED_MODULE_15__["SHARED_COMPONENTS"].slice(),
+            declarations: ___WEBPACK_IMPORTED_MODULE_16__["SHARED_COMPONENTS"].slice(),
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__["NgZorroAntdModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_6__["NgZorroAntdModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_13__["ModalModule"].forRoot(),
-                angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__["SortablejsModule"].forRoot({}),
-                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"].forRoot({
+                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_14__["ModalModule"].forRoot(),
+                angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_15__["SortablejsModule"].forRoot({}),
+                ngx_cookie__WEBPACK_IMPORTED_MODULE_4__["CookieModule"].forRoot(),
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateModule"].forRoot({
                     loader: {
-                        provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateLoader"],
+                        provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateLoader"],
                         useFactory: (createTranslateLoader),
-                        deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]]
+                        deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]]
                     }
                 })
             ],
@@ -2399,19 +2950,20 @@ var SharedModule = /** @class */ (function () {
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__["NgZorroAntdModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+                ng_zorro_antd__WEBPACK_IMPORTED_MODULE_6__["NgZorroAntdModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"],
-                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_13__["ModalModule"],
-                angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_14__["SortablejsModule"]
-            ].concat(___WEBPACK_IMPORTED_MODULE_15__["SHARED_COMPONENTS"]),
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateModule"],
+                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_14__["ModalModule"],
+                angular_sortablejs_dist__WEBPACK_IMPORTED_MODULE_15__["SortablejsModule"],
+                ngx_cookie__WEBPACK_IMPORTED_MODULE_4__["CookieModule"]
+            ].concat(___WEBPACK_IMPORTED_MODULE_16__["SHARED_COMPONENTS"]),
             providers: [
-                { provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_5__["zh_CN"] }
-            ].concat(_services__WEBPACK_IMPORTED_MODULE_10__["SHARED_SERVICES"], _core__WEBPACK_IMPORTED_MODULE_12__["CORE_SERVICES"], _core_interceptor_index__WEBPACK_IMPORTED_MODULE_11__["httpInterceptorProviders"]),
+                { provide: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_6__["NZ_I18N"], useValue: ng_zorro_antd__WEBPACK_IMPORTED_MODULE_6__["zh_CN"] }
+            ].concat(_services__WEBPACK_IMPORTED_MODULE_11__["SHARED_SERVICES"], _core__WEBPACK_IMPORTED_MODULE_13__["CORE_SERVICES"], _core_interceptor_index__WEBPACK_IMPORTED_MODULE_12__["httpInterceptorProviders"]),
             bootstrap: []
         }),
-        __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
+        __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])
     ], SharedModule);
     return SharedModule;
 }());

@@ -3,12 +3,14 @@ export class FormInfo {
     sid?:string;
     name?: string;
     description?: string;
+    status?:string;
     fields?: FieldInfo[];
 }
 
 export class FieldInfo {
+    id?:string;
     orderNo?: number;
-    type?: string;
+    type?: any;
     required?: boolean;
     label?: string;
     placeholder?: string;
