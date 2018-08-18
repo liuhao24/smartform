@@ -12,8 +12,8 @@ import { FieldControlService }    from './field-control.service';
 export class FieldFormComponent implements OnInit {
 
   @Input() fields: FieldBase<any>[] = [];
+  
   form: FormGroup;
-  payLoad = '';
 
   constructor(private fieldControlService: FieldControlService) {  }
 
@@ -22,6 +22,5 @@ export class FieldFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
   }
 }
