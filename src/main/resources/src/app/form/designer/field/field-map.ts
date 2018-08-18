@@ -1,10 +1,12 @@
-import { FormFieldInputDesignComponent } from "./item/input/design/input.component";
+import { FormFieldInputDesignComponent } from "./item/input/design/input-design.component";
 import { FormFieldInputSettingComponent } from "./item/input/setting/input-setting.component";
 import { fieldTypes } from "../field.constant";
+import { FormFieldInputDetailComponent } from "./item/input/detail/input-detail.component";
 
 export const fieldItemsComponentMap = {
     [fieldTypes.textinput.type]: {
         design: FormFieldInputDesignComponent,
-        setting: FormFieldInputSettingComponent
+        setting: FormFieldInputSettingComponent,
+        detail:FormFieldInputDetailComponent
     },
 };

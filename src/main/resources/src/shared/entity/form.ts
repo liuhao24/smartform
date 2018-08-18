@@ -9,6 +9,7 @@ export class FormInfo {
 
 export class FieldInfo {
     id?:string;
+    key?:string;
     orderNo?: number;
     type?: string;
     required?: boolean;
@@ -16,6 +17,7 @@ export class FieldInfo {
     placeHolder?: string;
     helpText?: string;
     size?: string;
+    controlType?:string;
     options?: [{
         id: string,
         text: string,

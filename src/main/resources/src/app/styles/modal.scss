@@ -1,5 +1,14 @@
 .modal-full{
     overflow: hidden;
+    &-only-body{
+        .ant-modal{
+            .ant-modal-content{
+                .ant-modal-body{
+                    padding: 0;
+                }
+            }
+        } 
+    }
     .ant-modal{
         top:0;
         .ant-modal-content{
@@ -11,6 +20,23 @@
             .ant-modal-body{
                 flex-grow: 1;
                 overflow: auto;
+            }
+        }
+    }
+}
+.modal-detail{
+    overflow: hidden;
+    .ant-modal{
+        top:0;
+        .ant-modal-content{
+            height: 100vh;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            .ant-modal-body{
+                flex-grow: 1;
+                overflow: auto;
+                padding: 0;
             }
         }
     }

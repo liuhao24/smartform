@@ -1,32 +1,37 @@
 export const fields = [
     {
         "type": 'textinput',
-        "label": "文本框"
+        "label": "文本框",
+        className:'anticon anticon-bars'
     },
-    // {
-    //     "id": 2,
-    //     "type": 2,
-    //     "name": "多行文本",
-    //     "label": "多行文本"
-    // },
-    // {
-    //     "id": 3,
-    //     "type": 3,
-    //     "name": "数字",
-    //     "label": "数字"
-    // },
-    // {
-    //     "id": 4,
-    //     "type": 4,
-    //     "name": "日期",
-    //     "label": "日期"
-    // },
-    // {
-    //     "id": 5,
-    //     "type": 5,
-    //     "name": "日期区间",
-    //     "label": "日期区间"
-    // },
+    {
+        "id": 2,
+        "type": 2,
+        "name": "多行文本",
+        "label": "多行文本",
+        className:'anticon anticon-bars'
+    },
+    {
+        "id": 3,
+        "type": 3,
+        "name": "数字",
+        "label": "数字",
+        className:'anticon anticon-bars'
+    },
+    {
+        "id": 4,
+        "type": 4,
+        "name": "日期",
+        "label": "日期",
+        className:'anticon anticon-bars'
+    },
+    {
+        "id": 5,
+        "type": 5,
+        "name": "日期区间",
+        "label": "日期区间",
+        className:'anticon anticon-bars'
+    },
     // {
     //     "id": 6,
     //     "type": 6,

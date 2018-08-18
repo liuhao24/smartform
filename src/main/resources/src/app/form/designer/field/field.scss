@@ -1,0 +1,12 @@
+.field-item-design{
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    padding: 10px;
+    &:hover{
+        border: 1px dashed #dce3e9;
+    }   
+    &.active{
+        border: 1px dashed #dce3e9;
+        background: #e7f3ff;
+    } 
+}

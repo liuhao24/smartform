@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, Input} from '@angular/core';
 import { FieldInfo } from '../../../../shared/entity/form';
 import { fieldItemsComponentMap } from './field-map';
 

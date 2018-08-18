@@ -5,6 +5,7 @@ import { Observable, Subject, of, BehaviorSubject } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { ResponseData } from '../../../shared/entity/response-data';
 import { FormInfo } from '../../project/entity/form-info';
+import { NzModalService } from 'ng-zorro-antd';
 
 @Injectable()
 export class FormService {
@@ -13,7 +14,10 @@ export class FormService {
 
     public forms = [];
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient,
+        private modalService: NzModalService
+    ) {
 
     }
 
@@ -44,7 +48,6 @@ export class FormService {
     updateForm(form: FormInfo) {
         return this.http.put<FormInfo>('/smartform/page/' + form.id, form).pipe(
             tap((response: ResponseData) => {
-                debugger
                 const _form = this.forms.find(n => n.id === form.id);
                 Object.assign(_form, response);
             })

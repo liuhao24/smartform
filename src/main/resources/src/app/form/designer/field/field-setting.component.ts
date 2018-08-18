@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, Input, Output, EventEmitter, OnChanges, forwardRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, Input, Output, EventEmitter, OnChanges, forwardRef, SimpleChanges } from '@angular/core';
 import { FieldInfo } from '../../../../shared/entity/form';
 import { fieldItemsComponentMap } from './field-map';
 
@@ -36,7 +36,7 @@ export class FormFieldSettingComponent implements OnInit {
     this.changeField.emit(value);
   }
 
-  getFieldValue(){
+  getFieldValue() {
     return this.field;
   }
 

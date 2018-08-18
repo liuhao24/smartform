@@ -1,42 +1,74 @@
-<div class="task-designer-wrap">
-    <!-- <div class="task-designer-header">
-        表单设计器
-        <button nz-button nzType="primary" (click)="saveForm()">Primary</button>
-    </div> -->
-    <div class="task-designer-body">
-        <div class="task-designer-fields">
-            <div class="field-title">可选控件</div>
-            <ul class="field-list" [sortablejs]="fields" [sortablejsOptions]="fieldSortOptions" [sortablejsCloneFunction]="cloneFieldItem">
-                <li class=field-item *ngFor="let item of fields;">{{item.label}}</li>
-            </ul>
+<div class="form-designer-wrap">
+    <div class="form-designer-header">
+        <div class="title">表单设计器</div>
+        <div class="action">
+            <button nz-button nzType="primary" (click)="saveForm()" class="" nzSize="large">保存</button>
+            <button nz-button nzType="default" (click)="cancelForm()">取消</button>
+            <!-- <button nz-button nzType="primary" (click)="saveForm()" class="">预览</button> -->
         </div>
-        <div class="task-designer-properties">
-            <div class="property-title" (click)="selectForm()">表单名称</div>
+    </div>
+    <div class="form-designer-body">
+        <div class="form-designer-fields">
+            <div class="field-title">可选控件</div>
+            <div class="field-body">
+                <div class="field-group">
+                    <div class="field-group-title">
+                        通用控件
+                    </div>
+                    <div class="field-group-body">
+                        <ul class="field-list" [sortablejs]="fields" [sortablejsOptions]="fieldSortOptions" [sortablejsCloneFunction]="cloneFieldItem">
+                            <li class="field-item" *ngFor="let item of fields;">
+                                <i class="{{item.className}}"></i>{{item.label}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field-group-title">
+                        联系信息控件
+                    </div>
+                    <div class="field-group-body">
+                        <ul class="field-list" [sortablejs]="fields" [sortablejsOptions]="fieldSortOptions">
+                            <li class="field-item" *ngFor="let item of fields;">
+                                <i class="{{item.className}}"></i>{{item.label}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-designer-properties">
+            <div class="property-title" [ngClass]="{'active':isForm}" (click)="selectForm()">{{form.name}}</div>
             <div class="property-body" [sortablejs]="properties" [sortablejsOptions]="propertySortOptions">
-                <form-field-design *ngFor="let item of properties;" [field]="item"></form-field-design>
+                <div class="field-item-design" *ngFor="let item of properties;" (click)="selectProperty(item)" [ngClass]="{'active':item.selected}">
+                    <form-field-design [field]="item"></form-field-design>
+                </div>
             </div>
         </div>
-        <div class="task-designer-settings">
+        <div class="form-designer-settings">
             <div class="settings-title ">
                 属性设置
             </div>
             <div class="settings-body">
-                <div *ngIf="isForm">
-                    <!-- <form nz-form [nzLayout]="vertical"> -->
-                    <nz-form-item>
-                        <nz-form-label nzFor="name">表单名称</nz-form-label>
-                        <nz-form-control>
-                            <input nz-input [(ngModel)]="form.name" name="name" type="text">
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-label nzFor="name">描述</nz-form-label>
-                        <nz-form-control>
-                            <textarea row="3" [(ngModel)]="form.description" name="description" nz-input placeholder=""></textarea>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <form-field-setting *ngFor="let item of properties;" [field]="item" (changeField)="changeField($event)" #fieldSetting></form-field-setting>
-                    <!-- </form> -->
+                <div>
+                    <form nz-form [nzLayout]="vertical" *ngIf="isForm">
+                        <nz-form-item>
+                            <nz-form-label nzFor="name">表单名称</nz-form-label>
+                            <nz-form-control>
+                                <input nz-input [(ngModel)]="form.name" name="name" type="text">
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label nzFor="name">描述</nz-form-label>
+                            <nz-form-control>
+                                <textarea row="3" [(ngModel)]="form.description" name="description" nz-input placeholder=""></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </form>
+                    <form nz-form [nzLayout]="vertical" *ngIf="!isForm">
+                        <ng-container *ngFor="let item of properties;">
+                            <form-field-setting  *ngIf="item.selected" [field]="item" (changeField)="changeField($event)" #fieldSetting></form-field-setting>
+                        </ng-container>
+                    </form>
                 </div>
             </div>
         </div>
