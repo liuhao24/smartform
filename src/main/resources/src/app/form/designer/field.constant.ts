@@ -1,55 +1,60 @@
 export const fields = [
     {
-        "type": 'textinput',
-        "label": "文本框"
+        'type': 'textinput',
+        'label': '文本框',
+        className: 'anticon anticon-bars'
+    },
+    {
+        'id': 2,
+        'type': 'textarea',
+        'name': '多行文本',
+        'label': '多行文本',
+        className: 'anticon anticon-bars'
+    },
+    {
+        'id': 3,
+        'type': 'number',
+        'name': '数字',
+        'label': '数字',
+        className: 'anticon anticon-bars'
+    },
+    {
+        'id': 4,
+        'type': 'date',
+        'name': '日期',
+        'label': '日期',
+        className: 'anticon anticon-bars'
+    },
+    {
+        'id': 5,
+        'type': 'dateRange',
+        'name': '日期区间',
+        'label': '日期区间',
+        className: 'anticon anticon-bars'
     },
     // {
-    //     "id": 2,
-    //     "type": 2,
-    //     "name": "多行文本",
-    //     "label": "多行文本"
+    //     'id': 6,
+    //     'type': 6,
+    //     'name': '下拉选择',
+    //     'label': '下拉选择'
     // },
     // {
-    //     "id": 3,
-    //     "type": 3,
-    //     "name": "数字",
-    //     "label": "数字"
+    //     'id': 7,
+    //     'type': 7,
+    //     'name': '单选框',
+    //     'label': '单选框'
     // },
     // {
-    //     "id": 4,
-    //     "type": 4,
-    //     "name": "日期",
-    //     "label": "日期"
+    //     'id': 8,
+    //     'type': 8,
+    //     'name': '成员',
+    //     'label': '成员'
     // },
     // {
-    //     "id": 5,
-    //     "type": 5,
-    //     "name": "日期区间",
-    //     "label": "日期区间"
-    // },
-    // {
-    //     "id": 6,
-    //     "type": 6,
-    //     "name": "下拉选择",
-    //     "label": "下拉选择"
-    // },
-    // {
-    //     "id": 7,
-    //     "type": 7,
-    //     "name": "单选框",
-    //     "label": "单选框"
-    // },
-    // {
-    //     "id": 8,
-    //     "type": 8,
-    //     "name": "成员",
-    //     "label": "成员"
-    // },
-    // {
-    //     "id": 9,
-    //     "type": 9,
-    //     "name": "多个成员",
-    //     "label": "多个成员"
+    //     'id': 9,
+    //     'type': 9,
+    //     'name': '多个成员',
+    //     'label': '多个成员'
     // }
 ];
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AppSharedModule } from '../app-shared.module';
-import { COMPONENTS, ENTITY_COMPONENTS, PROVIDERS } from '.';
+import { COMPONENTS, ENTITY_COMPONENTS, PROVIDERS,PIPES } from '.';
 import { FormRoutingModule } from './form.router';
 
 @NgModule({
@@ -10,17 +10,20 @@ import { FormRoutingModule } from './form.router';
     ],
     declarations: [
         ...COMPONENTS,
-        ...ENTITY_COMPONENTS
+        ...ENTITY_COMPONENTS,
+        ...PIPES
     ],
     entryComponents: [
         ...ENTITY_COMPONENTS
     ],
     exports: [
         ...COMPONENTS,
-        ...ENTITY_COMPONENTS
+        ...ENTITY_COMPONENTS,
+        ...PIPES
     ],
     providers: [
-        ...PROVIDERS
+        ...PROVIDERS,
+        ...PIPES
     ]
 })
 export class FormModule {

@@ -5,7 +5,7 @@ import { FieldInfo } from '../../../../../../shared/entity/form';
     selector: 'app-project-task-field-textarea',
     templateUrl: './textarea.component.html'
 })
-export class TaskFieldTextareaComponent implements OnInit {
+export class FieldTextareaDesignComponent implements OnInit {
 
     @Input() field: FieldInfo;
 

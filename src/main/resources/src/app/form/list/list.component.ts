@@ -3,6 +3,7 @@ import { NzModalService } from 'ng-zorro-antd';
 import { FormDesignerComponent } from '../designer/form-designer.component';
 import { FormService } from '../services/form.service';
 import { FormInfo } from '../../project/entity/form-info';
+import { FormDetailComponent } from '../detail/form-detail.component';
 // import { FormService } from '../services/form.service';
 
 @Component({
@@ -19,6 +20,8 @@ export class FormListComponent implements OnInit {
 
   formDesignerComponent: any;
 
+  formDesignerDetailComponent: any;
+
   constructor(
     public formService: FormService,
     private modalService: NzModalService
@@ -34,49 +37,66 @@ export class FormListComponent implements OnInit {
     this.getFormList();
   }
 
+
+
   showDesigner() {
     // this.isVisible = true;
     this.formDesignerComponent = this.modalService.create({
-      nzTitle: '表单设计器',
-      nzWrapClassName: 'modal-full',
+      nzTitle: null,
+      nzWrapClassName: 'modal-full modal-full-only-body',
       nzWidth: '100%',
       nzContent: FormDesignerComponent,
-      nzOkText: '确定',
-      nzOkType: 'primary',
+      nzFooter: null,
+      nzClosable: false,
       nzComponentParams: {
-        entity: this.entity
-      },
-      nzOnOk: () => {
-        const _form = this.formDesignerComponent.getContentComponent().saveForm();
-        if (this.entity) {
-          this.formService.updateForm(_form).subscribe(() => {
-            this.entity = null;
-          });
-        } else {
-          this.formService.saveForm(_form).subscribe(() => {
-          });
+        entity: this.entity,
+        saveAction: (data) => {
+          if (this.entity) {
+            this.formService.updateForm(data).subscribe(() => {
+              this.entity = null;
+              this.formDesignerComponent.destroy();
+            });
+          } else {
+            this.formService.saveForm(data).subscribe(() => {
+              this.formDesignerComponent.destroy();
+            });
+          }
+          // this.formDesignerComponent.destroy();
+        },
+        cancelAction: () => {
+          this.formDesignerComponent.destroy();
         }
-      },
-      nzCancelText: '取消',
-      nzOnCancel: () => {
-        this.formDesignerComponent.destroy();
       }
     });
   }
-  // handleCancel() {
-  // }
-  // handleOk() {
-  //   const _form = this.designer.saveForm();
-  //   this.formService.saveForm(_form).subscribe(() => {
-  //   });
-  //   this.handleCancel();
-  // }
   editForm(form) {
-    this.formService.getForm(form.id).subscribe((response) => {
-      this.entity = response;
+    // this.formService.getForm(form.id).subscribe((response) => {
+    //   this.entity = response;
+    //   this.showDesigner();
+    // }, () => {
+    // })
+    this.entity = form;
       this.showDesigner();
-    }, () => {
-    })
+  }
+  openForm(form) {
+    this.formDesignerDetailComponent = this.modalService.create({
+      nzTitle: null,
+      nzWrapClassName: 'modal-detail',
+      nzWidth: '980px',
+      nzContent: FormDetailComponent,
+      nzFooter: null,
+      nzClosable: false,
+      nzOkType: 'primary',
+      nzComponentParams: {
+        entity: this.entity,
+        saveAction: (data) => {
+          this.formDesignerDetailComponent.destroy();
+        },
+        cancelAction: () => {
+          this.formDesignerDetailComponent.destroy();
+        }
+      }
+    });
   }
   deleteForm(form) {
     this.formService.deleteForm(form.id).subscribe();

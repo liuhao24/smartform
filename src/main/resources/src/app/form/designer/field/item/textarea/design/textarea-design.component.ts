@@ -2,13 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FieldInfo } from '../../../../../../../shared/entity/form';
 
 @Component({
-    selector: 'form-field-input-design',
-    templateUrl: './input.component.html'
+    selector: 'form-field-textarea-design',
+    templateUrl: './textarea-design.component.html'
 })
-export class FormFieldInputDesignComponent implements OnInit {
+export class FieldTextareaDesignComponent implements OnInit {
 
     @Input() field: FieldInfo;
-    
+
     constructor(
     ) {
     }

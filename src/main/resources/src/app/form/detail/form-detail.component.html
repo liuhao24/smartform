@@ -1,0 +1,21 @@
+<div class="detail-wrap">
+    <div class="detail-header">
+        <div class="title">
+            表单
+        </div>
+        <div class="actions">
+            <button aria-label="Close" class="ant-modal-close ng-star-inserted" (click)="closeDetail()">
+                <span class="ant-modal-close-x"></span>
+            </button>
+        </div>
+    </div>
+    <div class="detail-body">
+        <!-- <ng-container *ngFor="let item of form.fields;">
+            <form-field-detail [field]="item"></form-field-detail>
+        </ng-container> -->
+        <app-field-form [fields]="fields"></app-field-form>
+    </div>
+    <div class="detail-footer">
+        
+    </div>
+</div>

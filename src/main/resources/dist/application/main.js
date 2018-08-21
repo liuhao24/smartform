@@ -401,7 +401,36 @@ __webpack_require__.r(__webpack_exports__);
 var fields = [
     {
         "type": 'textinput',
-        "label": "文本框"
+        "label": "文本框",
+        className: 'anticon anticon-bars'
+    },
+    {
+        "id": 2,
+        "type": 2,
+        "name": "多行文本",
+        "label": "多行文本",
+        className: 'anticon anticon-bars'
+    },
+    {
+        "id": 3,
+        "type": 3,
+        "name": "数字",
+        "label": "数字",
+        className: 'anticon anticon-bars'
+    },
+    {
+        "id": 4,
+        "type": 4,
+        "name": "日期",
+        "label": "日期",
+        className: 'anticon anticon-bars'
+    },
+    {
+        "id": 5,
+        "type": 5,
+        "name": "日期区间",
+        "label": "日期区间",
+        className: 'anticon anticon-bars'
     },
 ];
 var fieldTypes = {
@@ -440,6 +469,180 @@ var fieldTypes = {
     //     api: 'members'
     // }
 };
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/entity/field-base.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/form/designer/field/entity/field-base.ts ***!
+  \**********************************************************/
+/*! exports provided: FieldBase */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldBase", function() { return FieldBase; });
+var FieldBase = /** @class */ (function () {
+    function FieldBase(options) {
+        if (options === void 0) { options = {}; }
+        this.value = options.value;
+        this.key = options.key || '';
+        this.label = options.label || '';
+        this.required = !!options.required;
+        this.order = options.order === undefined ? 1 : options.order;
+        this.controlType = options.controlType || '';
+        this.size = options.size || 1;
+    }
+    return FieldBase;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/entity/field-control.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/form/designer/field/entity/field-control.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: FieldControlService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldControlService", function() { return FieldControlService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FieldControlService = /** @class */ (function () {
+    function FieldControlService() {
+    }
+    FieldControlService.prototype.toFormGroup = function (fields) {
+        var group = {};
+        fields.forEach(function (field) {
+            group[field.key] = field.required ? new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](field.value || '', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required)
+                : new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](field.value || '');
+        });
+        return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
+    };
+    FieldControlService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], FieldControlService);
+    return FieldControlService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/entity/field-form.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/form/designer/field/entity/field-form.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form nz-form [nzLayout]=\"vertical\" (ngSubmit)=\"onSubmit()\" [formGroup]=\"form\">\n  <form-field-detail *ngFor=\"let field of fields\" [field]=\"field\" [form]=\"form\"></form-field-detail>\n  <!-- <div class=\"form-row\">\n    <button type=\"submit\" [disabled]=\"!form.valid\">Save</button>\n  </div> -->\n\n  <nz-form-item>\n      <nz-form-control [nzSpan]=\"isHorizontal? 14:null\" [nzOffset]=\"isHorizontal? 4:null\">\n        <button nz-button type=\"submit\" nzType=\"primary\" [nzSize]=\"'large'\">提交</button>\n      </nz-form-control>\n    </nz-form-item>\n</form>\n<!-- \n  <div>\n    {{form.invalid}}\n  </div> \n-->"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/entity/field-form.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/form/designer/field/entity/field-form.component.ts ***!
+  \********************************************************************/
+/*! exports provided: FieldFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldFormComponent", function() { return FieldFormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _field_control_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./field-control.service */ "./src/app/form/designer/field/entity/field-control.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FieldFormComponent = /** @class */ (function () {
+    function FieldFormComponent(fieldControlService) {
+        this.fieldControlService = fieldControlService;
+        this.fields = [];
+    }
+    FieldFormComponent.prototype.ngOnInit = function () {
+        this.form = this.fieldControlService.toFormGroup(this.fields);
+    };
+    FieldFormComponent.prototype.onSubmit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FieldFormComponent.prototype, "fields", void 0);
+    FieldFormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-field-form',
+            template: __webpack_require__(/*! ./field-form.component.html */ "./src/app/form/designer/field/entity/field-form.component.html"),
+            providers: [_field_control_service__WEBPACK_IMPORTED_MODULE_1__["FieldControlService"]]
+        }),
+        __metadata("design:paramtypes", [_field_control_service__WEBPACK_IMPORTED_MODULE_1__["FieldControlService"]])
+    ], FieldFormComponent);
+    return FieldFormComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/entity/field-textinput.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/form/designer/field/entity/field-textinput.ts ***!
+  \***************************************************************/
+/*! exports provided: FieldTextInput */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldTextInput", function() { return FieldTextInput; });
+/* harmony import */ var _field_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./field-base */ "./src/app/form/designer/field/entity/field-base.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var FieldTextInput = /** @class */ (function (_super) {
+    __extends(FieldTextInput, _super);
+    function FieldTextInput(options) {
+        if (options === void 0) { options = {}; }
+        var _this = _super.call(this, options) || this;
+        _this.controlType = 'textinput';
+        return _this;
+        // this.type = options['type'] || '';
+    }
+    return FieldTextInput;
+}(_field_base__WEBPACK_IMPORTED_MODULE_0__["FieldBase"]));
+
 
 
 /***/ }),
@@ -510,6 +713,100 @@ var FormFieldDesignComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/form/designer/field/field-detail.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/form/designer/field/field-detail.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/field-detail.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/form/designer/field/field-detail.component.ts ***!
+  \***************************************************************/
+/*! exports provided: FormFieldDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormFieldDetailComponent", function() { return FormFieldDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+/* harmony import */ var _field_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./field-map */ "./src/app/form/designer/field/field-map.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var FormFieldDetailComponent = /** @class */ (function () {
+    function FormFieldDetailComponent(viewContainerRef, componentFactoryResolver) {
+        this.viewContainerRef = viewContainerRef;
+        this.componentFactoryResolver = componentFactoryResolver;
+        // public field: FieldInfo;
+        // @Output() changeField = new EventEmitter();
+        this.changeField = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    Object.defineProperty(FormFieldDetailComponent.prototype, "isValid", {
+        get: function () { return this.form.controls[this.field.key].valid; },
+        enumerable: true,
+        configurable: true
+    });
+    FormFieldDetailComponent.prototype.emitValueChange = function (value) {
+        this.field = value;
+        this.changeField.emit(value);
+    };
+    FormFieldDetailComponent.prototype.getFieldValue = function () {
+        return this.field;
+    };
+    FormFieldDetailComponent.prototype.ngOnInit = function () {
+        this.viewContainerRef.clear();
+        var componentFactory = this.componentFactoryResolver.resolveComponentFactory(_field_map__WEBPACK_IMPORTED_MODULE_2__["fieldItemsComponentMap"][this.field.type || this.field.controlType]['detail']);
+        this.componentRef = this.viewContainerRef.createComponent(componentFactory);
+        this.componentRef.instance.field = this.field;
+        this.componentRef.instance.form = this.form;
+        this.componentRef.instance.changeValue = this.emitValueChange.bind(this);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], FormFieldDetailComponent.prototype, "field", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"])
+    ], FormFieldDetailComponent.prototype, "form", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], FormFieldDetailComponent.prototype, "changeField", void 0);
+    FormFieldDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-field-detail',
+            template: __webpack_require__(/*! ./field-detail.component.html */ "./src/app/form/designer/field/field-detail.component.html"),
+            providers: []
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"]])
+    ], FormFieldDetailComponent);
+    return FormFieldDetailComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/form/designer/field/field-map.ts":
 /*!**************************************************!*\
   !*** ./src/app/form/designer/field/field-map.ts ***!
@@ -520,16 +817,19 @@ var FormFieldDesignComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fieldItemsComponentMap", function() { return fieldItemsComponentMap; });
-/* harmony import */ var _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item/input/design/input.component */ "./src/app/form/designer/field/item/input/design/input.component.ts");
+/* harmony import */ var _item_input_design_input_design_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item/input/design/input-design.component */ "./src/app/form/designer/field/item/input/design/input-design.component.ts");
 /* harmony import */ var _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item/input/setting/input-setting.component */ "./src/app/form/designer/field/item/input/setting/input-setting.component.ts");
 /* harmony import */ var _field_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../field.constant */ "./src/app/form/designer/field.constant.ts");
+/* harmony import */ var _item_input_detail_input_detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item/input/detail/input-detail.component */ "./src/app/form/designer/field/item/input/detail/input-detail.component.ts");
+
 
 
 
 var fieldItemsComponentMap = (_a = {},
     _a[_field_constant__WEBPACK_IMPORTED_MODULE_2__["fieldTypes"].textinput.type] = {
-        design: _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldInputDesignComponent"],
-        setting: _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputSettingComponent"]
+        design: _item_input_design_input_design_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldInputDesignComponent"],
+        setting: _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputSettingComponent"],
+        detail: _item_input_detail_input_detail_component__WEBPACK_IMPORTED_MODULE_3__["FormFieldInputDetailComponent"]
     },
     _a);
 var _a;
@@ -620,29 +920,77 @@ var FormFieldSettingComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/form/designer/field/field.pipe.ts":
+/*!***************************************************!*\
+  !*** ./src/app/form/designer/field/field.pipe.ts ***!
+  \***************************************************/
+/*! exports provided: FieldSizePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldSizePipe", function() { return FieldSizePipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FieldSizePipe = /** @class */ (function () {
+    function FieldSizePipe() {
+    }
+    FieldSizePipe.prototype.transform = function (size) {
+        if (size) {
+            return 24 / size;
+        }
+        else {
+            return 24;
+        }
+    };
+    FieldSizePipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({ name: 'fieldSize' })
+    ], FieldSizePipe);
+    return FieldSizePipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/form/designer/field/index.ts":
 /*!**********************************************!*\
   !*** ./src/app/form/designer/field/index.ts ***!
   \**********************************************/
-/*! exports provided: TASK_FIELD_COMPONENTS, TASK_FIELD_ENTITY_COMPONENTS */
+/*! exports provided: TASK_FIELD_COMPONENTS, TASK_FIELD_ENTITY_COMPONENTS, FIELD_PIPES */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TASK_FIELD_COMPONENTS", function() { return TASK_FIELD_COMPONENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TASK_FIELD_ENTITY_COMPONENTS", function() { return TASK_FIELD_ENTITY_COMPONENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FIELD_PIPES", function() { return FIELD_PIPES; });
 /* harmony import */ var _field_design_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./field-design.component */ "./src/app/form/designer/field/field-design.component.ts");
-/* harmony import */ var _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item/input/design/input.component */ "./src/app/form/designer/field/item/input/design/input.component.ts");
-/* harmony import */ var _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./item/input/setting/input-setting.component */ "./src/app/form/designer/field/item/input/setting/input-setting.component.ts");
-/* harmony import */ var _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item/textarea/textarea.component */ "./src/app/form/designer/field/item/textarea/textarea.component.ts");
-/* harmony import */ var _item_number_number_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item/number/number.component */ "./src/app/form/designer/field/item/number/number.component.ts");
-/* harmony import */ var _item_date_date_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./item/date/date.component */ "./src/app/form/designer/field/item/date/date.component.ts");
-/* harmony import */ var _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./item/date-range/date-range.component */ "./src/app/form/designer/field/item/date-range/date-range.component.ts");
-/* harmony import */ var _item_select_select_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./item/select/select.component */ "./src/app/form/designer/field/item/select/select.component.ts");
-/* harmony import */ var _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./item/radio/radio.component */ "./src/app/form/designer/field/item/radio/radio.component.ts");
-/* harmony import */ var _item_member_member_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./item/member/member.component */ "./src/app/form/designer/field/item/member/member.component.ts");
-/* harmony import */ var _item_members_members_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./item/members/members.component */ "./src/app/form/designer/field/item/members/members.component.ts");
-/* harmony import */ var _field_setting_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./field-setting.component */ "./src/app/form/designer/field/field-setting.component.ts");
+/* harmony import */ var _field_detail_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./field-detail.component */ "./src/app/form/designer/field/field-detail.component.ts");
+/* harmony import */ var _field_setting_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./field-setting.component */ "./src/app/form/designer/field/field-setting.component.ts");
+/* harmony import */ var _item_input_design_input_design_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./item/input/design/input-design.component */ "./src/app/form/designer/field/item/input/design/input-design.component.ts");
+/* harmony import */ var _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item/input/setting/input-setting.component */ "./src/app/form/designer/field/item/input/setting/input-setting.component.ts");
+/* harmony import */ var _item_input_detail_input_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./item/input/detail/input-detail.component */ "./src/app/form/designer/field/item/input/detail/input-detail.component.ts");
+/* harmony import */ var _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./item/textarea/textarea.component */ "./src/app/form/designer/field/item/textarea/textarea.component.ts");
+/* harmony import */ var _item_number_number_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./item/number/number.component */ "./src/app/form/designer/field/item/number/number.component.ts");
+/* harmony import */ var _item_date_date_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./item/date/date.component */ "./src/app/form/designer/field/item/date/date.component.ts");
+/* harmony import */ var _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./item/date-range/date-range.component */ "./src/app/form/designer/field/item/date-range/date-range.component.ts");
+/* harmony import */ var _item_select_select_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./item/select/select.component */ "./src/app/form/designer/field/item/select/select.component.ts");
+/* harmony import */ var _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./item/radio/radio.component */ "./src/app/form/designer/field/item/radio/radio.component.ts");
+/* harmony import */ var _item_member_member_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./item/member/member.component */ "./src/app/form/designer/field/item/member/member.component.ts");
+/* harmony import */ var _item_members_members_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./item/members/members.component */ "./src/app/form/designer/field/item/members/members.component.ts");
+/* harmony import */ var _entity_field_form_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./entity/field-form.component */ "./src/app/form/designer/field/entity/field-form.component.ts");
+/* harmony import */ var _field_pipe__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./field.pipe */ "./src/app/form/designer/field/field.pipe.ts");
+
+
+
+
 
 
 
@@ -657,31 +1005,39 @@ __webpack_require__.r(__webpack_exports__);
 
 var TASK_FIELD_COMPONENTS = [
     _field_design_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldDesignComponent"],
-    _field_setting_component__WEBPACK_IMPORTED_MODULE_11__["FormFieldSettingComponent"],
-    _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputDesignComponent"],
-    _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_2__["FormFieldInputSettingComponent"],
-    _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_3__["TaskFieldTextareaComponent"],
-    _item_number_number_component__WEBPACK_IMPORTED_MODULE_4__["TaskFieldNumberComponent"],
-    _item_date_date_component__WEBPACK_IMPORTED_MODULE_5__["TaskFieldDateComponent"],
-    _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_6__["TaskFieldDateRangeComponent"],
-    _item_select_select_component__WEBPACK_IMPORTED_MODULE_7__["TaskFieldSelectComponent"],
-    _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_8__["TaskFieldRadioComponent"],
-    _item_member_member_component__WEBPACK_IMPORTED_MODULE_9__["TaskFieldMemberComponent"],
-    _item_members_members_component__WEBPACK_IMPORTED_MODULE_10__["TaskFieldMembersComponent"]
+    _field_setting_component__WEBPACK_IMPORTED_MODULE_2__["FormFieldSettingComponent"],
+    _field_detail_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldDetailComponent"],
+    _item_input_design_input_design_component__WEBPACK_IMPORTED_MODULE_3__["FormFieldInputDesignComponent"],
+    _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_4__["FormFieldInputSettingComponent"],
+    _item_input_detail_input_detail_component__WEBPACK_IMPORTED_MODULE_5__["FormFieldInputDetailComponent"],
+    _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_6__["TaskFieldTextareaComponent"],
+    _item_number_number_component__WEBPACK_IMPORTED_MODULE_7__["TaskFieldNumberComponent"],
+    _item_date_date_component__WEBPACK_IMPORTED_MODULE_8__["TaskFieldDateComponent"],
+    _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_9__["TaskFieldDateRangeComponent"],
+    _item_select_select_component__WEBPACK_IMPORTED_MODULE_10__["TaskFieldSelectComponent"],
+    _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_11__["TaskFieldRadioComponent"],
+    _item_member_member_component__WEBPACK_IMPORTED_MODULE_12__["TaskFieldMemberComponent"],
+    _item_members_members_component__WEBPACK_IMPORTED_MODULE_13__["TaskFieldMembersComponent"],
+    _entity_field_form_component__WEBPACK_IMPORTED_MODULE_14__["FieldFormComponent"]
 ];
 var TASK_FIELD_ENTITY_COMPONENTS = [
     _field_design_component__WEBPACK_IMPORTED_MODULE_0__["FormFieldDesignComponent"],
-    _field_setting_component__WEBPACK_IMPORTED_MODULE_11__["FormFieldSettingComponent"],
-    _item_input_design_input_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldInputDesignComponent"],
-    _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_2__["FormFieldInputSettingComponent"],
-    _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_3__["TaskFieldTextareaComponent"],
-    _item_number_number_component__WEBPACK_IMPORTED_MODULE_4__["TaskFieldNumberComponent"],
-    _item_date_date_component__WEBPACK_IMPORTED_MODULE_5__["TaskFieldDateComponent"],
-    _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_6__["TaskFieldDateRangeComponent"],
-    _item_select_select_component__WEBPACK_IMPORTED_MODULE_7__["TaskFieldSelectComponent"],
-    _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_8__["TaskFieldRadioComponent"],
-    _item_member_member_component__WEBPACK_IMPORTED_MODULE_9__["TaskFieldMemberComponent"],
-    _item_members_members_component__WEBPACK_IMPORTED_MODULE_10__["TaskFieldMembersComponent"]
+    _field_setting_component__WEBPACK_IMPORTED_MODULE_2__["FormFieldSettingComponent"],
+    _field_detail_component__WEBPACK_IMPORTED_MODULE_1__["FormFieldDetailComponent"],
+    _item_input_design_input_design_component__WEBPACK_IMPORTED_MODULE_3__["FormFieldInputDesignComponent"],
+    _item_input_setting_input_setting_component__WEBPACK_IMPORTED_MODULE_4__["FormFieldInputSettingComponent"],
+    _item_input_detail_input_detail_component__WEBPACK_IMPORTED_MODULE_5__["FormFieldInputDetailComponent"],
+    _item_textarea_textarea_component__WEBPACK_IMPORTED_MODULE_6__["TaskFieldTextareaComponent"],
+    _item_number_number_component__WEBPACK_IMPORTED_MODULE_7__["TaskFieldNumberComponent"],
+    _item_date_date_component__WEBPACK_IMPORTED_MODULE_8__["TaskFieldDateComponent"],
+    _item_date_range_date_range_component__WEBPACK_IMPORTED_MODULE_9__["TaskFieldDateRangeComponent"],
+    _item_select_select_component__WEBPACK_IMPORTED_MODULE_10__["TaskFieldSelectComponent"],
+    _item_radio_radio_component__WEBPACK_IMPORTED_MODULE_11__["TaskFieldRadioComponent"],
+    _item_member_member_component__WEBPACK_IMPORTED_MODULE_12__["TaskFieldMemberComponent"],
+    _item_members_members_component__WEBPACK_IMPORTED_MODULE_13__["TaskFieldMembersComponent"]
+];
+var FIELD_PIPES = [
+    _field_pipe__WEBPACK_IMPORTED_MODULE_15__["FieldSizePipe"]
 ];
 
 
@@ -801,21 +1157,21 @@ var TaskFieldDateComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/form/designer/field/item/input/design/input.component.html":
-/*!****************************************************************************!*\
-  !*** ./src/app/form/designer/field/item/input/design/input.component.html ***!
-  \****************************************************************************/
+/***/ "./src/app/form/designer/field/item/input/design/input-design.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/design/input-design.component.html ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"property-item\">\n    <div class=\"property-item-title\">{{field.label}}</div>\n    <div class=\"property-item-control\">\n        <input nz-input placeholder=\"\" />\n    </div>\n</div>"
+module.exports = "<div nz-row>\n    <div nz-col [nzSpan]=\"field.size | fieldSize\">\n        <nz-form-item>\n            <nz-form-label [nzRequired]=\"field.required\"> {{field.label}}</nz-form-label>\n            <nz-form-control>\n                <input nz-input readonly [placeholder]=\"field.placeHolder || ''\" [required]=\"field.required\" name=\"text\" />\n                <nz-form-extra *ngIf=\"field.helpText\">{{field.helpText}}</nz-form-extra>\n            </nz-form-control>\n        </nz-form-item>\n    </div>\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/form/designer/field/item/input/design/input.component.ts":
-/*!**************************************************************************!*\
-  !*** ./src/app/form/designer/field/item/input/design/input.component.ts ***!
-  \**************************************************************************/
+/***/ "./src/app/form/designer/field/item/input/design/input-design.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/design/input-design.component.ts ***!
+  \*********************************************************************************/
 /*! exports provided: FormFieldInputDesignComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -838,6 +1194,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var FormFieldInputDesignComponent = /** @class */ (function () {
     function FormFieldInputDesignComponent() {
     }
+    FormFieldInputDesignComponent.prototype.ngOnChanges = function (changes) {
+        console.log(changes);
+    };
     FormFieldInputDesignComponent.prototype.ngOnInit = function () {
     };
     __decorate([
@@ -847,11 +1206,82 @@ var FormFieldInputDesignComponent = /** @class */ (function () {
     FormFieldInputDesignComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-field-input-design',
-            template: __webpack_require__(/*! ./input.component.html */ "./src/app/form/designer/field/item/input/design/input.component.html")
+            template: __webpack_require__(/*! ./input-design.component.html */ "./src/app/form/designer/field/item/input/design/input-design.component.html")
         }),
         __metadata("design:paramtypes", [])
     ], FormFieldInputDesignComponent);
     return FormFieldInputDesignComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/input/detail/input-detail.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/detail/input-detail.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div nz-row>\n    <div nz-col [nzSpan]=\"field.size | fieldSize\">\n        <nz-form-item>\n            <nz-form-label [nzRequired]=\"field.required\"> {{field.label}}</nz-form-label>\n            <nz-form-control>\n                <input nz-input [(ngModel)]=\"field.value\" [placeholder]=\"field.placeHolder || ''\" [required]=\"field.required\" name=\"text\" />\n                <nz-form-extra *ngIf=\"field.helpText\">{{field.helpText}}</nz-form-extra>\n            </nz-form-control>\n        </nz-form-item>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/designer/field/item/input/detail/input-detail.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/form/designer/field/item/input/detail/input-detail.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: FormFieldInputDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormFieldInputDetailComponent", function() { return FormFieldInputDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../../shared/entity/form */ "./src/shared/entity/form.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FormFieldInputDetailComponent = /** @class */ (function () {
+    function FormFieldInputDetailComponent() {
+    }
+    Object.defineProperty(FormFieldInputDetailComponent.prototype, "isValid", {
+        get: function () { return this.form.controls[this.field.key].valid; },
+        enumerable: true,
+        configurable: true
+    });
+    FormFieldInputDetailComponent.prototype.ngOnChanges = function (changes) {
+        console.log(changes);
+    };
+    FormFieldInputDetailComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _shared_entity_form__WEBPACK_IMPORTED_MODULE_1__["FieldInfo"])
+    ], FormFieldInputDetailComponent.prototype, "field", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"])
+    ], FormFieldInputDetailComponent.prototype, "form", void 0);
+    FormFieldInputDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-field-input-detail',
+            template: __webpack_require__(/*! ./input-detail.component.html */ "./src/app/form/designer/field/item/input/detail/input-detail.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormFieldInputDetailComponent);
+    return FormFieldInputDetailComponent;
 }());
 
 
@@ -1271,7 +1701,7 @@ var TaskFieldTextareaComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"task-designer-wrap\">\n    <!-- <div class=\"task-designer-header\">\n        表单设计器\n        <button nz-button nzType=\"primary\" (click)=\"saveForm()\">Primary</button>\n    </div> -->\n    <div class=\"task-designer-body\">\n        <div class=\"task-designer-fields\">\n            <div class=\"field-title\">可选控件</div>\n            <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n                <li class=field-item *ngFor=\"let item of fields;\">{{item.label}}</li>\n            </ul>\n        </div>\n        <div class=\"task-designer-properties\">\n            <div class=\"property-title\" (click)=\"selectForm()\">表单名称</div>\n            <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n                <form-field-design *ngFor=\"let item of properties;\" [field]=\"item\"></form-field-design>\n            </div>\n        </div>\n        <div class=\"task-designer-settings\">\n            <div class=\"settings-title \">\n                属性设置\n            </div>\n            <div class=\"settings-body\">\n                <div *ngIf=\"isForm\">\n                    <!-- <form nz-form [nzLayout]=\"vertical\"> -->\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">表单名称</nz-form-label>\n                        <nz-form-control>\n                            <input nz-input [(ngModel)]=\"form.name\" name=\"name\" type=\"text\">\n                        </nz-form-control>\n                    </nz-form-item>\n                    <nz-form-item>\n                        <nz-form-label nzFor=\"name\">描述</nz-form-label>\n                        <nz-form-control>\n                            <textarea row=\"3\" [(ngModel)]=\"form.description\" name=\"description\" nz-input placeholder=\"\"></textarea>\n                        </nz-form-control>\n                    </nz-form-item>\n                    <form-field-setting *ngFor=\"let item of properties;\" [field]=\"item\" (changeField)=\"changeField($event)\" #fieldSetting></form-field-setting>\n                    <!-- </form> -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"form-designer-wrap\">\n    <div class=\"form-designer-header\">\n        <div class=\"title\">表单设计器</div>\n        <div class=\"action\">\n            <button nz-button nzType=\"primary\" (click)=\"saveForm()\" class=\"\" nzSize=\"large\">保存</button>\n            <button nz-button nzType=\"default\" (click)=\"cancelForm()\">取消</button>\n            <!-- <button nz-button nzType=\"primary\" (click)=\"saveForm()\" class=\"\">预览</button> -->\n        </div>\n    </div>\n    <div class=\"form-designer-body\">\n        <div class=\"form-designer-fields\">\n            <div class=\"field-title\">可选控件</div>\n            <div class=\"field-body\">\n                <div class=\"field-group\">\n                    <div class=\"field-group-title\">\n                        通用控件\n                    </div>\n                    <div class=\"field-group-body\">\n                        <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\" [sortablejsCloneFunction]=\"cloneFieldItem\">\n                            <li class=\"field-item\" *ngFor=\"let item of fields;\">\n                                <i class=\"{{item.className}}\"></i>{{item.label}}</li>\n                        </ul>\n                    </div>\n                </div>\n                <div class=\"field-group\">\n                    <div class=\"field-group-title\">\n                        联系信息控件\n                    </div>\n                    <div class=\"field-group-body\">\n                        <ul class=\"field-list\" [sortablejs]=\"fields\" [sortablejsOptions]=\"fieldSortOptions\">\n                            <li class=\"field-item\" *ngFor=\"let item of fields;\">\n                                <i class=\"{{item.className}}\"></i>{{item.label}}</li>\n                        </ul>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"form-designer-properties\">\n            <div class=\"property-title\" [ngClass]=\"{'active':isForm}\" (click)=\"selectForm()\">{{form.name}}</div>\n            <div class=\"property-body\" [sortablejs]=\"properties\" [sortablejsOptions]=\"propertySortOptions\">\n                <div class=\"field-item-design\" *ngFor=\"let item of properties;\" (click)=\"selectProperty(item)\" [ngClass]=\"{'active':item.selected}\">\n                    <form-field-design [field]=\"item\"></form-field-design>\n                </div>\n            </div>\n        </div>\n        <div class=\"form-designer-settings\">\n            <div class=\"settings-title \">\n                属性设置\n            </div>\n            <div class=\"settings-body\">\n                <div>\n                    <form nz-form [nzLayout]=\"vertical\" *ngIf=\"isForm\">\n                        <nz-form-item>\n                            <nz-form-label nzFor=\"name\">表单名称</nz-form-label>\n                            <nz-form-control>\n                                <input nz-input [(ngModel)]=\"form.name\" name=\"name\" type=\"text\">\n                            </nz-form-control>\n                        </nz-form-item>\n                        <nz-form-item>\n                            <nz-form-label nzFor=\"name\">描述</nz-form-label>\n                            <nz-form-control>\n                                <textarea row=\"3\" [(ngModel)]=\"form.description\" name=\"description\" nz-input placeholder=\"\"></textarea>\n                            </nz-form-control>\n                        </nz-form-item>\n                    </form>\n                    <form nz-form [nzLayout]=\"vertical\" *ngIf=\"!isForm\">\n                        <ng-container *ngFor=\"let item of properties;\">\n                            <form-field-setting  *ngIf=\"item.selected\" [field]=\"item\" (changeField)=\"changeField($event)\" #fieldSetting></form-field-setting>\n                        </ng-container>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1290,6 +1720,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _form_designer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-designer.service */ "./src/app/form/designer/form-designer.service.ts");
 /* harmony import */ var _field_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./field.constant */ "./src/app/form/designer/field.constant.ts");
 /* harmony import */ var _field_field_setting_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./field/field-setting.component */ "./src/app/form/designer/field/field-setting.component.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1304,27 +1736,47 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var FormDesignerComponent = /** @class */ (function () {
     function FormDesignerComponent(formDesignerService) {
+        var _this = this;
         this.formDesignerService = formDesignerService;
         this.layoutClass = true;
         this.fields = [];
         this.properties = [];
         this.fieldSortOptions = {
-            group: 'designer'
+            group: {
+                name: 'desiginer',
+                pull: 'clone',
+                put: false,
+            },
+            sort: false,
+            onEnd: function (event) {
+                // debugger
+            }
         };
         this.propertySortOptions = {
-            group: 'designer'
+            group: 'desiginer',
+            onEnd: function (event) {
+                // debugger
+            }
         };
         this.form = {
             sid: '',
-            name: '',
+            name: '表单名称',
             description: '',
             fields: []
         };
         this.isForm = true;
         this.cloneFieldItem = function (item) {
-            return item;
+            var _item = lodash__WEBPACK_IMPORTED_MODULE_5__["find"](_this.fields, function (n) {
+                return n.selected;
+            });
+            if (!_item) {
+                _this.isForm = false;
+                item.selected = true;
+            }
+            return lodash__WEBPACK_IMPORTED_MODULE_5__["cloneDeep"](item);
         };
     }
     FormDesignerComponent.prototype.ngOnInit = function () {
@@ -1336,6 +1788,17 @@ var FormDesignerComponent = /** @class */ (function () {
     };
     FormDesignerComponent.prototype.selectForm = function () {
         this.isForm = true;
+        this.clearPropertySelected();
+    };
+    FormDesignerComponent.prototype.clearPropertySelected = function () {
+        this.properties.forEach(function (n) {
+            n.selected = false;
+        });
+    };
+    FormDesignerComponent.prototype.selectProperty = function (property) {
+        this.isForm = false;
+        this.clearPropertySelected();
+        property.selected = true;
     };
     FormDesignerComponent.prototype.changeField = function (event) {
         // const _index = this.properties.findIndex(((n)=>{
@@ -1344,6 +1807,19 @@ var FormDesignerComponent = /** @class */ (function () {
         // this.properties.splice(_index,1,event);
     };
     FormDesignerComponent.prototype.saveForm = function () {
+        this.properties.forEach(function (n, index) {
+            n.orderNo = index + 1;
+        });
+        this.form.fields = this.properties;
+        var _back = {};
+        Object.assign(_back, this.form);
+        this.clear();
+        this.saveAction(_back);
+    };
+    FormDesignerComponent.prototype.cancelForm = function () {
+        this.cancelAction();
+    };
+    FormDesignerComponent.prototype.saveForm1 = function () {
         this.properties.forEach(function (n, index) {
             n.orderNo = index + 1;
         });
@@ -1370,13 +1846,21 @@ var FormDesignerComponent = /** @class */ (function () {
         __metadata("design:type", _project_entity_form_info__WEBPACK_IMPORTED_MODULE_1__["FormInfo"])
     ], FormDesignerComponent.prototype, "entity", void 0);
     __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Function)
+    ], FormDesignerComponent.prototype, "saveAction", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Function)
+    ], FormDesignerComponent.prototype, "cancelAction", void 0);
+    __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_field_field_setting_component__WEBPACK_IMPORTED_MODULE_4__["FormFieldSettingComponent"]),
         __metadata("design:type", _field_field_setting_component__WEBPACK_IMPORTED_MODULE_4__["FormFieldSettingComponent"])
     ], FormDesignerComponent.prototype, "fieldSetting", void 0);
     FormDesignerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-form-designer',
-            template: __webpack_require__(/*! ./form-designer.component.html */ "./src/app/form/designer/form-designer.component.html")
+            template: __webpack_require__(/*! ./form-designer.component.html */ "./src/app/form/designer/form-designer.component.html"),
         }),
         __metadata("design:paramtypes", [_form_designer_service__WEBPACK_IMPORTED_MODULE_2__["FormDesignerService"]])
     ], FormDesignerComponent);
@@ -1430,6 +1914,102 @@ var FormDesignerService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], FormDesignerService);
     return FormDesignerService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/form/detail/form-detail.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/form/detail/form-detail.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"detail-wrap\">\n    <div class=\"detail-header\">\n        <div class=\"title\">\n            表单\n        </div>\n        <div class=\"actions\">\n            <button aria-label=\"Close\" class=\"ant-modal-close ng-star-inserted\" (click)=\"closeDetail()\">\n                <span class=\"ant-modal-close-x\"></span>\n            </button>\n        </div>\n    </div>\n    <div class=\"detail-body\">\n        <!-- <ng-container *ngFor=\"let item of form.fields;\">\n            <form-field-detail [field]=\"item\"></form-field-detail>\n        </ng-container> -->\n        <app-field-form [fields]=\"fields\"></app-field-form>\n    </div>\n    <div class=\"detail-footer\">\n        \n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/form/detail/form-detail.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/form/detail/form-detail.component.ts ***!
+  \******************************************************/
+/*! exports provided: FormDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormDetailComponent", function() { return FormDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _designer_field_entity_field_textinput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../designer/field/entity/field-textinput */ "./src/app/form/designer/field/entity/field-textinput.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FormDetailComponent = /** @class */ (function () {
+    function FormDetailComponent() {
+        this.layoutClass = true;
+    }
+    FormDetailComponent.prototype.ngOnInit = function () {
+        this.form = {
+            name: "用户信息",
+            description: "用户信息收集",
+            fields: [{
+                    className: "anticon anticon-bars",
+                    helpText: "这个是帮助信息",
+                    label: "姓名",
+                    orderNo: 1,
+                    placeHolder: "请输入姓名",
+                    required: true,
+                    selected: true,
+                    type: "textinput"
+                }]
+        };
+        var fields = [
+            new _designer_field_entity_field_textinput__WEBPACK_IMPORTED_MODULE_1__["FieldTextInput"]({
+                key: 'firstName',
+                label: 'First name',
+                value: 'Bombasto',
+                required: true,
+                order: 1
+            })
+        ];
+        this.fields = fields.sort(function (a, b) { return a.order - b.order; });
+    };
+    FormDetailComponent.prototype.closeDetail = function () {
+        this.cancelAction();
+    };
+    FormDetailComponent.prototype.saveDetail = function () {
+        this.saveAction();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class.detail-element'),
+        __metadata("design:type", Object)
+    ], FormDetailComponent.prototype, "layoutClass", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Function)
+    ], FormDetailComponent.prototype, "cancelAction", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Function)
+    ], FormDetailComponent.prototype, "saveAction", void 0);
+    FormDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-form-detail',
+            template: __webpack_require__(/*! ./form-detail.component.html */ "./src/app/form/detail/form-detail.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormDetailComponent);
+    return FormDetailComponent;
 }());
 
 
@@ -1532,10 +2112,10 @@ var FormModule = /** @class */ (function () {
                 _app_shared_module__WEBPACK_IMPORTED_MODULE_1__["AppSharedModule"],
                 _form_router__WEBPACK_IMPORTED_MODULE_3__["FormRoutingModule"]
             ],
-            declarations: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].concat(___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"]),
+            declarations: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].concat(___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"], ___WEBPACK_IMPORTED_MODULE_2__["PIPES"]),
             entryComponents: ___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"].slice(),
-            exports: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].concat(___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"]),
-            providers: ___WEBPACK_IMPORTED_MODULE_2__["PROVIDERS"].slice()
+            exports: ___WEBPACK_IMPORTED_MODULE_2__["COMPONENTS"].concat(___WEBPACK_IMPORTED_MODULE_2__["ENTITY_COMPONENTS"], ___WEBPACK_IMPORTED_MODULE_2__["PIPES"]),
+            providers: ___WEBPACK_IMPORTED_MODULE_2__["PROVIDERS"].concat(___WEBPACK_IMPORTED_MODULE_2__["PIPES"])
         }),
         __metadata("design:paramtypes", [])
     ], FormModule);
@@ -1606,7 +2186,7 @@ var FormRoutingModule = /** @class */ (function () {
 /*!*******************************!*\
   !*** ./src/app/form/index.ts ***!
   \*******************************/
-/*! exports provided: FormComponent, FormTocComponent, FormListComponent, FormDesignerComponent, COMPONENTS, ENTITY_COMPONENTS, PROVIDERS */
+/*! exports provided: FormComponent, FormTocComponent, FormListComponent, FormDetailComponent, FormDesignerComponent, COMPONENTS, ENTITY_COMPONENTS, PROVIDERS, PIPES */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1614,6 +2194,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMPONENTS", function() { return COMPONENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENTITY_COMPONENTS", function() { return ENTITY_COMPONENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PROVIDERS", function() { return PROVIDERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PIPES", function() { return PIPES; });
 /* harmony import */ var _form_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form.component */ "./src/app/form/form.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormComponent", function() { return _form_component__WEBPACK_IMPORTED_MODULE_0__["FormComponent"]; });
 
@@ -1629,6 +2210,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _designer_form_designer_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./designer/form-designer.service */ "./src/app/form/designer/form-designer.service.ts");
 /* harmony import */ var _designer_field__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./designer/field */ "./src/app/form/designer/field/index.ts");
+/* harmony import */ var _detail_form_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./detail/form-detail.component */ "./src/app/form/detail/form-detail.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FormDetailComponent", function() { return _detail_form_detail_component__WEBPACK_IMPORTED_MODULE_7__["FormDetailComponent"]; });
+
+
 
 
 
@@ -1641,15 +2226,18 @@ var COMPONENTS = [
     _form_component__WEBPACK_IMPORTED_MODULE_0__["FormComponent"],
     _toc_toc_component__WEBPACK_IMPORTED_MODULE_1__["FormTocComponent"],
     _list_list_component__WEBPACK_IMPORTED_MODULE_2__["FormListComponent"],
+    _detail_form_detail_component__WEBPACK_IMPORTED_MODULE_7__["FormDetailComponent"],
     _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]
 ].concat(_designer_field__WEBPACK_IMPORTED_MODULE_6__["TASK_FIELD_COMPONENTS"]);
 var ENTITY_COMPONENTS = [
-    _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"]
+    _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_4__["FormDesignerComponent"],
+    _detail_form_detail_component__WEBPACK_IMPORTED_MODULE_7__["FormDetailComponent"]
 ].concat(_designer_field__WEBPACK_IMPORTED_MODULE_6__["TASK_FIELD_ENTITY_COMPONENTS"]);
 var PROVIDERS = [
     _services_form_service__WEBPACK_IMPORTED_MODULE_3__["FormService"],
     _designer_form_designer_service__WEBPACK_IMPORTED_MODULE_5__["FormDesignerService"]
 ];
+var PIPES = _designer_field__WEBPACK_IMPORTED_MODULE_6__["FIELD_PIPES"].slice();
 
 
 /***/ }),
@@ -1661,7 +2249,7 @@ var PROVIDERS = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-body-main\">\n    <div class=\"header\">\n        <div class=\"title\">\n            <i class=\"anticon anticon-plus\"></i>表单制作\n        </div>\n    </div>\n    <div class=\"body body-list\">\n        <div class=\"body-header\">\n            <div class=\"body-header-left\">\n\n            </div>\n            <div class=\"body-header-center\">\n\n            </div>\n            <div class=\"body-header-right\">\n                <button nz-button nzType=\"primary\" (click)=\"showDesigner()\">\n                    <i class=\"anticon anticon-plus\"></i>添加表单</button>\n            </div>\n\n        </div>\n        <div class=\"body-content\">\n            <nz-table #basicTable [nzData]=\"formService.forms\">\n                    <thead>\n                        <tr>\n                            <th>名称</th>\n                            <th>描述</th>\n                            <th>状态</th>\n                            <th nzWidth=\"120px\">操作</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let data of basicTable.data\">\n                            <td>{{data.name}}</td>\n                            <td>{{data.description}}</td>\n                            <td>{{data.status}}</td>\n                            <td>\n                                <a (click)=\"editForm(data)\"><i class=\"anticon anticon-edit\"></i></a>\n                                <nz-divider nzType=\"vertical\"></nz-divider>\n                                <a (click)=\"showDeleteConfirm(data)\"><i class=\"anticon anticon-delete\"></i></a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </nz-table>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"app-body-main\">\n    <div class=\"header\">\n        <div class=\"title\">\n            <i class=\"anticon anticon-plus\"></i>表单制作\n        </div>\n    </div>\n    <div class=\"body body-list\">\n        <div class=\"body-header\">\n            <div class=\"body-header-left\">\n\n            </div>\n            <div class=\"body-header-center\">\n\n            </div>\n            <div class=\"body-header-right\">\n                <button nz-button nzType=\"primary\" (click)=\"showDesigner()\">\n                    <i class=\"anticon anticon-plus\"></i>添加表单</button>\n                    <nz-divider nzType=\"vertical\"></nz-divider>\n                    <button nz-button nzType=\"primary\" (click)=\"openForm()\">\n                    <i class=\"anticon anticon-plus\"></i>详情</button>\n            </div>\n\n        </div>\n        <div class=\"body-content\">\n            <nz-table #basicTable [nzData]=\"formService.forms\">\n                <thead>\n                    <tr>\n                        <th>名称</th>\n                        <th>描述</th>\n                        <th>状态</th>\n                        <th nzWidth=\"120px\">操作</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let data of basicTable.data\">\n                        <td>{{data.name}}</td>\n                        <td>{{data.description}}</td>\n                        <td>{{data.status}}</td>\n                        <td>\n                            <a (click)=\"openForm(data)\">\n                                <i class=\"anticon anticon-home\"></i>\n                            </a>\n                            <nz-divider nzType=\"vertical\"></nz-divider>\n                            <a (click)=\"editForm(data)\">\n                                <i class=\"anticon anticon-edit\"></i>\n                            </a>\n                            <nz-divider nzType=\"vertical\"></nz-divider>\n                            <a (click)=\"showDeleteConfirm(data)\">\n                                <i class=\"anticon anticon-delete\"></i>\n                            </a>\n                        </td>\n                    </tr>\n                </tbody>\n            </nz-table>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1679,6 +2267,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
 /* harmony import */ var _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../designer/form-designer.component */ "./src/app/form/designer/form-designer.component.ts");
 /* harmony import */ var _services_form_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/form.service */ "./src/app/form/services/form.service.ts");
+/* harmony import */ var _detail_form_detail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../detail/form-detail.component */ "./src/app/form/detail/form-detail.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1688,6 +2277,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1710,47 +2300,61 @@ var FormListComponent = /** @class */ (function () {
         var _this = this;
         // this.isVisible = true;
         this.formDesignerComponent = this.modalService.create({
-            nzTitle: '表单设计器',
-            nzWrapClassName: 'modal-full',
+            nzTitle: null,
+            nzWrapClassName: 'modal-full modal-full-only-body',
             nzWidth: '100%',
             nzContent: _designer_form_designer_component__WEBPACK_IMPORTED_MODULE_2__["FormDesignerComponent"],
-            nzOkText: '确定',
-            nzOkType: 'primary',
+            nzFooter: null,
+            nzClosable: false,
             nzComponentParams: {
-                entity: this.entity
-            },
-            nzOnOk: function () {
-                var _form = _this.formDesignerComponent.getContentComponent().saveForm();
-                if (_this.entity) {
-                    _this.formService.updateForm(_form).subscribe(function () {
-                        _this.entity = null;
-                    });
+                entity: this.entity,
+                saveAction: function (data) {
+                    if (_this.entity) {
+                        _this.formService.updateForm(data).subscribe(function () {
+                            _this.entity = null;
+                            _this.formDesignerComponent.destroy();
+                        });
+                    }
+                    else {
+                        _this.formService.saveForm(data).subscribe(function () {
+                            _this.formDesignerComponent.destroy();
+                        });
+                    }
+                    // this.formDesignerComponent.destroy();
+                },
+                cancelAction: function () {
+                    _this.formDesignerComponent.destroy();
                 }
-                else {
-                    _this.formService.saveForm(_form).subscribe(function () {
-                    });
-                }
-            },
-            nzCancelText: '取消',
-            nzOnCancel: function () {
-                _this.formDesignerComponent.destroy();
             }
         });
     };
-    // handleCancel() {
-    // }
-    // handleOk() {
-    //   const _form = this.designer.saveForm();
-    //   this.formService.saveForm(_form).subscribe(() => {
-    //   });
-    //   this.handleCancel();
-    // }
     FormListComponent.prototype.editForm = function (form) {
         var _this = this;
         this.formService.getForm(form.id).subscribe(function (response) {
             _this.entity = response;
             _this.showDesigner();
         }, function () {
+        });
+    };
+    FormListComponent.prototype.openForm = function (form) {
+        var _this = this;
+        this.formDesignerDetailComponent = this.modalService.create({
+            nzTitle: null,
+            nzWrapClassName: 'modal-detail',
+            nzWidth: '980px',
+            nzContent: _detail_form_detail_component__WEBPACK_IMPORTED_MODULE_4__["FormDetailComponent"],
+            nzFooter: null,
+            nzClosable: false,
+            nzOkType: 'primary',
+            nzComponentParams: {
+                entity: this.entity,
+                saveAction: function (data) {
+                    _this.formDesignerDetailComponent.destroy();
+                },
+                cancelAction: function () {
+                    _this.formDesignerDetailComponent.destroy();
+                }
+            }
         });
     };
     FormListComponent.prototype.deleteForm = function (form) {
@@ -1799,6 +2403,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-zorro-antd */ "./node_modules/ng-zorro-antd/esm5/antd.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1812,9 +2417,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var FormService = /** @class */ (function () {
-    function FormService(http) {
+    function FormService(http, modalService) {
         this.http = http;
+        this.modalService = modalService;
         this.forms$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]();
         this.forms = [];
     }
@@ -1838,7 +2445,6 @@ var FormService = /** @class */ (function () {
     FormService.prototype.updateForm = function (form) {
         var _this = this;
         return this.http.put('/smartform/page/' + form.id, form).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (response) {
-            debugger;
             var _form = _this.forms.find(function (n) { return n.id === form.id; });
             Object.assign(_form, response);
         }));
@@ -1851,7 +2457,8 @@ var FormService = /** @class */ (function () {
     };
     FormService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            ng_zorro_antd__WEBPACK_IMPORTED_MODULE_4__["NzModalService"]])
     ], FormService);
     return FormService;
 }());
