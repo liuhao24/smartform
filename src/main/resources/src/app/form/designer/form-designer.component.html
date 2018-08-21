@@ -54,19 +54,42 @@
                         <nz-form-item>
                             <nz-form-label nzFor="name">表单名称</nz-form-label>
                             <nz-form-control>
-                                <input nz-input [(ngModel)]="form.name" name="name" type="text">
+                                <input nz-input [(ngModel)]="form.name" name="name" type="text" placeholder="表单名称">
                             </nz-form-control>
                         </nz-form-item>
                         <nz-form-item>
                             <nz-form-label nzFor="name">描述</nz-form-label>
                             <nz-form-control>
-                                <textarea row="3" [(ngModel)]="form.description" name="description" nz-input placeholder=""></textarea>
+                                <textarea row="3" [(ngModel)]="form.description" name="description" nz-input placeholder="表单描述"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label nzFor="name">对齐方式</nz-form-label>
+                            <nz-form-control>
+                                <nz-select [(ngModel)]="form.layout" nzAllowClear nzPlaceHolder="对齐方式" name="layout">
+                                    <nz-option nzValue="horizontal" nzLabel="水平"></nz-option>
+                                    <nz-option nzValue="vertical" nzLabel="垂直"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label nzFor="name">提交后跳转</nz-form-label>
+                            <nz-form-control>
+                                <nz-select [(ngModel)]="form.action" nzAllowClear nzPlaceHolder="提交后跳转" name="action">
+                                    <nz-option nzValue="success" nzLabel="系统成功提示页"></nz-option>
+                                    <nz-option nzValue="link" nzLabel="自定义链接"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item *ngIf="form.action === 'link'">
+                            <nz-form-control>
+                                    <input nz-input [(ngModel)]="form.href" name="href" type="text" placeholder="http://">
                             </nz-form-control>
                         </nz-form-item>
                     </form>
                     <form nz-form [nzLayout]="vertical" *ngIf="!isForm">
                         <ng-container *ngFor="let item of properties;">
-                            <form-field-setting  *ngIf="item.selected" [field]="item" (changeField)="changeField($event)" #fieldSetting></form-field-setting>
+                            <form-field-setting *ngIf="item.selected" [field]="item" (changeField)="changeField($event)" #fieldSetting></form-field-setting>
                         </ng-container>
                     </form>
                 </div>
