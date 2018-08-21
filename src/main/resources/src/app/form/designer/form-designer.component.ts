@@ -7,6 +7,7 @@ import { FormFieldSettingComponent } from './field/field-setting.component';
 import * as _ from 'lodash';
 import { FieldBase } from './field/entity/field-base';
 import { FieldTextInput } from './field/entity/field-textinput';
+import { fieldItemsComponentMap } from './field/field-map';
 
 @Component({
   selector: 'app-form-designer',
@@ -70,15 +71,31 @@ export class FormDesignerComponent implements OnInit {
   ) {
   }
 
+  getIdPrex(n) {
+    var rnd = "";
+    for (var i = 0; i < n; i++) rnd += Math.floor(Math.random() * 10);
+    return rnd;
+  }
+
   cloneFieldItem = (item) => {
-    const _item = _.find(this.fields, (n) => {
-       return n.selected; 
+    const _entity = new fieldItemsComponentMap[item.type]['entity']({
+      key: this.getIdPrex(10),
+      label: item.label,
+      value: '',
+      required: false,
+      orderNo: 1,
+      className: item.className,
+      helpText: "",
+      placeHolder: ""
     });
-    if(!_item){
+    const _item = _.find(this.properties, (n:any) => {
+      return n.selected;
+    });
+    if (!_item) {
       this.isForm = false;
-      item.selected = true;
+      _entity.selected = true;
     }
-    return _.cloneDeep(item);
+    return _entity;
   }
 
   ngOnInit() {

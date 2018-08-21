@@ -14,9 +14,11 @@ export class FormDetailComponent implements OnInit {
 
     @Input() saveAction: Function;
 
+    @Input() entity: any;
+
     public form: any;
 
-    public fields:any;
+    public fields: any;
 
     constructor(
     ) {
@@ -25,38 +27,41 @@ export class FormDetailComponent implements OnInit {
 
 
     ngOnInit() {
-        this.form = {
-            name: "用户信息",
-            description: "用户信息收集",
-            fields: [{
-                className: "anticon anticon-bars",
-                helpText: "这个是帮助信息",
-                label: "姓名",
-                orderNo: 1,
-                placeHolder: "请输入姓名",
-                required: true,
-                selected: true,
-                type: "textinput"
-            }]
-        }
+        // this.form = {
+        //     name: "用户信息",
+        //     description: "用户信息收集",
+        //     fields: [{
+        //         className: "anticon anticon-bars",
+        //         helpText: "这个是帮助信息",
+        //         label: "姓名",
+        //         orderNo: 1,
+        //         placeHolder: "请输入姓名",
+        //         required: true,
+        //         selected: true,
+        //         type: "textinput"
+        //     }]
+        // }
         let fields: FieldBase<any>[] = [
             new FieldTextInput({
-              key: 'firstName',
-              label: 'First name',
-              value: 'Bombasto',
-              required: true,
-              order: 1
+                key: 'firstName',
+                label: 'First name',
+                value: 'Bombasto',
+                required: true,
+                orderNo: 1,
+                className: "anticon anticon-bars",
+                helpText: "这个是帮助信息",
+                placeHolder: "请输入姓名"
             })
-          ];
-      
-          this.fields = fields.sort((a, b) => a.order - b.order);
+        ];
+
+        this.fields = fields.sort((a, b) => a.orderNo - b.orderNo);
     }
 
     closeDetail() {
         this.cancelAction();
     }
 
-    saveDetail(){
+    saveDetail() {
         this.saveAction();
     }
 }

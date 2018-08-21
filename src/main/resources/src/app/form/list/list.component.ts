@@ -70,11 +70,13 @@ export class FormListComponent implements OnInit {
     });
   }
   editForm(form) {
-    this.formService.getForm(form.id).subscribe((response) => {
-      this.entity = response;
+    // this.formService.getForm(form.id).subscribe((response) => {
+    //   this.entity = response;
+    //   this.showDesigner();
+    // }, () => {
+    // })
+    this.entity = form;
       this.showDesigner();
-    }, () => {
-    })
   }
   openForm(form) {
     this.formDesignerDetailComponent = this.modalService.create({

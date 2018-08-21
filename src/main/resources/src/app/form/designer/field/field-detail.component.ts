@@ -45,7 +45,7 @@ export class FormFieldDetailComponent implements OnInit {
 
   ngOnInit() {
     this.viewContainerRef.clear();
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(fieldItemsComponentMap[this.field.type || this.field.controlType]['detail']);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(fieldItemsComponentMap[this.field.type]['detail']);
     this.componentRef = this.viewContainerRef.createComponent(componentFactory);
     (this.componentRef.instance as any).field = this.field;
     (this.componentRef.instance as any).form = this.form;

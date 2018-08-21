@@ -3,25 +3,37 @@ export class FieldBase<T> {
   key: string;
   label: string;
   required: boolean;
-  order: number;
-  controlType: string;
+  orderNo: number;
+  type: string;
   size: number;
+  className:string;
+  helpText:string;
+  placeHolder:string;
+  selected: boolean;
 
   constructor(options: {
     value?: T,
     key?: string,
     label?: string,
     required?: boolean,
-    order?: number,
-    controlType?: string,
-    size?: number
+    orderNo?: number,
+    type?: string,
+    size?: number,
+    className?:string,
+    helpText?:string,
+    placeHolder?:string,
+    selected?:boolean
   } = {}) {
     this.value = options.value;
     this.key = options.key || '';
     this.label = options.label || '';
     this.required = !!options.required;
-    this.order = options.order === undefined ? 1 : options.order;
-    this.controlType = options.controlType || '';
+    this.orderNo = options.orderNo === undefined ? 1 : options.orderNo;
+    this.type = options.type || '';
     this.size = options.size || 1;
+    this.className = options.className || '';
+    this.helpText = options.helpText || '';
+    this.placeHolder = options.placeHolder || '';
+    this.selected = options.selected || false;
   }
 }
