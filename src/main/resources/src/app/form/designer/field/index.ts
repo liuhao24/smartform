@@ -6,7 +6,6 @@ import { FormFieldInputDesignComponent } from './item/input/design/input-design.
 import { FormFieldInputSettingComponent } from './item/input/setting/input-setting.component';
 import { FormFieldInputDetailComponent } from './item/input/detail/input-detail.component';
 
-import { TaskFieldTextareaComponent } from './item/textarea/textarea.component';
 import { TaskFieldNumberComponent } from './item/number/number.component';
 import { TaskFieldDateComponent } from './item/date/date.component';
 import { TaskFieldDateRangeComponent } from './item/date-range/date-range.component';
@@ -16,11 +15,13 @@ import { TaskFieldMemberComponent } from './item/member/member.component';
 import { TaskFieldMembersComponent } from './item/members/members.component';
 
 
-import { FieldFormComponent }         from './entity/field-form.component';
+import { FieldFormComponent } from './entity/field-form.component';
 
 
 
 import { FieldSizePipe } from './field.pipe';
+import { FieldTextareaDesignComponent } from './item/textarea/design/textarea-design.component';
+import { FieldTextareaSettingComponent } from './item/textarea/setting/textarea-setting.component';
 
 
 export const TASK_FIELD_COMPONENTS = [
@@ -32,7 +33,10 @@ export const TASK_FIELD_COMPONENTS = [
     FormFieldInputSettingComponent,
     FormFieldInputDetailComponent,
 
-    TaskFieldTextareaComponent,
+    FieldTextareaDesignComponent,
+    FieldTextareaSettingComponent,
+    FieldTextareaSettingComponent,
+
     TaskFieldNumberComponent,
     TaskFieldDateComponent,
     TaskFieldDateRangeComponent,
@@ -53,7 +57,10 @@ export const TASK_FIELD_ENTITY_COMPONENTS = [
     FormFieldInputSettingComponent,
     FormFieldInputDetailComponent,
 
-    TaskFieldTextareaComponent,
+    FieldTextareaDesignComponent,
+    FieldTextareaSettingComponent,
+    FieldTextareaSettingComponent,
+
     TaskFieldNumberComponent,
     TaskFieldDateComponent,
     TaskFieldDateRangeComponent,
@@ -66,3 +73,4 @@ export const TASK_FIELD_ENTITY_COMPONENTS = [
 export const FIELD_PIPES = [
     FieldSizePipe
 ];
+

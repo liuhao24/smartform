@@ -1,8 +1,8 @@
 import { FieldBase } from './field-base';
 
-export class FieldTextInput extends FieldBase<string> {
+export class FieldTextArea extends FieldBase<string> {
 
-  type = 'textinput';
+  type = 'textarea';
 
   constructor(options: {} = {}) {
     super(options);

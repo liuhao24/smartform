@@ -6,10 +6,11 @@ export class FieldBase<T> {
   orderNo: number;
   type: string;
   size: number;
-  className:string;
-  helpText:string;
-  placeHolder:string;
+  className: string;
+  helpText: string;
+  placeHolder: string;
   selected: boolean;
+  security: string;
 
   constructor(options: {
     value?: T,
@@ -19,10 +20,11 @@ export class FieldBase<T> {
     orderNo?: number,
     type?: string,
     size?: number,
-    className?:string,
-    helpText?:string,
-    placeHolder?:string,
-    selected?:boolean
+    className?: string,
+    helpText?: string,
+    placeHolder?: string,
+    selected?: boolean,
+    security?: string
   } = {}) {
     this.value = options.value;
     this.key = options.key || '';
@@ -35,5 +37,6 @@ export class FieldBase<T> {
     this.helpText = options.helpText || '';
     this.placeHolder = options.placeHolder || '';
     this.selected = options.selected || false;
+    this.security = 'public';
   }
 }

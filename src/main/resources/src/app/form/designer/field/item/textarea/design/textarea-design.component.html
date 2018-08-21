@@ -1,0 +1,11 @@
+<div nz-row>
+    <div nz-col [nzSpan]="field.size | fieldSize">
+        <nz-form-item>
+            <nz-form-label [nzRequired]="field.required"> {{field.label}}</nz-form-label>
+            <nz-form-control>
+                <textarea name="textarea" readonly nz-input rows="2" [required]="field.required" [placeholder]="field.placeHolder || ''"></textarea>
+                <nz-form-extra *ngIf="field.helpText">{{field.helpText}}</nz-form-extra>
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+</div>

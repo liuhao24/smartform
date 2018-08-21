@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FieldInfo } from '../../../../../../shared/entity/form';
+import { FieldInfo } from '../../../../../../../shared/entity/form';
 
 @Component({
-    selector: 'app-project-task-field-textarea',
-    templateUrl: './textarea.component.html'
+    selector: 'form-field-textarea-design',
+    templateUrl: './textarea-design.component.html'
 })
 export class FieldTextareaDesignComponent implements OnInit {
 
