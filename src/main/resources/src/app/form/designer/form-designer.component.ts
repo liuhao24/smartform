@@ -79,16 +79,16 @@ export class FormDesignerComponent implements OnInit {
 
   cloneFieldItem = (item) => {
     const _entity = new fieldItemsComponentMap[item.type]['entity']({
-      key: this.getIdPrex(10),
+      key: this.getIdPrex(10) + '',
       label: item.label,
       value: '',
       required: false,
       orderNo: 1,
       className: item.className,
-      helpText: "",
-      placeHolder: ""
+      helpText: '',
+      placeHolder: ''
     });
-    const _item = _.find(this.properties, (n:any) => {
+    const _item = _.find(this.properties, (n: any) => {
       return n.selected;
     });
     if (!_item) {
